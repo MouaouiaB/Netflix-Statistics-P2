@@ -1,19 +1,26 @@
 
 import java.sql.*;
 import java.util.*;
+import Connection.SqlConnection;
 
 public class AfleveringRepository{
-    private SqlConnection sqlConnection;
+    private String sqlConnection;
 
-    public AfleveringRepository(SqlConnection sqlConnection) {
+    public AfleveringRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
     public ArrayList<Aflevering> readAll() {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         ArrayList<Aflevering> lijst = new ArrayList<>();
         try {
-            ResultSet rs = sqlConnection.executeSql("SELECT * FROM AFLEVERING");
-            while(rs.next()) {
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM AFLEVERING");
+            while(resultSet.next()) {
                 //lijst.add(new AfleveringRepository(rs.getInt("AfleveringID"),rs.getString("Serie"), rs.getString("ProgrammaID"), rs.getString("Title"), rs.getString("Seizoen en aflevering"), rs.getString("Tijdsduur")));
             }
         }
@@ -25,13 +32,22 @@ public class AfleveringRepository{
 
     public Aflevering read(int AfleveringID) {
         Aflevering aflevering = null;
+
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "SELECT * FROM AFLEVERING WHERE AfleveringID =" + AfleveringID;
-            ResultSet rs = sqlConnection.executeSql(sqlQuery);
-            rs.next();
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
+
 
         }
         catch(Exception e) {
@@ -41,8 +57,14 @@ public class AfleveringRepository{
     }
 
     public void create(Aflevering aflevering) {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
+
         try
         {
+
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
@@ -58,12 +80,20 @@ public class AfleveringRepository{
     }
 
     public void delete(int AfleveringID) {
+
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "DELETE AFLEVERING WHERE AfleveringID =" + AfleveringID;
-            sqlConnection.executeSqlNoResult(sqlQuery);
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);

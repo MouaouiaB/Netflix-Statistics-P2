@@ -1,6 +1,7 @@
 
 import java.sql.*;
 import java.util.*;
+import Connection.SqlConnection;
 
 public class ProgrammaRepository {
     private SqlConnection sqlConnection;

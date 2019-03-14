@@ -3,9 +3,9 @@ import java.sql.*;
 import java.util.*;
 
 public class ProfileRepository {
-    private SqlConnection sqlConnection;
+    private Connection.SqlConnection sqlConnection;
 
-    public ProfileRepository(SqlConnection sqlConnection) {
+    public ProfileRepository(Connection.SqlConnection sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 

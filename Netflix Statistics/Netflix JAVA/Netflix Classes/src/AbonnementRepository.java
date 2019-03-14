@@ -1,6 +1,8 @@
 
 import java.sql.*;
 import java.util.*;
+import Connection.SqlConnection;
+
 
 public class AbonnementRepository {
     private SqlConnection sqlConnection;
