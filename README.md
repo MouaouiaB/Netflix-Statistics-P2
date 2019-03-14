@@ -10,7 +10,7 @@ https://github.com/MouaouiaB/Netflix-Statistics-P2
 Netflix Statistics --> Netflix Database --> SQLQuery1.sql 
 - De SQLQuery1.sql moet gedowload worden.
 
-## Reflectie van Mouaouia:
+## Reflectie van Mouaouia Bouhtala:
 --
 ## Reflectie van Ayman Bouhazzaoui:
 --
