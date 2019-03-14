@@ -3,8 +3,8 @@ https://github.com/MouaouiaB/Netflix-Statistics-P2
 
 ## Groepsleden:
 * Mouaouia Bouhtala
-* Sabrina Siemons 
-* Mirthe van der Poel
+* Ayman Bouhazzaoui 
+* Rick Basting
 
 ## Installeren van database:
 Netflix Statistics --> Netflix Database --> SQLQuery1.sql 
