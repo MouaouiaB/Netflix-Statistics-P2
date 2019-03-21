@@ -65,7 +65,7 @@ public class ProfileRepository {
             // sqlConnection.executeSqlNoResult(sqlQuery);
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO Programma VALUES(" +
+            String sqlQuery = "INSERT INTO Profiel VALUES(" +
                     profile.getProfileNaam()+ ", "+
                     profile.getGeboortedatum()+ ", "+
                     profile.getAbonneeID()+

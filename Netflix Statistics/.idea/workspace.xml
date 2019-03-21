@@ -41,8 +41,18 @@
       <file leaf-file-name="ProfileRepository.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="70" column="42" lean-forward="false" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+            <state relative-caret-position="588">
+              <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FilmRepository.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="686">
+              <caret line="95" column="9" lean-forward="true" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -82,8 +92,8 @@
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AbonnementRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/SerieRepository.java" />
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java" />
       </list>
     </option>
   </component>
@@ -456,14 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="95" column="9" lean-forward="true" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -530,6 +532,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="95" column="9" lean-forward="true" selection-start-line="95" selection-start-column="9" selection-end-line="95" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="588">
@@ -542,8 +552,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="70" column="42" lean-forward="false" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+        <state relative-caret-position="588">
+          <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
           <folding />
         </state>
       </provider>
