@@ -63,6 +63,19 @@ public class FilmRepository {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO Profiel VALUES(" +
+                    film.getFilmID()+ ", "+
+                    film.getTitle()+ ", "+
+                    film.getTijdsduur()+ ", "+
+                    film.getGenre() + ", "+
+                    film.getTaal()+ ", "+
+                    film.getLeeftijdsIndicatie()+ ", "+
+                    film.getProgrammaID()+
+                    ")";
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
