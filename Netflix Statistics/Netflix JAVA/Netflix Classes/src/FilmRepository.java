@@ -65,7 +65,7 @@ public class FilmRepository {
             // sqlConnection.executeSqlNoResult(sqlQuery);
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO Profiel VALUES(" +
+            String sqlQuery = "INSERT INTO FILM VALUES(" +
                     film.getFilmID()+ ", "+
                     film.getTitle()+ ", "+
                     film.getTijdsduur()+ ", "+
