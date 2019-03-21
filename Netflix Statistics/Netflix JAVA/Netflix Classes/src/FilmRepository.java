@@ -3,17 +3,23 @@ import java.sql.*;
 import java.util.*;
 
 public class FilmRepository {
-    private Connection.SqlConnection sqlConnection;
+    private String sqlConnection;
 
-    public FilmRepository(Connection.SqlConnection sqlConnection) {
+    public FilmRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
     public ArrayList<Film> readAll() {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         ArrayList<Film> lijst = new ArrayList<>();
         try {
-            ResultSet rs = sqlConnection.executeSql("SELECT * FROM FILM");
-            while(rs.next()) {
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM FILM");
+            while(resultSet.next()) {
                 //lijst.add(new Film(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
             }
         }
@@ -25,13 +31,20 @@ public class FilmRepository {
 
     public Film read(int filmID) {
         Film film = null;
+
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "SELECT * FROM FILM WHERE FilmID= " + filmID;
-            ResultSet rs = sqlConnection.executeSql(sqlQuery);
-            rs.next();
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
             //lijst.add(new Film(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
         }
         catch(Exception e) {
@@ -41,6 +54,10 @@ public class FilmRepository {
     }
 
     public void create(Film film) {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
@@ -58,12 +75,19 @@ public class FilmRepository {
     }
 
     public void delete(int filmID) {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "DELETE FILM WHERE FilmID= " + filmID;
-            sqlConnection.executeSqlNoResult(sqlQuery);
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
