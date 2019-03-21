@@ -67,7 +67,7 @@ public class ProgrammaRepository {
             statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Programma VALUES(" +
                     programma.getProgrammaID()+ ", "+
-                    programma.getTitle()+ ", "+
+                    programma.getTitle()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();

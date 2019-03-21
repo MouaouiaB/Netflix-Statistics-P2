@@ -63,6 +63,15 @@ public class ProfileRepository {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO Programma VALUES(" +
+                    profile.getProfileNaam()+ ", "+
+                    profile.getGeboortedatum()+ ", "+
+                    profile.getAbonneeID()+
+                    ")";
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
