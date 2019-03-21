@@ -60,6 +60,19 @@ public class SerieRepository {
 
         try
         {
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO Serie VALUES(" +
+                    serie.getProgrammaID()+ ", "+
+                    serie.getTitle()+ ", "+
+                    serie.getGenre() + ", "+
+                    serie.getTaal()+ ", "+
+                    serie.getSeizoen()+ ", "+
+                    serie.getLeeftijdsIndicatie()+ ", "+
+                    serie.getLijktop()+
+                    ")";
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
