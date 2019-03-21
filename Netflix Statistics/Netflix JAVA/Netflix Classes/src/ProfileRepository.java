@@ -3,17 +3,23 @@ import java.sql.*;
 import java.util.*;
 
 public class ProfileRepository {
-    private Connection.SqlConnection sqlConnection;
+    private String sqlConnection;
 
-    public ProfileRepository(Connection.SqlConnection sqlConnection) {
+    public ProfileRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
     public ArrayList<Profile> readAll() {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         ArrayList<Profile> lijst = new ArrayList<>();
         try {
-            ResultSet rs = sqlConnection.executeSql("SELECT * FROM Profiel");
-            while(rs.next()) {
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Profiel");
+            while(resultSet.next()) {
                 //lijst.add(new Profile(rs.getString("Profile naam"), rs.getString("Geboortedatum"), rs.getString("AbonneeID")));
             }
         }
@@ -25,13 +31,20 @@ public class ProfileRepository {
 
     public Profile read(int abonneeID) {
         Profile profile = null;
+
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "SELECT * FROM Profiel WHERE AbonneeID= " + abonneeID;
-            ResultSet rs = sqlConnection.executeSql(sqlQuery);
-            rs.next();
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
             //lijst.add(new Profile(rs.getString("Profile naam"), rs.getString("Geboortedatum"), rs.getString("AbonneeID")));
         }
         catch(Exception e) {
@@ -41,6 +54,10 @@ public class ProfileRepository {
     }
 
     public void create(Profile profile) {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
@@ -58,12 +75,19 @@ public class ProfileRepository {
     }
 
     public void delete(int abonneeID) {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "DELETE Profiel WHERE AbonneeID= " + abonneeID;
-            sqlConnection.executeSqlNoResult(sqlQuery);
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
