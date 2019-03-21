@@ -65,6 +65,20 @@ public class AbonnementRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
             // sqlConnection.executeSqlNoResult(sqlQuery);
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO ABONNEMENT VALUES(" +
+                    abonnement.getAbonneeID()+ ", "+
+                    abonnement.getAbonneeNaam()+ ", "+
+                    abonnement.getEmail()+ ", "+
+                    abonnement.getWachtwoord() + ", "+
+                    abonnement.getStraat()+ ", "+
+                    abonnement.getHuisnummer()+ ", "+
+                    abonnement.getPostcode()+ ", "+
+                    abonnement.getAbonneeWoonplaats()+
+                    ")";
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
