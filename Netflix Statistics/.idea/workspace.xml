@@ -11,21 +11,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FilmRepository.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java">
+      <file leaf-file-name="AfleveringRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="749">
-              <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
-              <folding />
+            <state relative-caret-position="651">
+              <caret line="78" column="46" lean-forward="false" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Film.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Film.java">
+      <file leaf-file-name="Aflevering.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Aflevering.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+            <state relative-caret-position="588">
+              <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -49,12 +51,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlConnection.java" />
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AbonnementRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/SerieRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java" />
       </list>
     </option>
   </component>
@@ -383,14 +385,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Aflevering.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Netflix Database/SQLQuery1.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
@@ -413,16 +407,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-241">
           <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="94" column="12" lean-forward="false" selection-start-line="94" selection-start-column="12" selection-end-line="95" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -503,6 +487,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="749">
+          <caret line="77" column="29" lean-forward="true" selection-start-line="65" selection-start-column="12" selection-end-line="77" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Film.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -511,11 +503,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java">
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Aflevering.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
-          <caret line="74" column="42" lean-forward="true" selection-start-line="74" selection-start-column="42" selection-end-line="74" selection-end-column="42" />
+        <state relative-caret-position="588">
+          <caret line="38" column="30" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="30" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="78" column="46" lean-forward="false" selection-start-line="78" selection-start-column="46" selection-end-line="78" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
