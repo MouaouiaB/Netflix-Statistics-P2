@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SerieRepository.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/SerieRepository.java">
+      <file leaf-file-name="ProgrammaRepository.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="602">
-              <caret line="71" column="39" lean-forward="false" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
+            <state relative-caret-position="546">
+              <caret line="67" column="52" lean-forward="false" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -23,27 +23,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Serie.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Serie.java">
+      <file leaf-file-name="Programma.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Programma.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="840">
-              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <element signature="e#641#642#0" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#718#719#0" expanded="true" />
-                <element signature="e#752#753#0" expanded="true" />
-                <element signature="e#784#785#0" expanded="true" />
-                <element signature="e#812#813#0" expanded="true" />
-                <element signature="e#843#844#0" expanded="true" />
-                <element signature="e#870#871#0" expanded="true" />
-                <element signature="e#901#902#0" expanded="true" />
-                <element signature="e#931#932#0" expanded="true" />
-                <element signature="e#973#974#0" expanded="true" />
-                <element signature="e#1014#1015#0" expanded="true" />
-                <element signature="e#1048#1049#0" expanded="true" />
-                <element signature="e#1078#1079#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,8 +55,8 @@
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AbonnementRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java" />
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/SerieRepository.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java" />
       </list>
     </option>
   </component>
@@ -470,16 +455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="89" column="29" lean-forward="true" selection-start-line="88" selection-start-column="12" selection-end-line="89" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Serie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
@@ -506,7 +481,25 @@
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/SerieRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="602">
-          <caret line="71" column="39" lean-forward="false" selection-start-line="71" selection-start-column="39" selection-end-line="71" selection-end-column="39" />
+          <caret line="74" column="29" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="74" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Programma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProgrammaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="67" column="52" lean-forward="false" selection-start-line="67" selection-start-column="52" selection-end-line="67" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
