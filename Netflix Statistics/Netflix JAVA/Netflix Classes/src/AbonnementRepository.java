@@ -5,17 +5,23 @@ import Connection.SqlConnection;
 
 
 public class AbonnementRepository {
-    private SqlConnection sqlConnection;
+    private String sqlConnection;
 
-    public AbonnementRepository(SqlConnection sqlConnection) {
+    public AbonnementRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
     public ArrayList<Abonnement> readAll() {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         ArrayList<Abonnement> lijst = new ArrayList<>();
         try {
-            ResultSet rs = sqlConnection.executeSql("SELECT * FROM ABONNEMENT");
-            while(rs.next()) {
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM ABONNEMENT");
+            while(resultSet.next()) {
                 //lijst.add(new Abonnement(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber")));
             }
         }
@@ -27,13 +33,19 @@ public class AbonnementRepository {
 
     public Abonnement read(int id) {
         Abonnement abonnement = null;
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "SELECT * FROM ABONNEMENT WHERE Id=" + id;
-            ResultSet rs = sqlConnection.executeSql(sqlQuery);
-            rs.next();
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
             // abonnement = new Abonnement(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber"));
         }
         catch(Exception e) {
@@ -43,6 +55,10 @@ public class AbonnementRepository {
     }
 
     public void create(Abonnement abonnement) {
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
@@ -57,16 +73,24 @@ public class AbonnementRepository {
 
     public void delete(Abonnement abonnement) {
         if(abonnement==null) return;
-        //delete(abonnement.getId());
+        delete(abonnement.getAbonneeID());
     }
 
     public void delete(int id) {
+
+        Connection connection = null;
+        ResultSet resultSet = null;
+        Statement statement = null;
+
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            connection = DriverManager.getConnection(sqlConnection);
+            statement = connection.createStatement();
             String sqlQuery = "DELETE ABONNEMENT WHERE Id=" + id;
-            sqlConnection.executeSqlNoResult(sqlQuery);
+            resultSet = statement.executeQuery(sqlQuery);
+            resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
