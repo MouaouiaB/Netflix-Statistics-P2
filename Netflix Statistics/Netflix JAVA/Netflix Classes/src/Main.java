@@ -1,3 +1,5 @@
+import UI.UserInterface;
+
 import javax.swing.*;
 
 public class Main {
