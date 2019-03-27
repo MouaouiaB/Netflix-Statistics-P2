@@ -1,16 +1,11 @@
 package Connection;
 
-import java.sql.ResultSet;
-import java.sql.*;
 
 public class SqlConnection {
-    public void executeSqlNoResult(String sqlQuery) {
-    }
+    public static SqlHandler sqlHandler;
 
-    public ResultSet executeSql(String sqlQuery) {
-        ResultSet resultSet = null;
-        Statement statement = null;
-        //resultSet = statement.executeQuery(sqlQuery);
-        return null;
+    public static void createConnection() {
+        sqlHandler = new SqlHandler();
+        sqlHandler.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistics;integratedSecurity=true;"); // databaseName invullen
     }
 }
