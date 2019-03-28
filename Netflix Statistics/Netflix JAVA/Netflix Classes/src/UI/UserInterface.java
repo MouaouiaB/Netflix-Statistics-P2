@@ -4,14 +4,25 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 public class UserInterface implements Runnable {
     private JFrame frame;
     private JTabbedPane Tabs;
     private JTabbedPane SideTabs;
+    private AddListener addListener;
+    private DeleteListener deleteListener;
+    private UpdateListener updateListener;
+    private OverViewListener overViewListener;
 
 
+    public UserInterface(){
+        this.addListener = new AddListener();
+        this.deleteListener = new DeleteListener();
+        this.updateListener = new UpdateListener();
+        this.overViewListener = new OverViewListener();
+    }
     @Override
     public void run() {
         frame = new JFrame ("NetflixStatistics");
@@ -24,34 +35,29 @@ public class UserInterface implements Runnable {
         frame.pack();
         frame.setVisible(true);
 
+
     }
 
     private void createComponents(Container contentPane) {
         contentPane.setLayout(new BorderLayout());
         this.Tabs = new JTabbedPane();
-        this.SideTabs = new JTabbedPane();
+
         this.Tabs.setFont(new Font("Overview", Font.BOLD|Font.BOLD, 20 ));
-        this.SideTabs.setFont(new Font("Side", Font.BOLD|Font.BOLD, 20 ));
 
-        this.SideTabs.setTabPlacement(JTabbedPane.LEFT);
 
-        this.SideTabs.addTab("Per", null);
-        this.SideTabs.addTab("paaar", null);
 
         JPanel Account = new JPanel();
-        Account.add(SideTabs);
-        this.Tabs.addTab("Accounts",Account);
+
+        this.Tabs.addTab("Toevoegen",addListener);
         Account.setLayout(new GridLayout(2,1,0,0));
 
-        JPanel AccountForm = new JPanel();
-        Account.add(AccountForm);
-        AccountForm.setLayout(new GridLayout(0,1,0,9));
 
 
+        this.Tabs.addTab("Verwijderen",deleteListener);
+        this.Tabs.addTab("Wijzigen",updateListener);
+        this.Tabs.addTab("Overzicht",overViewListener);
 
-        this.Tabs.addTab("Add",null);
-        this.Tabs.addTab("Delete",null);
-        this.Tabs.addTab("Update",null);
+
         contentPane.add(this.Tabs);
 
 
