@@ -37,33 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLQuery1.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Netflix Database/SQLQuery1.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="56" column="7" lean-forward="false" selection-start-line="56" selection-start-column="7" selection-end-line="56" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SqlHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1155">
-              <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="UserInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="57" column="37" lean-forward="false" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+            <state relative-caret-position="966">
+              <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,8 +52,8 @@
       <file leaf-file-name="DeleteListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/DeleteListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="26" column="0" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="26" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -86,8 +64,8 @@
       <file leaf-file-name="AddListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state relative-caret-position="357">
+              <caret line="26" column="91" lean-forward="false" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,7 +73,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddItemListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddItemListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="45" column="32" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -108,8 +98,8 @@
       <file leaf-file-name="UpdateListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UpdateListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="399">
+              <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OverViewListener.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OverViewListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/OverViewListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="273">
+              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,11 +119,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Profile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Profile.java">
+      <file leaf-file-name="StatisticsListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/StatisticsListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="441">
+              <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IAddingTabs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/IAddingTabs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -144,6 +146,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -178,11 +181,14 @@
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AbonnementRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlHandler.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlConnection.java" />
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/OverViewListener.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UserInterface.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/IAddingTabs.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/OverViewListener.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/DeleteListener.java" />
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddListener.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UpdateListener.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/StatisticsListener.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddListener.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddItemListener.java" />
       </list>
     </option>
   </component>
@@ -509,28 +515,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/FilmRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="92" column="34" lean-forward="false" selection-start-line="92" selection-start-column="34" selection-end-line="92" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Serie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Programma.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Profile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -877,7 +861,7 @@
         <state relative-caret-position="1155">
           <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -894,38 +878,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/IAddingTabs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="63">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddListener.java">
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/StatisticsListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/DeleteListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="26" column="0" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="57" column="37" lean-forward="false" selection-start-line="57" selection-start-column="37" selection-end-line="57" selection-end-column="37" />
+          <caret line="21" column="39" lean-forward="false" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -934,8 +898,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UpdateListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="399">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -944,11 +908,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/OverViewListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="273">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/DeleteListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="26" column="91" lean-forward="false" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="966">
+          <caret line="58" column="38" lean-forward="false" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddItemListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="45" column="32" lean-forward="false" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

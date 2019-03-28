@@ -3,7 +3,7 @@ package UI;
 import javax.swing.*;
 import java.awt.*;
 
-public class OverViewListener extends JPanel {
+public class OverViewListener extends JPanel implements IAddingTabs {
     private JTabbedPane SideTabs;
 
     public OverViewListener(){
@@ -11,6 +11,7 @@ public class OverViewListener extends JPanel {
         TabsAdd();
     }
 
+    @Override
     public void TabsAdd() {
         this.SideTabs = new JTabbedPane();
         this.SideTabs.setFont(new Font("Side", Font.BOLD|Font.BOLD, 20 ));
