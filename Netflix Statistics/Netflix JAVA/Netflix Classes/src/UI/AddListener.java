@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 public class AddListener extends JPanel implements IAddingTabs{
 
     private JTabbedPane SideTabs;
+    private JTable table;
     public AddItemListener addItemListener;
 
     public AddListener(){
@@ -18,7 +19,6 @@ public class AddListener extends JPanel implements IAddingTabs{
 
     @Override
     public void TabsAdd() {
-
 
         this.SideTabs = new JTabbedPane();
         this.SideTabs.setFont(new Font("Side", Font.BOLD|Font.BOLD, 20 ));
