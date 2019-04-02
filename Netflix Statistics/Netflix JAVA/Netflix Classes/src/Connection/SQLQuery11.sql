@@ -25,7 +25,7 @@ CREATE TABLE Profiel(
 ProfileID int NOT NULL PRIMARY KEY,
 Profielnaam nvarchar(50) NOT NULL,
 AbonneeID int NOT NULL,
-Geboortedatum date NOT NULL,
+Age int NOT NULL,
 
 CONSTRAINT Profiel_twoFK 
 	FOREIGN KEY (AbonneeID)
@@ -112,8 +112,8 @@ VALUES (1,'M. Bouhtala','zakelijk.mb@hotmail.com','wachtwoord','Nederbrakelstraa
 
 INSERT INTO Profiel 
 VALUES 
-(11,'Mouaouia',1,'08-08-1998'),
-(12,'Louki',1,'01-06-2000');
+(11,'Mouaouia',1,21),
+(12,'Louki',1,19);
 
 /* ******** Programma's ******** */
 /*ProgrammaID int NOT NULL PRIMARY KEY,
