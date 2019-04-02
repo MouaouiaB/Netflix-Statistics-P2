@@ -10,6 +10,7 @@ public class AddItemListener extends JPanel {
     private JTable Proftable;
     private JButton button;
 
+    //Account settings
     private JPanel panel;
     private JTextField textName;
     private JTextField textPasswd;
@@ -26,6 +27,35 @@ public class AddItemListener extends JPanel {
     private JLabel labelStrNumber;
     private JLabel labelZip;
     private JLabel labelCity;
+    /////////////////////////////////
+
+    //Profile settings
+    private JTextField textProfId;
+    private JTextField textProfName;
+    private JTextField textProfAccId;
+    private JTextField textProfAge;
+
+    private JLabel labelProfId;
+    private JLabel labelProfName;
+    private JLabel labelProfAccId;
+    private JLabel labelProfAge;
+    //////////////////////////////////
+
+    //Film settings
+    private JTextField textFilmId;
+    private JTextField textFilmTitle;
+    private JTextField textFilmAge;
+    private JTextField textFilmLanguage;
+    private JTextField textFilmDuration;
+    private JTextField textFilmGenre;
+
+    private JLabel labelFilmId;
+    private JLabel labelFilmTitle;
+    private JLabel labelFilmAge;
+    private JLabel labelFilmLanguage;
+    private JLabel labelFilmDuration;
+    private JLabel labelFilmGenre;
+    /////////////////////////////////////
 
     public AddItemListener(String tabName){
         super(new BorderLayout());
@@ -118,21 +148,98 @@ public class AddItemListener extends JPanel {
         if (tabName == "Profiel"){
 
 
-            labelNaam = new JLabel("Naam2");
-            labelNaam.setBounds(12, 74, 87, 16);
-            add(labelNaam);
+            labelProfId = new JLabel("Profiel ID:");
+            labelProfId.setBounds(12, 24, 87, 16);
+            add(labelProfId);
 
-            textName = new JTextField();
-            textName.setColumns(10);
-            textName.setBounds(400, 71, 116, 22);
+            textProfId = new JTextField();
+            textName.setColumns(20);
+            textName.setBounds(111, 21, 300, 22);
             add(textName);
 
-            table.setBounds(75, 200, 700, 600);
-            add(table);
+            labelProfName = new JLabel("Profielnaam:");
+            labelProfName.setBounds(12, 64, 77, 16);
+            add(labelProfName);
 
-            add(button);
+            textProfName = new JTextField();
+            textProfName.setColumns(20);
+            textProfName.setBounds(111, 64, 300, 22);
+            add(textProfName);
+
+            labelProfAccId = new JLabel("Abonnee ID:");
+            labelProfAccId.setBounds(12, 107, 77, 16);
+            add(labelProfAccId);
+
+            textProfAccId =  new JTextField();
+            textProfAccId.setColumns(20);
+            textProfAccId.setBounds(111, 107, 300, 22);
+            add(textProfAccId);
+
+            labelProfAge = new JLabel("Leeftijd:");
+            labelProfAge.setBounds(12, 150, 77, 16);
+            add(labelProfAge);
+
+            textProfAge = new JTextField();
+            textProfAge.setColumns(20);
+            textProfAge.setBounds(111, 150, 300, 22);
+            add(textProfAge);
         }
 
+        if (tabName == "Film"){
+            labelFilmId = new JLabel("Film ID:");
+            labelFilmId.setBounds(12, 24, 87, 16);
+            add(labelFilmId);
+
+            textFilmId = new JTextField();
+            textFilmId.setColumns(20);
+            textFilmId.setBounds(111, 21, 300, 22);
+            add(textFilmId);
+
+            labelFilmTitle = new JLabel("Titel:");
+            labelFilmTitle.setBounds(12, 64, 77, 16);
+            add(labelFilmTitle);
+
+            textFilmTitle = new JTextField();
+            textFilmTitle.setColumns(20);
+            textFilmTitle.setBounds(111, 64, 300, 22);
+            add(textFilmTitle);
+
+            labelFilmAge = new JLabel("Leeftijfsindicatie:");
+            labelFilmAge.setBounds(12, 107, 77, 16);
+            add(labelFilmAge);
+
+            textFilmAge = new JTextField();
+            textFilmAge.setColumns(20);
+            textFilmAge.setBounds(111, 107, 300, 22);
+            add(textFilmAge);
+
+            labelFilmLanguage = new JLabel("Taal:");
+            labelFilmLanguage.setBounds(12, 150, 77, 16);
+            add(labelFilmLanguage);
+
+            textFilmLanguage = new JTextField();
+            textFilmLanguage.setColumns(20);
+            textFilmLanguage.setBounds(111, 150, 300, 22);
+            add(textFilmLanguage);
+
+            labelFilmDuration = new JLabel("Tijdsduur:");
+            labelFilmDuration.setBounds(12, 193, 77, 16);
+            add(labelFilmDuration);
+
+            textFilmDuration = new JTextField();
+            textFilmDuration.setColumns(20);
+            textFilmDuration.setBounds(111, 193, 300, 22);
+            add(textFilmDuration);
+
+            labelFilmGenre = new JLabel("Genre:");
+            labelFilmGenre.setBounds(12, 236, 77, 16);
+            add(labelFilmGenre);
+
+            textFilmGenre = new JTextField();
+            textFilmGenre.setColumns(20);
+            textFilmGenre.setBounds(111, 236, 300, 22);
+            add(textFilmGenre);
+        }
 
 
 
