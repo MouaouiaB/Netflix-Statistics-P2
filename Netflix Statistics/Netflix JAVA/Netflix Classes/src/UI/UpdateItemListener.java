@@ -4,8 +4,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class AddItemListener extends JPanel {
-
+public class UpdateItemListener extends JPanel {
     private JTable table;
     private JTable Proftable;
     private JButton button;
@@ -107,19 +106,18 @@ public class AddItemListener extends JPanel {
     private JButton BtnProg;
     /////////////////////////////////////////////
 
-    public AddItemListener(String tabName){
+    public UpdateItemListener(String tabName){
         super(new BorderLayout());
         LoadComponents(tabName);
     }
 
-    public void LoadComponents(String tabName){
+    public void LoadComponents (String tabName){
 
-        setBorder(new EmptyBorder(5,5,5,5));
+        setBorder(new EmptyBorder(5, 5, 5, 5));
         setLayout(null);
         this.button = new JButton();
 
         this.table = new JTable();
-
 
 
         this.textName = new JTextField();
@@ -188,7 +186,7 @@ public class AddItemListener extends JPanel {
             textCity.setBounds(111, 279, 300, 22);
             add(textCity);
 
-            BtnAcc = new JButton("Opslaan");
+            BtnAcc = new JButton("Wijzig");
             BtnAcc.setBounds(322, 320, 116, 25);
             add(BtnAcc);
 
@@ -238,7 +236,7 @@ public class AddItemListener extends JPanel {
             textProfAge.setBounds(111, 150, 300, 22);
             add(textProfAge);
 
-            BtnProf = new JButton("Opslaan");
+            BtnProf = new JButton("Wijzig");
             BtnProf.setBounds(322, 320, 116, 25);
             add(BtnProf);
         }
@@ -298,7 +296,7 @@ public class AddItemListener extends JPanel {
             textFilmGenre.setBounds(111, 236, 300, 22);
             add(textFilmGenre);
 
-            BtnFilm = new JButton("Opslaan");
+            BtnFilm = new JButton("Wijzig");
             BtnFilm.setBounds(322, 320, 116, 25);
             add(BtnFilm);
         }
@@ -367,7 +365,7 @@ public class AddItemListener extends JPanel {
             textSerieCompare.setBounds(111, 279, 300, 22);
             add(textSerieCompare);
 
-            BtnSerie = new JButton("Opslaan");
+            BtnSerie = new JButton("Wijzig");
             BtnSerie.setBounds(322, 320, 116, 25);
             add(BtnSerie);
 
@@ -428,7 +426,7 @@ public class AddItemListener extends JPanel {
             textEpDuration.setBounds(111, 236, 300, 22);
             add(textEpDuration);
 
-            BtnEp = new JButton("Opslaan");
+            BtnEp = new JButton("Wijzig");
             BtnEp.setBounds(322, 320, 116, 25);
             add(BtnEp);
         }
@@ -488,9 +486,10 @@ public class AddItemListener extends JPanel {
             textProgProfId.setBounds(111, 236, 300, 22);
             add(textProgProfId);
 
-            BtnProg = new JButton("Opslaan");
+            BtnProg = new JButton("Wijzig");
             BtnProg.setBounds(322, 320, 116, 25);
             add(BtnProg);
         }
     }
 }
+
