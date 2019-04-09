@@ -1,52 +1,50 @@
 package Domain;
 
-import Domain.Programma;
-
-public class Serie extends Programma {
-    private String title;
-    private int programmaID;
+public class Serie extends Program {
+    private String SerieTitle;
+    private int ProgramID;
     private String genre;
-    private String taal;
-    private int seizoen;
-    private int leeftijdsIndicatie;
-    private String lijktop;
+    private String Language;
+    private int Seasons;
+    private int AgeIndication;
+    private String LooksLike;
 
-    public Serie(int programmaID, String title, String serieTitle, String genre, String taal, int seizoen, int leeftijdsIndicatie, String lijktop) {
-        super(programmaID, title);
+    public Serie(int ProgramID, String SerieTitle, String serieTitle, String genre, String Language, int Seasons, int AgeIndication, String LooksLike) {
+        super(ProgramID, SerieTitle);
         this.genre = genre;
-        this.taal = taal;
-        this.seizoen = seizoen;
-        this.leeftijdsIndicatie = leeftijdsIndicatie;
-        this.lijktop = lijktop;
+        this.Language = Language;
+        this.Seasons = Seasons;
+        this.AgeIndication = AgeIndication;
+        this.LooksLike = LooksLike;
     }
 
     @Override
-    public String getTitle() {
-        return title;
+    public String getMovieTitle() {
+        return SerieTitle;
     }
 
     @Override
-    public int getProgrammaID() {
-        return programmaID;
+    public int getProgramID() {
+        return ProgramID;
     }
 
     public String getGenre() {
         return genre;
     }
 
-    public String getTaal() {
-        return taal;
+    public String getLanguage() {
+        return Language;
     }
 
-    public int getSeizoen() {
-        return seizoen;
+    public int getSeasons() {
+        return Seasons;
     }
 
-    public int getLeeftijdsIndicatie() {
-        return leeftijdsIndicatie;
+    public int getAgeIndication() {
+        return AgeIndication;
     }
 
-    public String getLijktop() {
-        return lijktop;
+    public String getLooksLike() {
+        return LooksLike;
     }
 }

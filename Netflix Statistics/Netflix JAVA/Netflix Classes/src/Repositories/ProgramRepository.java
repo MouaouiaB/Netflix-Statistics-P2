@@ -2,28 +2,28 @@ package Repositories;
 
 import java.sql.*;
 import java.util.*;
-import Connection.SqlConnection;
-import Domain.Aflevering;
 
-public class AfleveringRepository{
+import Domain.Program;
+
+public class ProgramRepository {
     private String sqlConnection;
 
-    public AfleveringRepository(String sqlConnection) {
+    public ProgramRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Aflevering> readAll() {
+    public ArrayList<Program> readAll() {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
-        ArrayList<Aflevering> lijst = new ArrayList<>();
+        ArrayList<Program> lijst = new ArrayList<>();
         try {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM AFLEVERING");
+            resultSet = statement.executeQuery("SELECT * FROM Domain.Program");
             while(resultSet.next()) {
-                //lijst.add(new Repositories.AfleveringRepository(rs.getInt("AfleveringID"),rs.getString("Domain.Serie"), rs.getString("ProgrammaID"), rs.getString("Title"), rs.getString("Seizoen en aflevering"), rs.getString("Tijdsduur")));
+                //lijst.add(new Domain.Program(rs.getInt("ProgrammaID"),rs.getString("Title")));
             }
         }
         catch(Exception e) {
@@ -32,13 +32,11 @@ public class AfleveringRepository{
         return lijst;
     }
 
-    public Aflevering read(int AfleveringID) {
-        Aflevering aflevering = null;
-
+    public Program read(int programmaID) {
+        Program program = null;
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
-
 
         try
         {
@@ -46,39 +44,32 @@ public class AfleveringRepository{
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM AFLEVERING WHERE AfleveringID =" + AfleveringID;
+            String sqlQuery = "SELECT * FROM Domain.Program WHERE ProgrammaID= " + programmaID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
-
-
+            //lijst.add(new Domain.Program(rs.getInt("ProgrammaID"),rs.getString("Title")));
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return aflevering;
+        return program;
     }
 
-    public void create(Aflevering aflevering) {
+    public void create(Program program) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
-
         try
         {
-
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO AFLEVERING VALUES(" +
-                    aflevering.getAfleveringID()+ ", "+
-                    aflevering.getSerieNaam()+ ", "+
-                    aflevering.getTitle()+ ", "+
-                    aflevering.getProgrammaID() + ", "+
-                    aflevering.getSeizoenEnAflevering()+ ", "+
-                    aflevering.getTijdsduur()+
+            String sqlQuery = "INSERT INTO Domain.Program VALUES(" +
+                    program.getProgramID()+ ", "+
+                    program.getMovieTitle()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -88,13 +79,12 @@ public class AfleveringRepository{
         }
     }
 
-    public void delete(Aflevering aflevering) {
-        if(aflevering == null) return;
-        delete(aflevering.getAfleveringID());
+    public void delete(Program program) {
+        if(program == null) return;
+        delete(program.getProgramID());
     }
 
-    public void delete(int AfleveringID) {
-
+    public void delete(int programmaID) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -105,7 +95,7 @@ public class AfleveringRepository{
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "DELETE AFLEVERING WHERE AfleveringID =" + AfleveringID;
+            String sqlQuery = "DELETE Domain.Program WHERE ProgrammaID= " + programmaID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
         }

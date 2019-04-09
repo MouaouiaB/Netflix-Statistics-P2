@@ -69,9 +69,9 @@ public class ProfileRepository {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Profiel VALUES(" +
-                    profile.getProfileNaam()+ ", "+
-                    profile.getGeboortedatum()+ ", "+
-                    profile.getAbonneeID()+
+                    profile.getProfileName()+ ", "+
+                    profile.getAge()+ ", "+
+                    profile.getAccountId()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -83,7 +83,7 @@ public class ProfileRepository {
 
     public void delete(Profile profile) {
         if(profile == null) return;
-        delete(profile.getAbonneeID());
+        delete(profile.getAccountId());
     }
 
     public void delete(int abonneeID) {

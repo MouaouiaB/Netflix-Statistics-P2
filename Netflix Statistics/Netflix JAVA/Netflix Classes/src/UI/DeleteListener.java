@@ -21,10 +21,10 @@ public class DeleteListener extends JPanel implements IAddingTabs {
         this.SideTabs.setTabPlacement(JTabbedPane.LEFT);
         this.SideTabs.addTab("Account", this.deleteItemListener = new DeleteItemListener("Account"));
         this.SideTabs.addTab("Profiel", this.deleteItemListener = new DeleteItemListener("Profiel"));
-        this.SideTabs.addTab("Film", this.deleteItemListener = new DeleteItemListener("Film"));
+        this.SideTabs.addTab("Movie", this.deleteItemListener = new DeleteItemListener("Movie"));
         this.SideTabs.addTab("Serie", this.deleteItemListener = new DeleteItemListener("Serie"));
-        this.SideTabs.addTab("Aflevering", this.deleteItemListener = new DeleteItemListener("Aflevering"));
-        this.SideTabs.addTab("Programma", this.deleteItemListener = new DeleteItemListener("Programma"));
+        this.SideTabs.addTab("Episode", this.deleteItemListener = new DeleteItemListener("Episode"));
+        this.SideTabs.addTab("Program", this.deleteItemListener = new DeleteItemListener("Program"));
 
         add(this.SideTabs);
 

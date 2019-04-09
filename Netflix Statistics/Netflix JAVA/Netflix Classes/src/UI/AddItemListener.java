@@ -40,7 +40,7 @@ public class AddItemListener extends JPanel {
     private JLabel labelProfAge;
     private JButton BtnProf;
     //////////////////////////////////
-    //Film settings
+    //Movie settings
     private JTextField textFilmId;
     private JTextField textFilmTitle;
     private JTextField textFilmAge;
@@ -243,8 +243,8 @@ public class AddItemListener extends JPanel {
             add(BtnProf);
         }
 
-        if (tabName == "Film"){
-            labelFilmId = new JLabel("Film ID:");
+        if (tabName == "Movie"){
+            labelFilmId = new JLabel("Movie ID:");
             labelFilmId.setBounds(12, 24, 100, 16);
             add(labelFilmId);
 
@@ -373,8 +373,8 @@ public class AddItemListener extends JPanel {
 
         }
 
-        if (tabName == "Aflevering"){
-            labelEpId = new JLabel("Aflevering ID:");
+        if (tabName == "Episode"){
+            labelEpId = new JLabel("Episode ID:");
             labelEpId.setBounds(12, 24, 100, 16);
             add(labelEpId);
 
@@ -401,7 +401,7 @@ public class AddItemListener extends JPanel {
             textEpSerieId.setBounds(111, 107, 300, 22);
             add(textEpSerieId);
 
-            labelEpSeasEp = new JLabel("Seizoen en Aflevering (Format: S01A01):");
+            labelEpSeasEp = new JLabel("Seizoen en Episode (Format: S01A01):");
             labelEpSeasEp.setBounds(12, 150, 300, 16);
             add(labelEpSeasEp);
 
@@ -433,8 +433,8 @@ public class AddItemListener extends JPanel {
             add(BtnEp);
         }
 
-        if (tabName == "Programma"){
-            labelProgId = new JLabel("Programma ID:");
+        if (tabName == "Program"){
+            labelProgId = new JLabel("Program ID:");
             labelProgId.setBounds(12, 24, 100, 16);
             add(labelProgId);
 
@@ -452,7 +452,7 @@ public class AddItemListener extends JPanel {
             textProgTitle.setBounds(111, 64, 300, 22);
             add(textProgTitle);
 
-            labelProgFilmId= new JLabel("Film ID:");
+            labelProgFilmId= new JLabel("Movie ID:");
             labelProgFilmId.setBounds(12, 107, 100, 16);
             add(labelProgFilmId);
 
@@ -470,7 +470,7 @@ public class AddItemListener extends JPanel {
             textProgSerieId.setBounds(111, 150, 300, 22);
             add(textProgSerieId);
 
-            labelProgEpId = new JLabel("Aflevering ID:");
+            labelProgEpId = new JLabel("Episode ID:");
             labelProgEpId.setBounds(12, 193, 100, 16);
             add(labelProgEpId);
 

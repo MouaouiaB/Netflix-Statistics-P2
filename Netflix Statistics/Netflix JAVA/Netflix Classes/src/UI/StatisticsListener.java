@@ -20,7 +20,7 @@ public class StatisticsListener extends JPanel implements IAddingTabs {
         this.SideTabs.addTab("Stats2", null);
         this.SideTabs.addTab("Stats3", null);
         this.SideTabs.addTab("Stats4", null);
-        this.SideTabs.addTab("Aflevering", null);
-        this.SideTabs.addTab("Programma", null);
+        this.SideTabs.addTab("Episode", null);
+        this.SideTabs.addTab("Program", null);
     }
 }

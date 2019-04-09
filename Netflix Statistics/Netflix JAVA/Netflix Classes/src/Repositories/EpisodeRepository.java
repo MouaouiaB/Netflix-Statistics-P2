@@ -1,29 +1,29 @@
 package Repositories;
 
-import Domain.Film;
-
 import java.sql.*;
 import java.util.*;
 
-public class FilmRepository {
+import Domain.Episode;
+
+public class EpisodeRepository {
     private String sqlConnection;
 
-    public FilmRepository(String sqlConnection) {
+    public EpisodeRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Film> readAll() {
+    public ArrayList<Episode> readAll() {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
-        ArrayList<Film> lijst = new ArrayList<>();
+        ArrayList<Episode> lijst = new ArrayList<>();
         try {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM FILM");
+            resultSet = statement.executeQuery("SELECT * FROM AFLEVERING");
             while(resultSet.next()) {
-                //lijst.add(new Domain.Film(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
+                //lijst.add(new Repositories.EpisodeRepository(rs.getInt("AfleveringID"),rs.getString("Domain.Serie"), rs.getString("ProgrammaID"), rs.getString("Title"), rs.getString("Seizoen en aflevering"), rs.getString("Tijdsduur")));
             }
         }
         catch(Exception e) {
@@ -32,12 +32,13 @@ public class FilmRepository {
         return lijst;
     }
 
-    public Film read(int filmID) {
-        Film film = null;
+    public Episode read(int AfleveringID) {
+        Episode episode = null;
 
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
+
 
         try
         {
@@ -45,37 +46,39 @@ public class FilmRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM FILM WHERE FilmID= " + filmID;
+            String sqlQuery = "SELECT * FROM AFLEVERING WHERE AfleveringID =" + AfleveringID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
-            //lijst.add(new Domain.Film(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
+
+
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return film;
+        return episode;
     }
 
-    public void create(Film film) {
+    public void create(Episode episode) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
+
         try
         {
+
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO FILM VALUES(" +
-                    film.getFilmID()+ ", "+
-                    film.getTitle()+ ", "+
-                    film.getTijdsduur()+ ", "+
-                    film.getGenre() + ", "+
-                    film.getTaal()+ ", "+
-                    film.getLeeftijdsIndicatie()+ ", "+
-                    film.getProgrammaID()+
+            String sqlQuery = "INSERT INTO AFLEVERING VALUES(" +
+                    episode.getEpisodeID()+ ", "+
+                    episode.getSerieName()+ ", "+
+                    episode.getMovieTitle()+ ", "+
+                    episode.getProgramID() + ", "+
+                    episode.getSeasonAndEpisode()+ ", "+
+                    episode.getLengthe()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -85,12 +88,13 @@ public class FilmRepository {
         }
     }
 
-    public void delete(Film film) {
-        if(film == null) return;
-        delete(film.getFilmID());
+    public void delete(Episode episode) {
+        if(episode == null) return;
+        delete(episode.getEpisodeID());
     }
 
-    public void delete(int filmID) {
+    public void delete(int AfleveringID) {
+
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -101,14 +105,12 @@ public class FilmRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "DELETE FILM WHERE FilmID= " + filmID;
+            String sqlQuery = "DELETE AFLEVERING WHERE AfleveringID =" + AfleveringID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
-            //ted
-
         }
     }
 

@@ -2,28 +2,29 @@ package Repositories;
 
 import java.sql.*;
 import java.util.*;
+import Connection.*;
 import Domain.*;
 
 
-public class AbonnementRepository {
+public class AccountRepository {
     private String sqlConnection;
+    private SqlHandler sqlHandler;
 
-    public AbonnementRepository(String sqlConnection) {
+    public AccountRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Abonnement> readAll() {
+    public ArrayList<Account> readAll() {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
-        ArrayList<Abonnement> lijst = new ArrayList<>();
+        ArrayList<Account> lijst = new ArrayList<>();
         try {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM ABONNEMENT");
+
+            resultSet = statement.executeQuery("SELECT * FROM Account");
             while(resultSet.next()) {
-                //lijst.add(new Domain.Abonnement(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber")));
+                //lijst.add(new Domain.Account(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber")));
             }
         }
         catch(Exception e) {
@@ -32,8 +33,8 @@ public class AbonnementRepository {
         return lijst;
     }
 
-    public Abonnement read(int id) {
-        Abonnement abonnement = null;
+    public Account read(int id) {
+        Account account = null;
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -44,18 +45,18 @@ public class AbonnementRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM ABONNEMENT WHERE Id=" + id;
-            resultSet = statement.executeQuery(sqlQuery);
+            String sqlQuery = "SELECT * FROM Account WHERE AccountID=" + id;
+            resultSet = statement.executeQuery("SELECT * FROM Account WHERE AccountID=" + id);
             resultSet.next();
-            // abonnement = new Domain.Abonnement(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber"));
+            // account = new Domain.Account(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber"));
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return abonnement;
+        return account;
     }
 
-    public void create(Abonnement abonnement) {
+    public void create(Account account) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -69,14 +70,14 @@ public class AbonnementRepository {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
             String sqlQuery = "INSERT INTO ABONNEMENT VALUES(" +
-                    abonnement.getAbonneeID()+ ", "+
-                    abonnement.getAbonneeNaam()+ ", "+
-                    abonnement.getEmail()+ ", "+
-                    abonnement.getWachtwoord() + ", "+
-                    abonnement.getStraat()+ ", "+
-                    abonnement.getHuisnummer()+ ", "+
-                    abonnement.getPostcode()+ ", "+
-                    abonnement.getAbonneeWoonplaats()+
+                    account.getAccountId()+ ", "+
+                    account.getAccountName()+ ", "+
+                    account.getEmail()+ ", "+
+                    account.getPassword() + ", "+
+                    account.getStreet()+ ", "+
+                    account.getHouseNumber()+ ", "+
+                    account.getZipCode()+ ", "+
+                    account.getCity()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -86,9 +87,9 @@ public class AbonnementRepository {
         }
     }
 
-    public void delete(Abonnement abonnement) {
-        if(abonnement==null) return;
-        delete(abonnement.getAbonneeID());
+    public void delete(Account account) {
+        if(account ==null) return;
+        delete(account.getAccountId());
     }
 
     public void delete(int id) {

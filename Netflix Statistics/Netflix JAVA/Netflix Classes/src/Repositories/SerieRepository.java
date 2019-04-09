@@ -47,7 +47,7 @@ public class SerieRepository {
             String sqlQuery = "SELECT * FROM Domain.Serie WHERE ProgrammaID= " + ProgrammaID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
-            //lijst.add(new Domain.Film(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
+            //lijst.add(new Domain.Movie(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
         }
         catch(Exception e) {
             System.out.println(e);
@@ -65,13 +65,13 @@ public class SerieRepository {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Domain.Serie VALUES(" +
-                    serie.getProgrammaID()+ ", "+
-                    serie.getTitle()+ ", "+
+                    serie.getProgramID()+ ", "+
+                    serie.getMovieTitle()+ ", "+
                     serie.getGenre() + ", "+
-                    serie.getTaal()+ ", "+
-                    serie.getSeizoen()+ ", "+
-                    serie.getLeeftijdsIndicatie()+ ", "+
-                    serie.getLijktop()+
+                    serie.getLanguage()+ ", "+
+                    serie.getSeasons()+ ", "+
+                    serie.getAgeIndication()+ ", "+
+                    serie.getLooksLike()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -86,7 +86,7 @@ public class SerieRepository {
 
     public void delete(Serie serie) {
         if(serie == null) return;
-        delete(serie.getProgrammaID());
+        delete(serie.getProgramID());
     }
 
     public void delete(int programmaID) {

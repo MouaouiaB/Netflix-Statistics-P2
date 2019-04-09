@@ -25,10 +25,10 @@ public class AddListener extends JPanel implements IAddingTabs{
         this.SideTabs.setTabPlacement(JTabbedPane.LEFT);
         this.SideTabs.addTab("Account", this.addItemListener = new AddItemListener("Account"));
         this.SideTabs.addTab("Profiel", this.addItemListener = new AddItemListener("Profiel"));
-        this.SideTabs.addTab("Film", this.addItemListener = new AddItemListener("Film"));
+        this.SideTabs.addTab("Movie", this.addItemListener = new AddItemListener("Movie"));
         this.SideTabs.addTab("Serie", this.addItemListener = new AddItemListener("Serie"));
-        this.SideTabs.addTab("Aflevering", this.addItemListener = new AddItemListener("Aflevering"));
-        this.SideTabs.addTab("Programma", this.addItemListener = new AddItemListener("Programma"));
+        this.SideTabs.addTab("Episode", this.addItemListener = new AddItemListener("Episode"));
+        this.SideTabs.addTab("Program", this.addItemListener = new AddItemListener("Program"));
 
 
         add(this.SideTabs);

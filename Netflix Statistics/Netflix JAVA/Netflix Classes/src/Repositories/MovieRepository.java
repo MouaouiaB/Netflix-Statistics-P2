@@ -1,29 +1,29 @@
 package Repositories;
 
+import Domain.Movie;
+
 import java.sql.*;
 import java.util.*;
 
-import Domain.Programma;
-
-public class ProgrammaRepository {
+public class MovieRepository {
     private String sqlConnection;
 
-    public ProgrammaRepository(String sqlConnection) {
+    public MovieRepository(String sqlConnection) {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Programma> readAll() {
+    public ArrayList<Movie> readAll() {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
-        ArrayList<Programma> lijst = new ArrayList<>();
+        ArrayList<Movie> lijst = new ArrayList<>();
         try {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Domain.Programma");
+            resultSet = statement.executeQuery("SELECT * FROM FILM");
             while(resultSet.next()) {
-                //lijst.add(new Domain.Programma(rs.getInt("ProgrammaID"),rs.getString("Title")));
+                //lijst.add(new Domain.Movie(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
             }
         }
         catch(Exception e) {
@@ -32,8 +32,9 @@ public class ProgrammaRepository {
         return lijst;
     }
 
-    public Programma read(int programmaID) {
-        Programma programma = null;
+    public Movie read(int filmID) {
+        Movie movie = null;
+
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -44,18 +45,18 @@ public class ProgrammaRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM Domain.Programma WHERE ProgrammaID= " + programmaID;
+            String sqlQuery = "SELECT * FROM FILM WHERE FilmID= " + filmID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
-            //lijst.add(new Domain.Programma(rs.getInt("ProgrammaID"),rs.getString("Title")));
+            //lijst.add(new Domain.Movie(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return programma;
+        return movie;
     }
 
-    public void create(Programma programma) {
+    public void create(Movie movie) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -67,9 +68,14 @@ public class ProgrammaRepository {
             // sqlConnection.executeSqlNoResult(sqlQuery);
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO Domain.Programma VALUES(" +
-                    programma.getProgrammaID()+ ", "+
-                    programma.getTitle()+
+            String sqlQuery = "INSERT INTO FILM VALUES(" +
+                    movie.getMovieID()+ ", "+
+                    movie.getMovieTitle()+ ", "+
+                    movie.getLength()+ ", "+
+                    movie.getGenre() + ", "+
+                    movie.getLanguage()+ ", "+
+                    movie.getAgeIndication()+ ", "+
+                    movie.getProgramID()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -79,12 +85,12 @@ public class ProgrammaRepository {
         }
     }
 
-    public void delete(Programma programma) {
-        if(programma == null) return;
-        delete(programma.getProgrammaID());
+    public void delete(Movie movie) {
+        if(movie == null) return;
+        delete(movie.getMovieID());
     }
 
-    public void delete(int programmaID) {
+    public void delete(int filmID) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -95,12 +101,14 @@ public class ProgrammaRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
-            String sqlQuery = "DELETE Domain.Programma WHERE ProgrammaID= " + programmaID;
+            String sqlQuery = "DELETE FILM WHERE FilmID= " + filmID;
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
         }
         catch(Exception e) {
             System.out.println(e);
+            //ted
+
         }
     }
 

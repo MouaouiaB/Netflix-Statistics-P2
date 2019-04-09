@@ -1,20 +1,18 @@
 package Domain;
 
-import Domain.Abonnement;
+public class Profile extends Account {
+    private String ProfileName;
+    private int Age;
+    private int AccountId;
 
-public class Profile extends Abonnement {
-    private String profileNaam;
-    private String geboortedatum;
-    private int abonneeID;
-
-    public Profile(int abonneeID, String abonneeNaam, String email, String wachtwoord, String straat, int huisnummer, String postcode, String abonneeWoonplaats, String profileNaam, String geboortedatum) {
-        super(abonneeID, abonneeNaam, email, wachtwoord, straat, huisnummer, postcode, abonneeWoonplaats);
-        this.profileNaam = profileNaam;
-        this.geboortedatum = geboortedatum;
+    public Profile(int AccountId, String abonneeNaam, String email, String wachtwoord, String straat, int huisnummer, String postcode, String abonneeWoonplaats, String ProfileName, int Age) {
+        super( abonneeNaam, email, wachtwoord, straat, huisnummer, postcode, abonneeWoonplaats);
+        this.ProfileName = ProfileName;
+        this.Age = Age;
     }
 
-    public String getProfileNaam() {
-        return profileNaam;
+    public String getProfileName() {
+        return ProfileName;
     }
 
     public boolean geboortedatumChecker(String geboortedatum){
@@ -24,12 +22,12 @@ public class Profile extends Abonnement {
             return false;
         }
     }
-    public String getGeboortedatum() {
-        return geboortedatum;
+    public int getAge() {
+        return Age;
     }
 
     @Override
-    public int getAbonneeID() {
-        return abonneeID;
+    public int getAccountId() {
+        return AccountId;
     }
 }

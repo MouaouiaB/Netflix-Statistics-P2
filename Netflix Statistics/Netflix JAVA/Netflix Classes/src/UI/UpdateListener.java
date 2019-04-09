@@ -19,10 +19,10 @@ public class UpdateListener extends JPanel implements IAddingTabs {
         this.SideTabs.setTabPlacement(JTabbedPane.LEFT);
         this.SideTabs.addTab("Account", this.updateItemListener = new UpdateItemListener("Account"));
         this.SideTabs.addTab("Profiel", this.updateItemListener = new UpdateItemListener("Profiel"));
-        this.SideTabs.addTab("Film", this.updateItemListener = new UpdateItemListener("Film"));
+        this.SideTabs.addTab("Movie", this.updateItemListener = new UpdateItemListener("Movie"));
         this.SideTabs.addTab("Serie", this.updateItemListener = new UpdateItemListener("Serie"));
-        this.SideTabs.addTab("Aflevering", this.updateItemListener = new UpdateItemListener("Aflevering"));
-        this.SideTabs.addTab("Programma", this.updateItemListener = new UpdateItemListener("Programma"));
+        this.SideTabs.addTab("Episode", this.updateItemListener = new UpdateItemListener("Episode"));
+        this.SideTabs.addTab("Program", this.updateItemListener = new UpdateItemListener("Program"));
 
 
         add(this.SideTabs);
