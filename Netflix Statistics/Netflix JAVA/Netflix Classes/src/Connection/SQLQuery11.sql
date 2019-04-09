@@ -9,92 +9,92 @@ USE NetflixStatistics
 /*------------------------------------*/
 
 /* Een tabel voor abonnement/ accounts */
-CREATE TABLE Abonnement(
-AbonneeID int NOT NULL PRIMARY KEY,
-AbonneeNaam nvarchar(30) NOT NULL,
+CREATE TABLE Account(
+AccountID int IDENTITY (1,1) PRIMARY KEY,
+AccountName nvarchar(30) NOT NULL,
 Email nvarchar(50) NOT NULL,
 Wachtwoord nvarchar(50) NOT NULL,
-Straat nvarchar(50) NOT NULL,             
+Straat nvarchar(50) NOT NULL,
 Huisnummer nvarchar(6) NOT NULL,
 Postcode nvarchar(7) NOT NULL,
 AbonneeWoonplaats nvarchar(50) NOT NULL
 )
 
 /* Een tabel voor profiels */
-CREATE TABLE Profiel(
-ProfileID int NOT NULL PRIMARY KEY,
-Profielnaam nvarchar(50) NOT NULL,
-AbonneeID int NOT NULL,
+CREATE TABLE Profile(
+ProfileID int IDENTITY (1,1) PRIMARY KEY,
+Profilename nvarchar(50) NOT NULL,
+AccountID int NOT NULL,
 Age int NOT NULL,
 
-CONSTRAINT Profiel_twoFK 
-	FOREIGN KEY (AbonneeID)
-	REFERENCES Abonnement(AbonneeID) ON DELETE CASCADE ON UPDATE CASCADE
+CONSTRAINT Profile_twoFK
+	FOREIGN KEY (AccountID)
+	REFERENCES Account(AccountID) ON DELETE CASCADE ON UPDATE CASCADE
 
 )
 
 
 /* Een tabel voor films */
-CREATE TABLE Film(
-FilmID int NOT NULL PRIMARY KEY,
+CREATE TABLE Movie(
+MovieID int NOT NULL PRIMARY KEY,
 Title nvarchar(50) NOT NULL,
-LeeftijdsIndicatie int NOT NULL,
-Taal nvarchar(30) NOT NULL,
-Tijdsduur int NOT NULL,
+AgeIndication int NOT NULL,
+Language nvarchar(30) NOT NULL,
+Length int NOT NULL,
 Genre nvarchar(30) NOT NULL,
 
 );
 
 /* Een tabel voor series */
 CREATE TABLE Series(
-SerieID int PRIMARY KEY, 
+SerieID int PRIMARY KEY,
 Title nvarchar(30) NOT NULL,
-Seizoenen int NOT NULL,
-LeeftijdsIndicatie int NOT NULL,
-Taal nvarchar(30) NOT NULL,
+Seasons int NOT NULL,
+AgeIndication int NOT NULL,
+Language nvarchar(30) NOT NULL,
 Genre nvarchar(30) NOT NULL,
-Lijktop nvarchar(50), 
+LooksLike nvarchar(50),
 
 
 
 );
 
 /* Een tabel voor afleveringen van series*/
-CREATE TABLE Aflevering(
-AfleveringID int NOT NULL PRIMARY KEY,
+CREATE TABLE Episode(
+EpisodeID int NOT NULL PRIMARY KEY,
 Serie nvarchar(50) NOT NULL,
 SerieID int NOT NULL,
-SeizoenEnAflevering nvarchar(20) NOT NULL,
-Title nvarchar(50) NOT NULL,	
-Tijdsduur int NOT NULL,
+SeasonAndEpisode nvarchar(20) NOT NULL,
+Title nvarchar(50) NOT NULL,
+Length int NOT NULL,
 
 CONSTRAINT Serie_TwoFK
-	FOREIGN KEY(SerieID) 
+	FOREIGN KEY(SerieID)
 	REFERENCES Series(SerieID),
 );
 
 /* Een tabel voor programma's */
-CREATE TABLE Programma(
-ProgrammaID int NOT NULL PRIMARY KEY,
+CREATE TABLE Program(
+ProgramID int NOT NULL PRIMARY KEY,
 Title nvarchar(50) NOT NULL,
-FilmID int,
+MovieID int,
 SerieID int,
-AfleveringID int,
+EpisodeID int,
 ProfileID int,
 
 
-CONSTRAINT FilmFK
-	FOREIGN KEY(FilmID)
-	REFERENCES Film (FilmID) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT MovieFK
+	FOREIGN KEY(MovieID)
+	REFERENCES Movie (MovieID) ON DELETE CASCADE ON UPDATE CASCADE,
 CONSTRAINT SerieFK
 	FOREIGN KEY(SerieID)
 	REFERENCES Series (SerieID) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT ProfielFK
+CONSTRAINT ProfileFK
 	FOREIGN KEY(ProfileID)
-	REFERENCES Profiel (ProfileID) ON DELETE CASCADE ON UPDATE CASCADE,
-CONSTRAINT AfleveringFK
-	FOREIGN KEY(AfleveringID)
-	REFERENCES Aflevering (AfleveringID) ON DELETE CASCADE ON UPDATE CASCADE,
+	REFERENCES Profile (ProfileID) ON DELETE CASCADE ON UPDATE CASCADE,
+CONSTRAINT EpisodeFK
+	FOREIGN KEY(EpisodeID)
+	REFERENCES Episode (EpisodeID) ON DELETE CASCADE ON UPDATE CASCADE,
 );
 
 /* Een tabel voor bekeken programma's */
@@ -107,13 +107,13 @@ CONSTRAINT AfleveringFK
 /*  Abonnement/ Accounts + Profiel */
 
 /* De abonnement van M. Bouhtala + proefiel ---------*/
-INSERT INTO Abonnement
-VALUES (1,'M. Bouhtala','zakelijk.mb@hotmail.com','wachtwoord','Nederbrakelstraat','55','4826 CR','Breda');
+INSERT INTO Account
+VALUES ('M. Bouhtala','zakelijk.mb@hotmail.com','wachtwoord','Nederbrakelstraat','55','4826 CR','Breda');
 
-INSERT INTO Profiel 
-VALUES 
-(11,'Mouaouia',1,21),
-(12,'Louki',1,19);
+INSERT INTO Profile
+VALUES
+('Mouaouia',1,21);
+
 
 /* ******** Programma's ******** */
 /*ProgrammaID int NOT NULL PRIMARY KEY,
@@ -123,8 +123,8 @@ SerieID int,
 AfleveringID int,
 ProfileID int,*/
 
-INSERT INTO Programma  
-VALUES 
+INSERT INTO Program
+VALUES
 /* Dit zijn alle Serie*/
 (1001, 'A Study in Pink', null, null, null,null),
 (1002, 'The Blind Banker', null, null, null,null),
@@ -189,15 +189,15 @@ VALUES
 (8017, 'A Clockwork Orange', null, null, null,null);
 
 /* ******** Series ******** */
-/*SerieID int NOT NULL PRIMARY KEY, 
+/*SerieID int NOT NULL PRIMARY KEY,
 Title nvarchar(30) NOT NULL,
 Seizoenen int NOT NULL,
 LeeftijdsIndicatie int NOT NULL,
 Genre nvarchar(30) NOT NULL,
 Taal nvarchar(30) NOT NULL,
 Lijktop nvarchar(50),  */
-INSERT INTO Series 
-VALUES 
+INSERT INTO Series
+VALUES
 (111,'Sherlock', '3',		'+12', 'Engels',			'Detective',	'Fargo'),
 (112, 'Breaking Bad', '2',	'+16', 'Engels-Amerikaans', 'Spanning',		'Fargo'),
 (113,'Fargo', '2',			'+16', 'Engels-Amerikaans', 'Spanning',		'Breaking Bad');
@@ -208,12 +208,12 @@ VALUES
 Serie nvarchar(50) NOT NULL,
 SerieID int NOT NULL,
 Title nvarchar(50) NOT NULL,
-SeizoenEnAflevering nvarchar(7) NOT NULL,	
+SeizoenEnAflevering nvarchar(7) NOT NULL,
 Tijdsduur int NOT NULL,*/
 
 
-INSERT INTO Aflevering 
-VALUES 
+INSERT INTO Episode
+VALUES
 /* Serie: "Sherlock" */
 (01001, 'Sherlock', 111, 'S01A01', 'A Study in Pink', 90),
 (01002, 'Sherlock', 111, 'S01A02', 'The Blind Banker', 90),
@@ -276,7 +276,7 @@ VALUES
 
 
 
-INSERT INTO Film 
+INSERT INTO Movie
 VALUES
 (00001, 'The Abominable Bride',	 '+12',			'Engels',				90, 'Detective'),
 (00002, 'The Life of Brian',		'+12',			'Engels',				94, 'Humor'),
