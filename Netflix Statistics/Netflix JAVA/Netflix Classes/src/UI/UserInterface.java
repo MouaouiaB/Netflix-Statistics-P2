@@ -5,7 +5,10 @@ import java.awt.*;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class UserInterface implements Runnable {
     private JFrame frame;
@@ -17,11 +20,8 @@ public class UserInterface implements Runnable {
     private OverViewListener overViewListener;
 
 
-    public UserInterface(){
-        this.addListener = new AddListener();
-        this.deleteListener = new DeleteListener();
-        this.updateListener = new UpdateListener();
-        this.overViewListener = new OverViewListener();
+    public UserInterface() throws SQLException {
+
     }
     @Override
     public void run() {
@@ -30,7 +30,11 @@ public class UserInterface implements Runnable {
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        createComponents(frame.getContentPane());
+        try {
+            createComponents(frame.getContentPane());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         frame.pack();
         frame.setVisible(true);
@@ -38,7 +42,7 @@ public class UserInterface implements Runnable {
 
     }
 
-    private void createComponents(Container contentPane) {
+    private void createComponents(Container contentPane) throws SQLException {
         contentPane.setLayout(new BorderLayout());
         this.Tabs = new JTabbedPane();
 
@@ -48,15 +52,22 @@ public class UserInterface implements Runnable {
 
         JPanel Account = new JPanel();
 
-        this.Tabs.addTab("Toevoegen",addListener);
+
+
+        this.Tabs.addTab("Toevoegen",addListener = new AddListener());
         Account.setLayout(new GridLayout(2,1,0,0));
 
 
 
-        this.Tabs.addTab("Verwijderen",deleteListener);
-        this.Tabs.addTab("Wijzigen",updateListener);
-        this.Tabs.addTab("Overzicht",overViewListener);
+        this.Tabs.addTab("Verwijderen",deleteListener = new DeleteListener());
+        this.Tabs.addTab("Wijzigen",updateListener = new UpdateListener());
+        this.Tabs.addTab("Overzicht",overViewListener = new OverViewListener());
         this.Tabs.addTab("Statestieken",null);
+
+
+
+        Account.add(Tabs);
+        contentPane.add(Account);
 
         contentPane.add(this.Tabs);
 

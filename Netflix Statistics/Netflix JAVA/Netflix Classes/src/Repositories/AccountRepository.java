@@ -9,22 +9,22 @@ import Domain.*;
 public class AccountRepository {
     private String sqlConnection;
     private SqlHandler sqlHandler;
+    private SqlConnection DBConnection;
 
-    public AccountRepository(String sqlConnection) {
-        this.sqlConnection = sqlConnection;
+    public AccountRepository() {
+
+
     }
 
     public ArrayList<Account> readAll() {
-        Connection connection = null;
         ResultSet resultSet = null;
-        Statement statement = null;
 
         ArrayList<Account> lijst = new ArrayList<>();
         try {
 
-            resultSet = statement.executeQuery("SELECT * FROM Account");
+            resultSet = DBConnection.sqlHandler.executeSql("SELECT * FROM Account");
             while(resultSet.next()) {
-                //lijst.add(new Domain.Account(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber")));
+                lijst.add(new Domain.Account(resultSet.getString("AccountName"),resultSet.getString("Email"), resultSet.getString("Wachtwoord"),  resultSet.getString("Straat"), resultSet.getInt("Huisnummer"), resultSet.getString("Postcode"), resultSet.getString("AbonneeWoonplaats")));
             }
         }
         catch(Exception e) {
@@ -56,7 +56,7 @@ public class AccountRepository {
         return account;
     }
 
-    public void create(Account account) {
+    public boolean create(Account account) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
@@ -67,24 +67,25 @@ public class AccountRepository {
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
             // sqlConnection.executeSqlNoResult(sqlQuery);
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO ABONNEMENT VALUES(" +
-                    account.getAccountId()+ ", "+
-                    account.getAccountName()+ ", "+
-                    account.getEmail()+ ", "+
-                    account.getPassword() + ", "+
-                    account.getStreet()+ ", "+
-                    account.getHouseNumber()+ ", "+
-                    account.getZipCode()+ ", "+
+
+            //statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO Account VALUES('" +
+                    account.getAccountName()+ "',' "+
+                    account.getEmail()+ "',' "+
+                    account.getPassword() + "',' "+
+                    account.getStreet()+ "',' "+
+                    account.getHouseNumber()+ "',' "+
+                    account.getZipCode()+ "',' "+
                     account.getCity()+
-                    ")";
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+                    "')";
+            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
             System.out.println(e);
         }
+
+        return false;
     }
 
     public void delete(Account account) {

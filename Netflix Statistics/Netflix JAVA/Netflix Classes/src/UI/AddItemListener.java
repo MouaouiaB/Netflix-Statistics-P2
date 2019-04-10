@@ -1,8 +1,13 @@
 package UI;
 
+import Domain.Account;
+import Repositories.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddItemListener extends JPanel {
 
@@ -106,9 +111,18 @@ public class AddItemListener extends JPanel {
     private JTextField textProgProfId;
     private JButton BtnProg;
     /////////////////////////////////////////////
+    //Repositories
+    AccountRepository accountRepository;
+    EpisodeRepository episodeRepository;
+    MovieRepository movieRepository;
+    ProfileRepository profileRepository;
+    ProgramRepository programRepository;
+    SerieRepository serieRepository;
 
     public AddItemListener(String tabName){
         super(new BorderLayout());
+        this.accountRepository = new AccountRepository();
+        this.episodeRepository = new EpisodeRepository();
         LoadComponents(tabName);
     }
 
@@ -191,6 +205,17 @@ public class AddItemListener extends JPanel {
             BtnAcc = new JButton("Opslaan");
             BtnAcc.setBounds(322, 320, 116, 25);
             add(BtnAcc);
+
+
+            /*String number = textStrNumber.getText();
+            int housenumber = Integer.parseInt(number);*/
+
+            BtnAcc.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    accountRepository.create(new Account(textName.getText(), textMail.getText(), textPasswd.getText(), textStreet.getText(),Integer.parseInt(textStrNumber.getText()),textZip.getText(), textCity.getText()));
+                }
+            });
 
 
             table.setBounds(75, 200, 700, 600);

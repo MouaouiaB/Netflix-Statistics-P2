@@ -2,14 +2,17 @@ package Repositories;
 
 import java.sql.*;
 import java.util.*;
+import Connection.*;
+import Domain.*;
 
 import Domain.Episode;
 
 public class EpisodeRepository {
     private String sqlConnection;
+    private SqlHandler sqlHandler;
 
-    public EpisodeRepository(String sqlConnection) {
-        this.sqlConnection = sqlConnection;
+    public EpisodeRepository() {
+        this.sqlHandler = new SqlHandler();
     }
 
     public ArrayList<Episode> readAll() {
