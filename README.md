@@ -4,7 +4,7 @@ https://github.com/MouaouiaB/Netflix-Statistics-P2
 ## Groepsleden:
 * Mouaouia Bouhtala
 * Ayman Bouhazzaoui 
-* Rick Basting
+* Rick Basting (gestopt)
 
 ## Installeren van database:
 Netflix Statistics --> Netflix Database --> SQLQuery1.sql 
