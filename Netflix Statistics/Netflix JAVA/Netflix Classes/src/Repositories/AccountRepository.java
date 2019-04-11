@@ -5,6 +5,8 @@ import java.util.*;
 import Connection.*;
 import Domain.*;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 
 public class AccountRepository {
     private String sqlConnection;
@@ -16,21 +18,34 @@ public class AccountRepository {
 
     }
 
-    public ArrayList<Account> readAll() {
+    public ResultSet readAll() {
         ResultSet resultSet = null;
 
         ArrayList<Account> lijst = new ArrayList<>();
         try {
 
-            resultSet = DBConnection.sqlHandler.executeSql("SELECT * FROM Account");
-            while(resultSet.next()) {
-                lijst.add(new Domain.Account(resultSet.getString("AccountName"),resultSet.getString("Email"), resultSet.getString("Wachtwoord"),  resultSet.getString("Straat"), resultSet.getInt("Huisnummer"), resultSet.getString("Postcode"), resultSet.getString("AbonneeWoonplaats")));
+            return DBConnection.sqlHandler.executeSql("SELECT * FROM Account");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return resultSet;
+    }
+
+    public int readIdWithName (String name){
+        int accountId = 0;
+        try
+        {
+            String sqlQuery = "SELECT AccountID FROM Account WHERE AccountName = '" + name + "'";
+            ResultSet rs = DBConnection.sqlHandler.executeSql(sqlQuery);
+            while(rs.next()) {
+                accountId = rs.getInt("AccountID");
             }
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return lijst;
+        return accountId;
     }
 
     public Account read(int id) {
@@ -78,6 +93,7 @@ public class AccountRepository {
                     account.getZipCode()+ "',' "+
                     account.getCity()+
                     "')";
+            showMessageDialog(null, "Account succesvol toegevoegd");
             return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }

@@ -44,32 +44,28 @@ public class UserInterface implements Runnable {
 
     private void createComponents(Container contentPane) throws SQLException {
         contentPane.setLayout(new BorderLayout());
+
+        addListener = new AddListener();
+        deleteListener = new DeleteListener();
+        updateListener = new UpdateListener();
+        overViewListener = new OverViewListener();
         this.Tabs = new JTabbedPane();
 
         this.Tabs.setFont(new Font("Overview", Font.BOLD|Font.BOLD, 20 ));
 
+        JPanel panel = new JPanel();
 
-
-        JPanel Account = new JPanel();
-
-
-
-        this.Tabs.addTab("Toevoegen",addListener = new AddListener());
-        Account.setLayout(new GridLayout(2,1,0,0));
-
-
-
-        this.Tabs.addTab("Verwijderen",deleteListener = new DeleteListener());
-        this.Tabs.addTab("Wijzigen",updateListener = new UpdateListener());
-        this.Tabs.addTab("Overzicht",overViewListener = new OverViewListener());
+        this.Tabs.addTab("Toevoegen",addListener);
+        this.Tabs.addTab("Verwijderen",deleteListener);
+        this.Tabs.addTab("Wijzigen",updateListener);
+        this.Tabs.addTab("Overzicht",overViewListener);
         this.Tabs.addTab("Statestieken",null);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
+        panel.add(Tabs);
+        contentPane.add(panel);
 
-
-        Account.add(Tabs);
-        contentPane.add(Account);
-
-        contentPane.add(this.Tabs);
+        //contentPane.add(this.Tabs);
 
 
 

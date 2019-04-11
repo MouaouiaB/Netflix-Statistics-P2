@@ -2,35 +2,31 @@ package Repositories;
 
 import java.sql.*;
 import java.util.*;
+import Connection.*;
+import Domain.*;
 
 import Domain.Program;
 
 public class ProgramRepository {
     private String sqlConnection;
+    private SqlConnection dbConnection;
+    private SqlHandler sqlHandler;
 
-    public ProgramRepository(String sqlConnection) {
+    public ProgramRepository() {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Program> readAll() {
-        Connection connection = null;
+    public ResultSet readAll() {
         ResultSet resultSet = null;
-        Statement statement = null;
-
-        ArrayList<Program> lijst = new ArrayList<>();
         try {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Domain.Program");
-            while(resultSet.next()) {
-                //lijst.add(new Domain.Program(rs.getInt("ProgrammaID"),rs.getString("Title")));
-            }
+            return dbConnection.sqlHandler.executeSql("SELECT * FROM Program");
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return lijst;
+        return resultSet;
     }
+
 
     public Program read(int programmaID) {
         Program program = null;
@@ -68,8 +64,8 @@ public class ProgramRepository {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Domain.Program VALUES(" +
-                    program.getProgramID()+ ", "+
-                    program.getMovieTitle()+
+                    program.getProgramId()+ ", "+
+                    program.getTitle()+
                     ")";
             resultSet = statement.executeQuery(sqlQuery);
             resultSet.next();
@@ -81,7 +77,7 @@ public class ProgramRepository {
 
     public void delete(Program program) {
         if(program == null) return;
-        delete(program.getProgramID());
+        delete(program.getProgramId());
     }
 
     public void delete(int programmaID) {

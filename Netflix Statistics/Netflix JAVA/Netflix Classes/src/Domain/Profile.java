@@ -1,33 +1,50 @@
 package Domain;
 
-public class Profile extends Account {
+import java.util.Date;
+
+public class Profile  {
+    private int ProfileId;
     private String ProfileName;
     private int Age;
-    private int AccountId;
+    private String name;
 
-    public Profile(int AccountId, String abonneeNaam, String email, String wachtwoord, String straat, int huisnummer, String postcode, String abonneeWoonplaats, String ProfileName, int Age) {
-        super( abonneeNaam, email, wachtwoord, straat, huisnummer, postcode, abonneeWoonplaats);
-        this.ProfileName = ProfileName;
+    public Profile(String profileName, String name, int Age) {
+
+        this.ProfileName = profileName;
         this.Age = Age;
+        this.name = name;
+
+    }
+
+    public int getProfileId() {
+        return ProfileId;
+    }
+
+    public void setProfileId(int profileId) {
+        ProfileId = profileId;
     }
 
     public String getProfileName() {
         return ProfileName;
     }
 
-    public boolean geboortedatumChecker(String geboortedatum){
-        if (geboortedatum.matches("\t\n" + "^(([1-9])|(0[1-9])|(1[0-2]))\\/((0[1-9])|([1-31]))\\/((\\d{2})|(\\d{4}))$") ){
-            return true;
-        }else{
-            return false;
-        }
+    public void setProfileName(String profileName) {
+        ProfileName = profileName;
     }
-    public int getAge() {
+
+    public int getBirthDate() {
         return Age;
     }
 
-    @Override
-    public int getAccountId() {
-        return AccountId;
+    public void setBirthDate(int Age) {
+        this.Age = Age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

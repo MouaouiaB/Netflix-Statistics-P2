@@ -1,17 +1,17 @@
 package Domain;
 
-public class Episode extends Program {
+public class Episode {
     private int EpisodeID;
     private String SerieName;
     private String Title;
-    private int ProgramID;
+    private int SerieId;
     private String SeasonAndEpisode;
-    private double Lengthe;
+    private int Lengthe;
 
-    public Episode(int ProgramID, String title, int EpisodeID, String SerieName, String title1, int programID1, String SeasonAndEpisode, double Lengthe) {
-        super(ProgramID, title);
-        this.EpisodeID = EpisodeID;
+    public Episode(String SerieName,  String title, String SeasonAndEpisode, int Lengthe) {
+
         this.SerieName = SerieName;
+        this.Title = title;
         this.SeasonAndEpisode = SeasonAndEpisode;
         this.Lengthe = Lengthe;
     }
@@ -20,26 +20,48 @@ public class Episode extends Program {
         return EpisodeID;
     }
 
+    public void setEpisodeID(int episodeID) {
+        EpisodeID = episodeID;
+    }
+
     public String getSerieName() {
         return SerieName;
     }
 
-    @Override
-    public String getMovieTitle() {
+    public void setSerieName(String serieName) {
+        SerieName = serieName;
+    }
+
+    public String getTitle() {
         return Title;
     }
 
-    @Override
-    public int getProgramID() {
-        return ProgramID;
+    public void setTitle(String title) {
+        Title = title;
+    }
+
+    public int getSerieId() {
+        return SerieId;
+    }
+
+    public void setSerieId(int serieId) {
+        SerieId = serieId;
     }
 
     public String getSeasonAndEpisode() {
         return SeasonAndEpisode;
     }
 
-    public double getLengthe() {
+    public void setSeasonAndEpisode(String seasonAndEpisode) {
+        SeasonAndEpisode = seasonAndEpisode;
+    }
+
+    public int getLengthe() {
         return Lengthe;
+    }
+
+    public void setLengthe(int lengthe) {
+        Lengthe = lengthe;
     }
 }
 

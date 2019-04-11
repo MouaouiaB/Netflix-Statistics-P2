@@ -1,35 +1,31 @@
 package Repositories;
 
-import Domain.Movie;
-
 import java.sql.*;
 import java.util.*;
+import Connection.*;
+import Domain.*;
 
 public class MovieRepository {
+    private SqlHandler sqlHandler;
+    private SqlConnection DBConnection;
     private String sqlConnection;
 
-    public MovieRepository(String sqlConnection) {
+    public MovieRepository() {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Movie> readAll() {
-        Connection connection = null;
+    public ResultSet readAll() {
         ResultSet resultSet = null;
-        Statement statement = null;
 
-        ArrayList<Movie> lijst = new ArrayList<>();
+        ArrayList<Account> lijst = new ArrayList<>();
         try {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM FILM");
-            while(resultSet.next()) {
-                //lijst.add(new Domain.Movie(rs.getInt("FilmID"),rs.getString("Title"), rs.getString("Tijdsduur"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Leeftijds Indicatie"), rs.getString("ProgrammaID")));
-            }
+
+            return DBConnection.sqlHandler.executeSql("SELECT * FROM Movie");
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return lijst;
+        return resultSet;
     }
 
     public Movie read(int filmID) {

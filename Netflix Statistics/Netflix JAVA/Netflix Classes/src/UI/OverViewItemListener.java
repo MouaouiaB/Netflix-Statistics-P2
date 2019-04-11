@@ -2,6 +2,7 @@ package UI;
 
 import Connection.SqlConnection;
 import Connection.SqlHandler;
+import Repositories.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -13,32 +14,104 @@ import java.sql.*;
 import java.util.Vector;
 
 
+
 public class OverViewItemListener extends JPanel {
 
 
     private SqlConnection sqlConnection = new SqlConnection();
     private JTable table;
+    private JScrollPane scrollPane;
     private String name;
 
+    private AccountRepository accountRepository = new AccountRepository();
+    private ProfileRepository profileRepository = new ProfileRepository();
+    private EpisodeRepository episodeRepository =  new EpisodeRepository();
+    private SerieRepository serieRepository = new SerieRepository();
+    private ProgramRepository programRepository = new ProgramRepository();
+    private MovieRepository movieRepository = new MovieRepository();
 
 
-    public OverViewItemListener(String tabName) throws SQLException {
+    public OverViewItemListener(String name) throws SQLException {
         super(new BorderLayout());
-        LoadComponents(tabName);
+
+        //this.name = tabName;
+        LoadComponents(name);
     }
 
     public void LoadComponents(String tabName) throws SQLException {
         if (tabName == "Account"){
-            ResultSet rs = sqlConnection.sqlHandler.executeSql("SELECT * FROM Account");
+            ResultSet rs = accountRepository.readAll();
+
             table = new JTable(buildTableModel(rs));
+            scrollPane = new JScrollPane(table);
 
 
 
             // Closes the Connection
             //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            add(scrollPane);
             add(table);
 
+
         }
+        if (tabName == "Profile"){
+            ResultSet rs = profileRepository.readAll();
+            table = new JTable(buildTableModel(rs));
+            scrollPane = new JScrollPane(table);
+
+
+
+            // Closes the Connection
+            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            add(scrollPane);
+            add(table);
+        }
+
+        if (tabName == "Film"){
+            ResultSet rs = movieRepository.readAll();
+            table = new JTable(buildTableModel(rs));
+            scrollPane = new JScrollPane(table);
+
+            // Closes the Connection
+            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            add(scrollPane);
+            add(table);
+        }
+
+        if (tabName == "Serie"){
+            ResultSet rs = serieRepository.readAll();
+            table = new JTable(buildTableModel(rs));
+            scrollPane = new JScrollPane(table);
+
+            // Closes the Connection
+            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            add(scrollPane);
+            add(table);
+        }
+
+        if (tabName == "Aflevering"){
+            ResultSet rs = episodeRepository.readAll();
+            table = new JTable(buildTableModel(rs));
+            scrollPane = new JScrollPane(table);
+
+            // Closes the Connection
+            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            add(scrollPane);
+            add(table);
+        }
+
+        if (tabName == "Program"){
+            ResultSet rs = programRepository.readAll();
+            table = new JTable(buildTableModel(rs));
+            scrollPane = new JScrollPane(table);
+
+            // Closes the Connection
+            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            add(scrollPane);
+            add(table);
+        }
+
+
 
     }
 
@@ -68,6 +141,11 @@ public class OverViewItemListener extends JPanel {
         return table;
 
     }
+
+    public JTable getTable() {
+        return table;
+    }
+
 
 
 }

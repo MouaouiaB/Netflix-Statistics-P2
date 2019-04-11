@@ -8,31 +8,26 @@ import Domain.*;
 import Domain.Episode;
 
 public class EpisodeRepository {
-    private String sqlConnection;
     private SqlHandler sqlHandler;
+    private SqlConnection DBConnection;
+    private String sqlConnection;
 
     public EpisodeRepository() {
         this.sqlHandler = new SqlHandler();
     }
 
-    public ArrayList<Episode> readAll() {
-        Connection connection = null;
+    public ResultSet readAll() {
         ResultSet resultSet = null;
-        Statement statement = null;
 
-        ArrayList<Episode> lijst = new ArrayList<>();
+        ArrayList<Account> lijst = new ArrayList<>();
         try {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM AFLEVERING");
-            while(resultSet.next()) {
-                //lijst.add(new Repositories.EpisodeRepository(rs.getInt("AfleveringID"),rs.getString("Domain.Serie"), rs.getString("ProgrammaID"), rs.getString("Title"), rs.getString("Seizoen en aflevering"), rs.getString("Tijdsduur")));
-            }
+
+            return DBConnection.sqlHandler.executeSql("SELECT * FROM Episode");
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return lijst;
+        return resultSet;
     }
 
     public Episode read(int AfleveringID) {
@@ -78,8 +73,8 @@ public class EpisodeRepository {
             String sqlQuery = "INSERT INTO AFLEVERING VALUES(" +
                     episode.getEpisodeID()+ ", "+
                     episode.getSerieName()+ ", "+
-                    episode.getMovieTitle()+ ", "+
-                    episode.getProgramID() + ", "+
+                    episode.getSerieName()+ ", "+
+
                     episode.getSeasonAndEpisode()+ ", "+
                     episode.getLengthe()+
                     ")";
