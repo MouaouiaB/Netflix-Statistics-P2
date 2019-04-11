@@ -2,34 +2,29 @@ package Repositories;
 
 import java.sql.*;
 import java.util.*;
+import Connection.*;
+import Domain.*;
 
 import Domain.Serie;
 
 public class SerieRepository {
     private String sqlConnection;
+    private SqlConnection dbConnection;
+    private SqlHandler sqlHandler;
 
-    public SerieRepository(String sqlConnection) {
+    public SerieRepository() {
         this.sqlConnection = sqlConnection;
     }
 
-    public ArrayList<Serie> readAll() {
-        Connection connection = null;
+    public ResultSet readAll() {
         ResultSet resultSet = null;
-        Statement statement = null;
-
-        ArrayList<Serie> lijst = new ArrayList<>();
         try {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Domain.Serie");
-            while(resultSet.next()) {
-                //lijst.add(new Domain.Serie(rs.getString("Title"), rs.getString("Genre"), rs.getString("Taal"), rs.getString("Seizoen"), rs.getString("Leeftijds Indicatie"), rs.getString("Lijktop"), rs.getString("ProgrammaID")));
-            }
+            return dbConnection.sqlHandler.executeSql("SELECT * FROM Series");
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return lijst;
+        return resultSet;
     }
 
     public Serie read(int ProgrammaID) {
@@ -65,8 +60,8 @@ public class SerieRepository {
             connection = DriverManager.getConnection(sqlConnection);
             statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Domain.Serie VALUES(" +
-                    serie.getProgramID()+ ", "+
-                    serie.getMovieTitle()+ ", "+
+                    serie.getSerieId()+ ", "+
+                    serie.getSerieTitle()+ ", "+
                     serie.getGenre() + ", "+
                     serie.getLanguage()+ ", "+
                     serie.getSeasons()+ ", "+
@@ -86,7 +81,7 @@ public class SerieRepository {
 
     public void delete(Serie serie) {
         if(serie == null) return;
-        delete(serie.getProgramID());
+        delete(serie.getSerieId());
     }
 
     public void delete(int programmaID) {

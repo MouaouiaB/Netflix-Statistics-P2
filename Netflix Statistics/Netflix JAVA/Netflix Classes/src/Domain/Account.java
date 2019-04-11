@@ -6,11 +6,11 @@ public class Account {
     private String Email;
     private String Password;
     private String Street;
-    private int HouseNumber;
+    private String HouseNumber;
     private String ZipCode;
     private String City;
 
-    public Account(String AccountName, String Email, String Password, String Street, int HouseNumber, String ZipCode, String City) {
+    public Account(String AccountName, String Email, String Password, String Street, String HouseNumber, String ZipCode, String City) {
         this.AccountName = AccountName;
         this.Email = Email;
         this.Password = Password;
@@ -22,6 +22,10 @@ public class Account {
 
     public int getAccountId() {
         return this.AccountID;
+    }
+
+    public void setAccountID(int accountID) {
+        AccountID = accountID;
     }
 
     public String getAccountName() {
@@ -48,7 +52,7 @@ public class Account {
         return Street;
     }
 
-    public int getHouseNumber() {
+    public String getHouseNumber() {
         return HouseNumber;
     }
 
@@ -67,4 +71,5 @@ public class Account {
     public String getCity() {
         return City;
     }
+
 }

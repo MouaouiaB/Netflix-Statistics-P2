@@ -1,6 +1,7 @@
 package UI;
 
 import Domain.Account;
+import Domain.Profile;
 import Repositories.*;
 
 import javax.swing.*;
@@ -8,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class AddItemListener extends JPanel {
 
@@ -34,12 +38,12 @@ public class AddItemListener extends JPanel {
     private JButton BtnAcc;
     /////////////////////////////////
     //Profile settings
-    private JTextField textProfId;
+    private JTextField textProfAcc;
     private JTextField textProfName;
     private JTextField textProfAccId;
     private JTextField textProfAge;
 
-    private JLabel labelProfId;
+    private JLabel labelProfAcc;
     private JLabel labelProfName;
     private JLabel labelProfAccId;
     private JLabel labelProfAge;
@@ -123,6 +127,7 @@ public class AddItemListener extends JPanel {
         super(new BorderLayout());
         this.accountRepository = new AccountRepository();
         this.episodeRepository = new EpisodeRepository();
+        this.profileRepository = new ProfileRepository();
         LoadComponents(tabName);
     }
 
@@ -213,12 +218,19 @@ public class AddItemListener extends JPanel {
             BtnAcc.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    accountRepository.create(new Account(textName.getText(), textMail.getText(), textPasswd.getText(), textStreet.getText(),Integer.parseInt(textStrNumber.getText()),textZip.getText(), textCity.getText()));
+                    accountRepository.create(new Account(textName.getText(), textMail.getText(), textPasswd.getText(), textStreet.getText(),textStrNumber.getText(),textZip.getText(), textCity.getText()));
+                    textName.setText("");
+                    textMail.setText("");
+                    textPasswd.setText("");
+                    textStreet.setText("");
+                    textStrNumber.setText("");
+                    textZip.setText("");
+                    textCity.setText("");
                 }
             });
 
 
-            table.setBounds(75, 200, 700, 600);
+
 
 
 
@@ -226,46 +238,51 @@ public class AddItemListener extends JPanel {
         }
         if (tabName == "Profiel"){
 
-
-            labelProfId = new JLabel("Profiel ID:");
-            labelProfId.setBounds(12, 24, 100, 16);
-            add(labelProfId);
-
-            textProfId = new JTextField();
-            textName.setColumns(20);
-            textName.setBounds(111, 21, 300, 22);
-            add(textName);
-
             labelProfName = new JLabel("Profielnaam:");
-            labelProfName.setBounds(12, 64, 100, 16);
+            labelProfName.setBounds(12, 24, 100, 16);
             add(labelProfName);
 
             textProfName = new JTextField();
             textProfName.setColumns(20);
-            textProfName.setBounds(111, 64, 300, 22);
+            textProfName.setBounds(201, 21, 300, 22);
             add(textProfName);
 
-            labelProfAccId = new JLabel("Abonnee ID:");
-            labelProfAccId.setBounds(12, 107, 100, 16);
-            add(labelProfAccId);
-
-            textProfAccId =  new JTextField();
-            textProfAccId.setColumns(20);
-            textProfAccId.setBounds(111, 107, 300, 22);
-            add(textProfAccId);
 
             labelProfAge = new JLabel("Leeftijd:");
-            labelProfAge.setBounds(12, 150, 100, 16);
+            labelProfAge.setBounds(12, 107, 300, 16);
             add(labelProfAge);
+
 
             textProfAge = new JTextField();
             textProfAge.setColumns(20);
-            textProfAge.setBounds(111, 150, 300, 22);
+            textProfAge.setBounds(201, 107, 300, 22);
             add(textProfAge);
+
+            labelProfAcc = new JLabel("Account:");
+            labelProfAcc.setBounds(12, 190, 100, 16);
+            add(labelProfAcc);
+
+            textProfAcc = new JTextField();
+            textProfAcc.setColumns(20);
+            textProfAcc.setBounds(201, 190, 300, 22);
+            add(textProfAcc);
+
+
 
             BtnProf = new JButton("Opslaan");
             BtnProf.setBounds(322, 320, 116, 25);
             add(BtnProf);
+
+            BtnProf.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    profileRepository.create(new Profile(textProfName.getText(),textProfAcc.getText(), Integer.parseInt(textProfAge.getText())));
+
+
+
+                }
+            });
         }
 
         if (tabName == "Movie"){

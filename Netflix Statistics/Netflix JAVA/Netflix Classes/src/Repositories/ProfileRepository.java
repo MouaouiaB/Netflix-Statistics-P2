@@ -1,35 +1,32 @@
 package Repositories;
 
-import Domain.Profile;
-
 import java.sql.*;
 import java.util.*;
+import Connection.*;
+import Domain.*;
+
+import static javax.swing.JOptionPane.showMessageDialog;
 
 public class ProfileRepository {
     private String sqlConnection;
+    private SqlConnection dbConnection;
+    private SqlHandler sqlHandler;
+    private AccountRepository accountRepository = new AccountRepository();
 
-    public ProfileRepository(String sqlConnection) {
-        this.sqlConnection = sqlConnection;
+
+    public ProfileRepository() {
+
     }
 
-    public ArrayList<Profile> readAll() {
-        Connection connection = null;
+    public ResultSet readAll() {
         ResultSet resultSet = null;
-        Statement statement = null;
-
-        ArrayList<Profile> lijst = new ArrayList<>();
         try {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM Profiel");
-            while(resultSet.next()) {
-                //lijst.add(new Domain.Profile(rs.getString("Domain.Profile naam"), rs.getString("Geboortedatum"), rs.getString("AbonneeID")));
-            }
+            return dbConnection.sqlHandler.executeSql("SELECT * FROM Profile");
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return lijst;
+        return resultSet;
     }
 
     public Profile read(int abonneeID) {
@@ -56,34 +53,30 @@ public class ProfileRepository {
         return profile;
     }
 
-    public void create(Profile profile) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
+    public boolean create(Profile profile) {
+        int id  = accountRepository.readIdWithName(profile.getName());
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO Profiel VALUES(" +
-                    profile.getProfileName()+ ", "+
-                    profile.getAge()+ ", "+
-                    profile.getAccountId()+
+            String sqlQuery = "INSERT INTO Profile VALUES('" +
+                    profile.getProfileName()+ "', "+ id + ", "+ profile.getBirthDate()+
                     ")";
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            //System.out.println(sqlQuery);
+            showMessageDialog(null, "Toevoegen van een profiel is gelukt");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
             System.out.println(e);
         }
+        return false;
     }
 
     public void delete(Profile profile) {
         if(profile == null) return;
-        delete(profile.getAccountId());
+        delete(profile.getProfileId());
     }
 
     public void delete(int abonneeID) {
