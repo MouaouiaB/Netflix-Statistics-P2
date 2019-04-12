@@ -7,7 +7,7 @@ https://github.com/MouaouiaB/Netflix-Statistics-P2
 * Rick Basting (gestopt)
 
 ## Installeren van database:
-Netflix Statistics --> Netflix Database --> SQLQuery1.sql 
+Netflix Statistics --> Netflix Database --> SQLQuery11.sql 
 - De SQLQuery1.sql moet gedowload worden.
 
 ## Installeren van de Applicatie:
