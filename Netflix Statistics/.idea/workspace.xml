@@ -30,16 +30,16 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="15" />
-          <entry key="sql" value="2" />
-          <entry key="uml" value="3" />
+          <entry key="java" value="24" />
+          <entry key="sql" value="3" />
+          <entry key="uml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="15" />
-          <entry key="SQL" value="2" />
-          <entry key="UML" value="3" />
+          <entry key="JAVA" value="24" />
+          <entry key="SQL" value="3" />
+          <entry key="UML" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -47,372 +47,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UML/UMLDiagram.uml">
-          <provider selected="true" editor-type-id="UmlEditorProvider">
-            <state>
-              <ID>JAVA</ID>
-              <OriginalElement />
-              <nodes>
-                <node x="629.2016047572502" y="0.0">Connection.SqlHandler</node>
-                <node x="804.7389703486479" y="539.0">Domain.Movie</node>
-                <node x="121.86397034864785" y="539.0">Domain.Serie</node>
-                <node x="939.0584738514174" y="832.0">Repositories.ProfileRepository</node>
-                <node x="482.3639703486478" y="307.5">Connection.SqlConnection</node>
-                <node x="656.3014703486479" y="1438.0">UI.UserInterface</node>
-                <node x="1277.7389703486479" y="197.0">Domain.Account</node>
-                <node x="89.67647034864785" y="1193.5">UI.UpdateItemListener</node>
-                <node x="307.3639703486478" y="561.0">Domain.Program</node>
-                <node x="184.92647034864785" y="1317.0">UI.UpdateListener</node>
-                <node x="629.5931370153145" y="832.0">Repositories.MovieRepository</node>
-                <node x="1322.7389703486479" y="832.0">Repositories.EpisodeRepository</node>
-                <node x="967.7389703486479" y="550.0">Repositories.AccountRepository</node>
-                <node x="848.6764703486479" y="1317.0">UI.DeleteListener</node>
-                <node x="380.8639703486478" y="832.0">Repositories.ProgramRepository</node>
-                <node x="610.9264703486479" y="1317.0">UI.OverViewListener</node>
-                <node x="354.9264703486478" y="1317.0">UI.StatisticsListener</node>
-                <node x="524.9264703486479" y="1171.0">UI.OverViewItemListener</node>
-                <node x="1113.9264703486479" y="1193.5">UI.AddItemListener</node>
-                <node x="866.9264703486479" y="1193.5">UI.DeleteItemListener</node>
-                <node x="1578.945075757576" y="572.0">Domain.Profile</node>
-                <node x="1152.4264703486479" y="1317.0">UI.AddListener</node>
-                <node x="390.73897034864785" y="1561.0">Main</node>
-                <node x="1203.7389703486479" y="550.0">Domain.Episode</node>
-                <node x="354.9264703486478" y="1193.5">UI.IAddingTabs</node>
-                <node x="109.36397034864785" y="832.0">Repositories.SerieRepository</node>
-              </nodes>
-              <notes />
-              <edges>
-                <edge source="Repositories.MovieRepository" target="Domain.Account">
-                  <point x="21.125" y="-69.5" />
-                  <point x="735.2181370153145" y="812.0" />
-                  <point x="719.5931370153145" y="812.0" />
-                  <point x="719.5931370153145" y="509.0" />
-                  <point x="1308.4889703486479" y="509.0" />
-                  <point x="-92.25" y="136.0" />
-                </edge>
-                <edge source="UI.UserInterface" target="UI.OverViewListener">
-                  <point x="-47.625" y="-36.5" />
-                  <point x="735.6764703486479" y="1398.0" />
-                  <point x="648.4264703486479" y="1398.0" />
-                  <point x="-37.5" y="25.5" />
-                </edge>
-                <edge source="Repositories.MovieRepository" target="Connection.SqlHandler">
-                  <point x="-21.125" y="-69.5" />
-                  <point x="692.9681370153145" y="812.0" />
-                  <point x="708.5931370153145" y="812.0" />
-                  <point x="708.5931370153145" y="177.0" />
-                  <point x="759.2016047572502" y="177.0" />
-                  <point x="0.0" y="58.5" />
-                </edge>
-                <edge source="Repositories.ProfileRepository" target="Repositories.AccountRepository">
-                  <point x="-38.200000000000045" y="-69.5" />
-                  <point x="996.3584738514173" y="772.0" />
-                  <point x="1057.3223036819813" y="772.0" />
-                  <point x="-17.91666666666663" y="80.5" />
-                </edge>
-                <edge source="Repositories.EpisodeRepository" target="Domain.Episode">
-                  <point x="-71.59999999999991" y="-69.5" />
-                  <point x="1340.638970348648" y="792.0" />
-                  <point x="1297.2389703486479" y="792.0" />
-                  <point x="0.0" y="80.5" />
-                </edge>
-                <edge source="UI.StatisticsListener" target="UI.IAddingTabs">
-                  <point x="0.0" y="-25.5" />
-                  <point x="0.0" y="25.5" />
-                </edge>
-                <edge source="UI.UserInterface" target="UI.UpdateListener">
-                  <point x="-111.125" y="-36.5" />
-                  <point x="672.1764703486479" y="1418.0" />
-                  <point x="222.42647034864785" y="1418.0" />
-                  <point x="-37.5" y="25.5" />
-                </edge>
-                <edge source="Main" target="UI.UserInterface">
-                  <point x="42.0" y="-25.5" />
-                  <point x="516.7389703486479" y="1536.0" />
-                  <point x="783.3014703486479" y="1536.0" />
-                  <point x="0.0" y="36.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Domain.Profile">
-                  <point x="103.18181818181824" y="-25.5" />
-                  <point x="1330.608288530466" y="1151.0" />
-                  <point x="1694.445075757576" y="1151.0" />
-                  <point x="38.5" y="58.5" />
-                </edge>
-                <edge source="Connection.SqlConnection" target="Connection.SqlHandler">
-                  <point x="-48.75" y="-25.5" />
-                  <point x="531.1139703486479" y="157.0" />
-                  <point x="701.4238269794723" y="157.0" />
-                  <point x="-57.77777777777783" y="58.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Repositories.EpisodeRepository">
-                  <point x="126.5" y="-48.0" />
-                  <point x="812.4264703486479" y="1101.0" />
-                  <point x="1345.1139703486479" y="1101.0" />
-                  <point x="-67.125" y="69.5" />
-                </edge>
-                <edge source="Repositories.ProfileRepository" target="Connection.SqlHandler">
-                  <point x="38.200000000000045" y="-69.5" />
-                  <point x="1072.7584738514174" y="792.0" />
-                  <point x="1193.2389703486479" y="792.0" />
-                  <point x="1193.2389703486479" y="167.0" />
-                  <point x="816.979382535028" y="167.0" />
-                  <point x="57.77777777777783" y="58.5" />
-                </edge>
-                <edge source="Repositories.EpisodeRepository" target="Connection.SqlConnection">
-                  <point x="-35.799999999999955" y="-69.5" />
-                  <point x="1376.438970348648" y="792.0" />
-                  <point x="1401.2389703486479" y="792.0" />
-                  <point x="1401.2389703486479" y="489.0" />
-                  <point x="666.5306370153146" y="489.0" />
-                  <point x="86.66666666666674" y="25.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Repositories.ProfileRepository">
-                  <point x="-20.636363636363512" y="-25.5" />
-                  <point x="1206.7901067122843" y="1011.0" />
-                  <point x="1106.1834738514174" y="1011.0" />
-                  <point x="71.625" y="69.5" />
-                </edge>
-                <edge source="UI.UserInterface" target="UI.AddListener">
-                  <point x="111.125" y="-36.5" />
-                  <point x="894.4264703486479" y="1418.0" />
-                  <point x="1264.9264703486479" y="1418.0" />
-                  <point x="37.5" y="25.5" />
-                </edge>
-                <edge source="Repositories.ProfileRepository" target="Connection.SqlConnection">
-                  <point x="-76.39999999999998" y="-69.5" />
-                  <point x="958.1584738514175" y="742.0" />
-                  <point x="612.5306370153146" y="742.0" />
-                  <point x="612.5306370153146" y="519.0" />
-                  <point x="623.1973036819811" y="519.0" />
-                  <point x="43.33333333333337" y="25.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Repositories.ProgramRepository">
-                  <point x="-34.5" y="-48.0" />
-                  <point x="651.4264703486479" y="1101.0" />
-                  <point x="471.8639703486478" y="1101.0" />
-                  <point x="0.0" y="69.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Repositories.SerieRepository">
-                  <point x="-103.18181818181802" y="-25.5" />
-                  <point x="1124.2446521668298" y="1051.0" />
-                  <point x="247.69730368198123" y="1051.0" />
-                  <point x="55.33333333333337" y="69.5" />
-                </edge>
-                <edge source="UI.OverViewListener" target="UI.OverViewItemListener">
-                  <point x="-37.5" y="-25.5" />
-                  <point x="648.4264703486479" y="1297.0" />
-                  <point x="605.4264703486479" y="1297.0" />
-                  <point x="-80.5" y="48.0" />
-                </edge>
-                <edge source="Repositories.AccountRepository" target="Domain.Account">
-                  <point x="71.66666666666674" y="-80.5" />
-                  <point x="1146.9056370153146" y="519.0" />
-                  <point x="1369.9889703486479" y="519.0" />
-                  <point x="-30.75" y="136.0" />
-                </edge>
-                <edge source="Repositories.SerieRepository" target="Domain.Serie">
-                  <point x="0.0" y="-69.5" />
-                  <point x="0.0" y="91.5" />
-                </edge>
-                <edge source="Repositories.ProfileRepository" target="Domain.Profile">
-                  <point x="76.39999999999998" y="-69.5" />
-                  <point x="1110.9584738514175" y="802.0" />
-                  <point x="1617.445075757576" y="802.0" />
-                  <point x="-38.5" y="58.5" />
-                </edge>
-                <edge source="Repositories.ProgramRepository" target="Connection.SqlHandler">
-                  <point x="0.0" y="-69.5" />
-                  <point x="471.8639703486478" y="147.0" />
-                  <point x="672.5349380905834" y="147.0" />
-                  <point x="-86.66666666666663" y="58.5" />
-                </edge>
-                <edge source="UI.AddListener" target="UI.AddItemListener">
-                  <point x="-37.5" y="-25.5" />
-                  <point x="1189.9264703486479" y="1297.0" />
-                  <point x="1170.6764703486479" y="1297.0" />
-                  <point x="-56.75" y="25.5" />
-                </edge>
-                <edge source="Repositories.SerieRepository" target="Connection.SqlHandler">
-                  <point x="-55.33333333333337" y="-69.5" />
-                  <point x="137.03063701531448" y="812.0" />
-                  <point x="110.61397034864785" y="812.0" />
-                  <point x="110.61397034864785" y="137.0" />
-                  <point x="643.6460492016945" y="137.0" />
-                  <point x="-115.55555555555554" y="58.5" />
-                </edge>
-                <edge source="Repositories.EpisodeRepository" target="Domain.Account">
-                  <point x="0.0" y="-69.5" />
-                  <point x="1412.2389703486479" y="519.0" />
-                  <point x="1431.4889703486479" y="519.0" />
-                  <point x="30.75" y="136.0" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Repositories.ProgramRepository">
-                  <point x="-82.5454545454545" y="-25.5" />
-                  <point x="1144.8810158031933" y="1041.0" />
-                  <point x="532.5306370153144" y="1041.0" />
-                  <point x="60.66666666666663" y="69.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Repositories.SerieRepository">
-                  <point x="-126.5" y="-48.0" />
-                  <point x="559.4264703486479" y="1141.0" />
-                  <point x="192.36397034864785" y="1141.0" />
-                  <point x="0.0" y="69.5" />
-                </edge>
-                <edge source="UI.UpdateListener" target="UI.IAddingTabs">
-                  <point x="50.0" y="-25.5" />
-                  <point x="309.92647034864785" y="1297.0" />
-                  <point x="379.9264703486478" y="1297.0" />
-                  <point x="-50.0" y="25.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Repositories.EpisodeRepository">
-                  <point x="41.27272727272725" y="-25.5" />
-                  <point x="1268.699197621375" y="1121.0" />
-                  <point x="1434.6139703486479" y="1121.0" />
-                  <point x="22.375" y="69.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Repositories.MovieRepository">
-                  <point x="-61.90909090909099" y="-25.5" />
-                  <point x="1165.5173794395569" y="1031.0" />
-                  <point x="770.4264703486479" y="1031.0" />
-                  <point x="56.333333333333314" y="69.5" />
-                </edge>
-                <edge source="Repositories.EpisodeRepository" target="Connection.SqlHandler">
-                  <point x="35.799999999999955" y="-69.5" />
-                  <point x="1448.0389703486478" y="792.0" />
-                  <point x="1568.445075757576" y="792.0" />
-                  <point x="1568.445075757576" y="157.0" />
-                  <point x="845.8682714239167" y="157.0" />
-                  <point x="86.66666666666663" y="58.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Repositories.AccountRepository">
-                  <point x="0.0" y="-25.5" />
-                  <point x="1227.4264703486479" y="1001.0" />
-                  <point x="1140.5584738514174" y="1001.0" />
-                  <point x="1140.5584738514174" y="782.0" />
-                  <point x="1128.9889703486479" y="782.0" />
-                  <point x="53.75" y="80.5" />
-                </edge>
-                <edge source="Repositories.MovieRepository" target="Domain.Movie">
-                  <point x="63.375" y="-69.5" />
-                  <point x="777.4681370153145" y="812.0" />
-                  <point x="876.2389703486479" y="812.0" />
-                  <point x="0.0" y="91.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Repositories.ProfileRepository">
-                  <point x="103.5" y="-48.0" />
-                  <point x="789.4264703486479" y="1091.0" />
-                  <point x="1010.6834738514174" y="1091.0" />
-                  <point x="-23.875" y="69.5" />
-                </edge>
-                <edge source="UI.AddItemListener" target="Domain.Account">
-                  <point x="82.5454545454545" y="-25.5" />
-                  <point x="1309.9719248941024" y="1141.0" />
-                  <point x="1542.320075757576" y="1141.0" />
-                  <point x="1542.320075757576" y="519.0" />
-                  <point x="1492.9889703486479" y="519.0" />
-                  <point x="92.25" y="136.0" />
-                </edge>
-                <edge source="UI.DeleteListener" target="UI.IAddingTabs">
-                  <point x="-50.0" y="-25.5" />
-                  <point x="873.6764703486479" y="1287.0" />
-                  <point x="479.9264703486478" y="1287.0" />
-                  <point x="50.0" y="25.5" />
-                </edge>
-                <edge source="Repositories.AccountRepository" target="Connection.SqlHandler">
-                  <point x="0.0" y="-80.5" />
-                  <point x="1075.2389703486479" y="177.0" />
-                  <point x="788.0904936461391" y="177.0" />
-                  <point x="28.888888888888914" y="58.5" />
-                </edge>
-                <edge source="Repositories.ProgramRepository" target="Domain.Program">
-                  <point x="-60.66666666666666" y="-69.5" />
-                  <point x="411.1973036819811" y="812.0" />
-                  <point x="384.3639703486478" y="812.0" />
-                  <point x="0.0" y="69.5" />
-                </edge>
-                <edge source="Main" target="Connection.SqlConnection">
-                  <point x="-42.0" y="-25.5" />
-                  <point x="432.73897034864785" y="1536.0" />
-                  <point x="0.0" y="1536.0" />
-                  <point x="0.0" y="489.0" />
-                  <point x="493.1973036819811" y="489.0" />
-                  <point x="-86.66666666666669" y="25.5" />
-                </edge>
-                <edge source="Repositories.SerieRepository" target="Connection.SqlConnection">
-                  <point x="55.33333333333337" y="-69.5" />
-                  <point x="247.69730368198123" y="812.0" />
-                  <point x="274.11397034864785" y="812.0" />
-                  <point x="274.11397034864785" y="499.0" />
-                  <point x="514.8639703486479" y="499.0" />
-                  <point x="-65.0" y="25.5" />
-                </edge>
-                <edge source="UI.UpdateListener" target="UI.UpdateItemListener">
-                  <point x="0.0" y="-25.5" />
-                  <point x="56.75" y="25.5" />
-                </edge>
-                <edge source="Repositories.ProgramRepository" target="Connection.SqlConnection">
-                  <point x="60.666666666666686" y="-69.5" />
-                  <point x="532.5306370153145" y="812.0" />
-                  <point x="590.5306370153146" y="812.0" />
-                  <point x="590.5306370153146" y="519.0" />
-                  <point x="579.8639703486479" y="519.0" />
-                  <point x="0.0" y="25.5" />
-                </edge>
-                <edge source="Repositories.AccountRepository" target="Connection.SqlConnection">
-                  <point x="-71.66666666666674" y="-80.5" />
-                  <point x="1003.5723036819811" y="499.0" />
-                  <point x="644.8639703486479" y="499.0" />
-                  <point x="65.00000000000006" y="25.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Repositories.AccountRepository">
-                  <point x="57.5" y="-48.0" />
-                  <point x="743.4264703486479" y="1071.0" />
-                  <point x="928.5584738514175" y="1071.0" />
-                  <point x="928.5584738514175" y="762.0" />
-                  <point x="1021.4889703486479" y="762.0" />
-                  <point x="-53.75" y="80.5" />
-                </edge>
-                <edge source="UI.DeleteListener" target="UI.DeleteItemListener">
-                  <point x="0.0" y="-25.5" />
-                  <point x="-56.75" y="25.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Repositories.MovieRepository">
-                  <point x="-11.5" y="-48.0" />
-                  <point x="674.4264703486479" y="1151.0" />
-                  <point x="657.7598036819811" y="1151.0" />
-                  <point x="-56.333333333333314" y="69.5" />
-                </edge>
-                <edge source="UI.UserInterface" target="UI.DeleteListener">
-                  <point x="47.625" y="-36.5" />
-                  <point x="830.9264703486479" y="1398.0" />
-                  <point x="961.1764703486479" y="1398.0" />
-                  <point x="37.5" y="25.5" />
-                </edge>
-                <edge source="UI.OverViewItemListener" target="Connection.SqlConnection">
-                  <point x="-103.5" y="-48.0" />
-                  <point x="582.4264703486479" y="1131.0" />
-                  <point x="285.8639703486478" y="1131.0" />
-                  <point x="285.8639703486478" y="509.0" />
-                  <point x="536.5306370153145" y="509.0" />
-                  <point x="-43.333333333333314" y="25.5" />
-                </edge>
-                <edge source="Repositories.MovieRepository" target="Connection.SqlConnection">
-                  <point x="-63.375" y="-69.5" />
-                  <point x="650.7181370153145" y="812.0" />
-                  <point x="601.5306370153146" y="812.0" />
-                  <point x="21.666666666666686" y="25.5" />
-                </edge>
-              </edges>
-              <settings layout="Hierarchic Group" zoom="0.9954071444419791" x="676.1903572841145" y="795.9920201502351" />
-              <SelectedNodes>
-                <node>Connection.SqlHandler</node>
-              </SelectedNodes>
-              <Categories>
-                <Category>Methods</Category>
-                <Category>Properties</Category>
-              </Categories>
-              <SCOPE>All</SCOPE>
-              <VISIBILITY>private</VISIBILITY>
+        <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -467,10 +108,10 @@
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/EpisodeRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddListener.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/AddItemListener.java" />
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/OverViewListener.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/UserInterface.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/OverViewItemListener.java" />
+        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java" />
       </list>
     </option>
   </component>
@@ -486,7 +127,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="width" value="977" />
     <option name="height" value="1039" />
@@ -574,15 +215,7 @@
               <item name="Netflix JAVA" type="462c0819:PsiDirectoryNode" />
               <item name="Netflix Classes" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
-              <item name="Netflix JAVA" type="462c0819:PsiDirectoryNode" />
-              <item name="Netflix Classes" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="UML" type="462c0819:PsiDirectoryNode" />
+              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -593,7 +226,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555055465141" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555071931974" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -680,12 +313,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1552564891900</updated>
-      <workItem from="1554989103147" duration="4681000" />
+      <workItem from="1554989103147" duration="9898000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7664000" />
+    <option name="totallyTimeSpent" value="12881000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -744,34 +377,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Episode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="107" selection-start-line="10" selection-start-column="107" selection-end-line="10" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Program.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Serie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/MovieRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="296">
@@ -806,23 +411,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="26" column="280" selection-start-line="26" selection-start-column="280" selection-end-line="26" selection-end-column="280" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/awt/Container.java" />
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Netflix Database/SQLQuery1.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -838,13 +426,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SQLQuery11.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="263" column="52" lean-forward="true" selection-start-line="263" selection-start-column="52" selection-end-line="263" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -896,13 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/CreateTables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/DeleteItemListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4522">
@@ -917,24 +491,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="43" column="26" lean-forward="true" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Profile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1018,366 +578,119 @@
           <ID>JAVA</ID>
           <OriginalElement />
           <nodes>
-            <node x="629.2016047572502" y="0.0">Connection.SqlHandler</node>
-            <node x="804.7389703486479" y="539.0">Domain.Movie</node>
-            <node x="121.86397034864785" y="539.0">Domain.Serie</node>
-            <node x="939.0584738514174" y="832.0">Repositories.ProfileRepository</node>
-            <node x="482.3639703486478" y="307.5">Connection.SqlConnection</node>
-            <node x="656.3014703486479" y="1438.0">UI.UserInterface</node>
-            <node x="1277.7389703486479" y="197.0">Domain.Account</node>
-            <node x="89.67647034864785" y="1193.5">UI.UpdateItemListener</node>
-            <node x="307.3639703486478" y="561.0">Domain.Program</node>
-            <node x="184.92647034864785" y="1317.0">UI.UpdateListener</node>
-            <node x="629.5931370153145" y="832.0">Repositories.MovieRepository</node>
-            <node x="1322.7389703486479" y="832.0">Repositories.EpisodeRepository</node>
-            <node x="967.7389703486479" y="550.0">Repositories.AccountRepository</node>
-            <node x="848.6764703486479" y="1317.0">UI.DeleteListener</node>
-            <node x="380.8639703486478" y="832.0">Repositories.ProgramRepository</node>
-            <node x="610.9264703486479" y="1317.0">UI.OverViewListener</node>
-            <node x="354.9264703486478" y="1317.0">UI.StatisticsListener</node>
-            <node x="524.9264703486479" y="1171.0">UI.OverViewItemListener</node>
-            <node x="1113.9264703486479" y="1193.5">UI.AddItemListener</node>
-            <node x="866.9264703486479" y="1193.5">UI.DeleteItemListener</node>
-            <node x="1578.945075757576" y="572.0">Domain.Profile</node>
-            <node x="1152.4264703486479" y="1317.0">UI.AddListener</node>
-            <node x="390.73897034864785" y="1561.0">Main</node>
-            <node x="1203.7389703486479" y="550.0">Domain.Episode</node>
-            <node x="354.9264703486478" y="1193.5">UI.IAddingTabs</node>
-            <node x="109.36397034864785" y="832.0">Repositories.SerieRepository</node>
+            <node x="" y="">Connection.SqlHandler</node>
+            <node x="" y="">Domain.Movie</node>
+            <node x="" y="">Domain.Serie</node>
+            <node x="" y="">Repositories.ProfileRepository</node>
+            <node x="" y="">Connection.SqlConnection</node>
+            <node x="" y="">UI.UserInterface</node>
+            <node x="" y="">Domain.Account</node>
+            <node x="" y="">UI.UpdateItemListener</node>
+            <node x="" y="">Domain.Program</node>
+            <node x="" y="">UI.UpdateListener</node>
+            <node x="" y="">Repositories.MovieRepository</node>
+            <node x="" y="">Repositories.EpisodeRepository</node>
+            <node x="" y="">Repositories.AccountRepository</node>
+            <node x="" y="">UI.DeleteListener</node>
+            <node x="" y="">Repositories.ProgramRepository</node>
+            <node x="" y="">UI.OverViewListener</node>
+            <node x="" y="">UI.StatisticsListener</node>
+            <node x="" y="">UI.OverViewItemListener</node>
+            <node x="" y="">UI.AddItemListener</node>
+            <node x="" y="">UI.DeleteItemListener</node>
+            <node x="" y="">Domain.Profile</node>
+            <node x="" y="">UI.AddListener</node>
+            <node x="" y="">Main</node>
+            <node x="" y="">Domain.Episode</node>
+            <node x="" y="">UI.IAddingTabs</node>
+            <node x="" y="">Repositories.SerieRepository</node>
           </nodes>
           <notes />
-          <edges>
-            <edge source="Repositories.MovieRepository" target="Domain.Account">
-              <point x="21.125" y="-69.5" />
-              <point x="735.2181370153145" y="812.0" />
-              <point x="719.5931370153145" y="812.0" />
-              <point x="719.5931370153145" y="509.0" />
-              <point x="1308.4889703486479" y="509.0" />
-              <point x="-92.25" y="136.0" />
-            </edge>
-            <edge source="UI.UserInterface" target="UI.OverViewListener">
-              <point x="-47.625" y="-36.5" />
-              <point x="735.6764703486479" y="1398.0" />
-              <point x="648.4264703486479" y="1398.0" />
-              <point x="-37.5" y="25.5" />
-            </edge>
-            <edge source="Repositories.MovieRepository" target="Connection.SqlHandler">
-              <point x="-21.125" y="-69.5" />
-              <point x="692.9681370153145" y="812.0" />
-              <point x="708.5931370153145" y="812.0" />
-              <point x="708.5931370153145" y="177.0" />
-              <point x="759.2016047572502" y="177.0" />
-              <point x="0.0" y="58.5" />
-            </edge>
-            <edge source="Repositories.ProfileRepository" target="Repositories.AccountRepository">
-              <point x="-38.200000000000045" y="-69.5" />
-              <point x="996.3584738514173" y="772.0" />
-              <point x="1057.3223036819813" y="772.0" />
-              <point x="-17.91666666666663" y="80.5" />
-            </edge>
-            <edge source="Repositories.EpisodeRepository" target="Domain.Episode">
-              <point x="-71.59999999999991" y="-69.5" />
-              <point x="1340.638970348648" y="792.0" />
-              <point x="1297.2389703486479" y="792.0" />
-              <point x="0.0" y="80.5" />
-            </edge>
-            <edge source="UI.StatisticsListener" target="UI.IAddingTabs">
-              <point x="0.0" y="-25.5" />
-              <point x="0.0" y="25.5" />
-            </edge>
-            <edge source="UI.UserInterface" target="UI.UpdateListener">
-              <point x="-111.125" y="-36.5" />
-              <point x="672.1764703486479" y="1418.0" />
-              <point x="222.42647034864785" y="1418.0" />
-              <point x="-37.5" y="25.5" />
-            </edge>
-            <edge source="Main" target="UI.UserInterface">
-              <point x="42.0" y="-25.5" />
-              <point x="516.7389703486479" y="1536.0" />
-              <point x="783.3014703486479" y="1536.0" />
-              <point x="0.0" y="36.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Domain.Profile">
-              <point x="103.18181818181824" y="-25.5" />
-              <point x="1330.608288530466" y="1151.0" />
-              <point x="1694.445075757576" y="1151.0" />
-              <point x="38.5" y="58.5" />
-            </edge>
-            <edge source="Connection.SqlConnection" target="Connection.SqlHandler">
-              <point x="-48.75" y="-25.5" />
-              <point x="531.1139703486479" y="157.0" />
-              <point x="701.4238269794723" y="157.0" />
-              <point x="-57.77777777777783" y="58.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Repositories.EpisodeRepository">
-              <point x="126.5" y="-48.0" />
-              <point x="812.4264703486479" y="1101.0" />
-              <point x="1345.1139703486479" y="1101.0" />
-              <point x="-67.125" y="69.5" />
-            </edge>
-            <edge source="Repositories.ProfileRepository" target="Connection.SqlHandler">
-              <point x="38.200000000000045" y="-69.5" />
-              <point x="1072.7584738514174" y="792.0" />
-              <point x="1193.2389703486479" y="792.0" />
-              <point x="1193.2389703486479" y="167.0" />
-              <point x="816.979382535028" y="167.0" />
-              <point x="57.77777777777783" y="58.5" />
-            </edge>
-            <edge source="Repositories.EpisodeRepository" target="Connection.SqlConnection">
-              <point x="-35.799999999999955" y="-69.5" />
-              <point x="1376.438970348648" y="792.0" />
-              <point x="1401.2389703486479" y="792.0" />
-              <point x="1401.2389703486479" y="489.0" />
-              <point x="666.5306370153146" y="489.0" />
-              <point x="86.66666666666674" y="25.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Repositories.ProfileRepository">
-              <point x="-20.636363636363512" y="-25.5" />
-              <point x="1206.7901067122843" y="1011.0" />
-              <point x="1106.1834738514174" y="1011.0" />
-              <point x="71.625" y="69.5" />
-            </edge>
-            <edge source="UI.UserInterface" target="UI.AddListener">
-              <point x="111.125" y="-36.5" />
-              <point x="894.4264703486479" y="1418.0" />
-              <point x="1264.9264703486479" y="1418.0" />
-              <point x="37.5" y="25.5" />
-            </edge>
-            <edge source="Repositories.ProfileRepository" target="Connection.SqlConnection">
-              <point x="-76.39999999999998" y="-69.5" />
-              <point x="958.1584738514175" y="742.0" />
-              <point x="612.5306370153146" y="742.0" />
-              <point x="612.5306370153146" y="519.0" />
-              <point x="623.1973036819811" y="519.0" />
-              <point x="43.33333333333337" y="25.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Repositories.ProgramRepository">
-              <point x="-34.5" y="-48.0" />
-              <point x="651.4264703486479" y="1101.0" />
-              <point x="471.8639703486478" y="1101.0" />
-              <point x="0.0" y="69.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Repositories.SerieRepository">
-              <point x="-103.18181818181802" y="-25.5" />
-              <point x="1124.2446521668298" y="1051.0" />
-              <point x="247.69730368198123" y="1051.0" />
-              <point x="55.33333333333337" y="69.5" />
-            </edge>
-            <edge source="UI.OverViewListener" target="UI.OverViewItemListener">
-              <point x="-37.5" y="-25.5" />
-              <point x="648.4264703486479" y="1297.0" />
-              <point x="605.4264703486479" y="1297.0" />
-              <point x="-80.5" y="48.0" />
-            </edge>
-            <edge source="Repositories.AccountRepository" target="Domain.Account">
-              <point x="71.66666666666674" y="-80.5" />
-              <point x="1146.9056370153146" y="519.0" />
-              <point x="1369.9889703486479" y="519.0" />
-              <point x="-30.75" y="136.0" />
-            </edge>
-            <edge source="Repositories.SerieRepository" target="Domain.Serie">
-              <point x="0.0" y="-69.5" />
-              <point x="0.0" y="91.5" />
-            </edge>
-            <edge source="Repositories.ProfileRepository" target="Domain.Profile">
-              <point x="76.39999999999998" y="-69.5" />
-              <point x="1110.9584738514175" y="802.0" />
-              <point x="1617.445075757576" y="802.0" />
-              <point x="-38.5" y="58.5" />
-            </edge>
-            <edge source="Repositories.ProgramRepository" target="Connection.SqlHandler">
-              <point x="0.0" y="-69.5" />
-              <point x="471.8639703486478" y="147.0" />
-              <point x="672.5349380905834" y="147.0" />
-              <point x="-86.66666666666663" y="58.5" />
-            </edge>
-            <edge source="UI.AddListener" target="UI.AddItemListener">
-              <point x="-37.5" y="-25.5" />
-              <point x="1189.9264703486479" y="1297.0" />
-              <point x="1170.6764703486479" y="1297.0" />
-              <point x="-56.75" y="25.5" />
-            </edge>
-            <edge source="Repositories.SerieRepository" target="Connection.SqlHandler">
-              <point x="-55.33333333333337" y="-69.5" />
-              <point x="137.03063701531448" y="812.0" />
-              <point x="110.61397034864785" y="812.0" />
-              <point x="110.61397034864785" y="137.0" />
-              <point x="643.6460492016945" y="137.0" />
-              <point x="-115.55555555555554" y="58.5" />
-            </edge>
-            <edge source="Repositories.EpisodeRepository" target="Domain.Account">
-              <point x="0.0" y="-69.5" />
-              <point x="1412.2389703486479" y="519.0" />
-              <point x="1431.4889703486479" y="519.0" />
-              <point x="30.75" y="136.0" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Repositories.ProgramRepository">
-              <point x="-82.5454545454545" y="-25.5" />
-              <point x="1144.8810158031933" y="1041.0" />
-              <point x="532.5306370153144" y="1041.0" />
-              <point x="60.66666666666663" y="69.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Repositories.SerieRepository">
-              <point x="-126.5" y="-48.0" />
-              <point x="559.4264703486479" y="1141.0" />
-              <point x="192.36397034864785" y="1141.0" />
-              <point x="0.0" y="69.5" />
-            </edge>
-            <edge source="UI.UpdateListener" target="UI.IAddingTabs">
-              <point x="50.0" y="-25.5" />
-              <point x="309.92647034864785" y="1297.0" />
-              <point x="379.9264703486478" y="1297.0" />
-              <point x="-50.0" y="25.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Repositories.EpisodeRepository">
-              <point x="41.27272727272725" y="-25.5" />
-              <point x="1268.699197621375" y="1121.0" />
-              <point x="1434.6139703486479" y="1121.0" />
-              <point x="22.375" y="69.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Repositories.MovieRepository">
-              <point x="-61.90909090909099" y="-25.5" />
-              <point x="1165.5173794395569" y="1031.0" />
-              <point x="770.4264703486479" y="1031.0" />
-              <point x="56.333333333333314" y="69.5" />
-            </edge>
-            <edge source="Repositories.EpisodeRepository" target="Connection.SqlHandler">
-              <point x="35.799999999999955" y="-69.5" />
-              <point x="1448.0389703486478" y="792.0" />
-              <point x="1568.445075757576" y="792.0" />
-              <point x="1568.445075757576" y="157.0" />
-              <point x="845.8682714239167" y="157.0" />
-              <point x="86.66666666666663" y="58.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Repositories.AccountRepository">
-              <point x="0.0" y="-25.5" />
-              <point x="1227.4264703486479" y="1001.0" />
-              <point x="1140.5584738514174" y="1001.0" />
-              <point x="1140.5584738514174" y="782.0" />
-              <point x="1128.9889703486479" y="782.0" />
-              <point x="53.75" y="80.5" />
-            </edge>
-            <edge source="Repositories.MovieRepository" target="Domain.Movie">
-              <point x="63.375" y="-69.5" />
-              <point x="777.4681370153145" y="812.0" />
-              <point x="876.2389703486479" y="812.0" />
-              <point x="0.0" y="91.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Repositories.ProfileRepository">
-              <point x="103.5" y="-48.0" />
-              <point x="789.4264703486479" y="1091.0" />
-              <point x="1010.6834738514174" y="1091.0" />
-              <point x="-23.875" y="69.5" />
-            </edge>
-            <edge source="UI.AddItemListener" target="Domain.Account">
-              <point x="82.5454545454545" y="-25.5" />
-              <point x="1309.9719248941024" y="1141.0" />
-              <point x="1542.320075757576" y="1141.0" />
-              <point x="1542.320075757576" y="519.0" />
-              <point x="1492.9889703486479" y="519.0" />
-              <point x="92.25" y="136.0" />
-            </edge>
-            <edge source="UI.DeleteListener" target="UI.IAddingTabs">
-              <point x="-50.0" y="-25.5" />
-              <point x="873.6764703486479" y="1287.0" />
-              <point x="479.9264703486478" y="1287.0" />
-              <point x="50.0" y="25.5" />
-            </edge>
-            <edge source="Repositories.AccountRepository" target="Connection.SqlHandler">
-              <point x="0.0" y="-80.5" />
-              <point x="1075.2389703486479" y="177.0" />
-              <point x="788.0904936461391" y="177.0" />
-              <point x="28.888888888888914" y="58.5" />
-            </edge>
-            <edge source="Repositories.ProgramRepository" target="Domain.Program">
-              <point x="-60.66666666666666" y="-69.5" />
-              <point x="411.1973036819811" y="812.0" />
-              <point x="384.3639703486478" y="812.0" />
-              <point x="0.0" y="69.5" />
-            </edge>
-            <edge source="Main" target="Connection.SqlConnection">
-              <point x="-42.0" y="-25.5" />
-              <point x="432.73897034864785" y="1536.0" />
-              <point x="0.0" y="1536.0" />
-              <point x="0.0" y="489.0" />
-              <point x="493.1973036819811" y="489.0" />
-              <point x="-86.66666666666669" y="25.5" />
-            </edge>
-            <edge source="Repositories.SerieRepository" target="Connection.SqlConnection">
-              <point x="55.33333333333337" y="-69.5" />
-              <point x="247.69730368198123" y="812.0" />
-              <point x="274.11397034864785" y="812.0" />
-              <point x="274.11397034864785" y="499.0" />
-              <point x="514.8639703486479" y="499.0" />
-              <point x="-65.0" y="25.5" />
-            </edge>
-            <edge source="UI.UpdateListener" target="UI.UpdateItemListener">
-              <point x="0.0" y="-25.5" />
-              <point x="56.75" y="25.5" />
-            </edge>
-            <edge source="Repositories.ProgramRepository" target="Connection.SqlConnection">
-              <point x="60.666666666666686" y="-69.5" />
-              <point x="532.5306370153145" y="812.0" />
-              <point x="590.5306370153146" y="812.0" />
-              <point x="590.5306370153146" y="519.0" />
-              <point x="579.8639703486479" y="519.0" />
-              <point x="0.0" y="25.5" />
-            </edge>
-            <edge source="Repositories.AccountRepository" target="Connection.SqlConnection">
-              <point x="-71.66666666666674" y="-80.5" />
-              <point x="1003.5723036819811" y="499.0" />
-              <point x="644.8639703486479" y="499.0" />
-              <point x="65.00000000000006" y="25.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Repositories.AccountRepository">
-              <point x="57.5" y="-48.0" />
-              <point x="743.4264703486479" y="1071.0" />
-              <point x="928.5584738514175" y="1071.0" />
-              <point x="928.5584738514175" y="762.0" />
-              <point x="1021.4889703486479" y="762.0" />
-              <point x="-53.75" y="80.5" />
-            </edge>
-            <edge source="UI.DeleteListener" target="UI.DeleteItemListener">
-              <point x="0.0" y="-25.5" />
-              <point x="-56.75" y="25.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Repositories.MovieRepository">
-              <point x="-11.5" y="-48.0" />
-              <point x="674.4264703486479" y="1151.0" />
-              <point x="657.7598036819811" y="1151.0" />
-              <point x="-56.333333333333314" y="69.5" />
-            </edge>
-            <edge source="UI.UserInterface" target="UI.DeleteListener">
-              <point x="47.625" y="-36.5" />
-              <point x="830.9264703486479" y="1398.0" />
-              <point x="961.1764703486479" y="1398.0" />
-              <point x="37.5" y="25.5" />
-            </edge>
-            <edge source="UI.OverViewItemListener" target="Connection.SqlConnection">
-              <point x="-103.5" y="-48.0" />
-              <point x="582.4264703486479" y="1131.0" />
-              <point x="285.8639703486478" y="1131.0" />
-              <point x="285.8639703486478" y="509.0" />
-              <point x="536.5306370153145" y="509.0" />
-              <point x="-43.333333333333314" y="25.5" />
-            </edge>
-            <edge source="Repositories.MovieRepository" target="Connection.SqlConnection">
-              <point x="-63.375" y="-69.5" />
-              <point x="650.7181370153145" y="812.0" />
-              <point x="601.5306370153146" y="812.0" />
-              <point x="21.666666666666686" y="25.5" />
-            </edge>
-          </edges>
-          <settings layout="Hierarchic Group" zoom="0.9954071444419791" x="676.1903572841145" y="795.9920201502351" />
-          <SelectedNodes>
-            <node>Connection.SqlHandler</node>
-          </SelectedNodes>
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.9007352941176471" x="675.1020408163265" y="1003.0367346938775" />
+          <SelectedNodes />
           <Categories>
             <Category>Methods</Category>
             <Category>Properties</Category>
           </Categories>
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SQLQuery11.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4471">
+          <caret line="263" column="52" lean-forward="true" selection-start-line="263" selection-start-column="52" selection-end-line="263" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Serie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#1138#1139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Profile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Movie.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Episode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-136">
+          <caret line="10" column="91" lean-forward="true" selection-start-line="10" selection-start-column="91" selection-end-line="10" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="58" lean-forward="true" selection-start-line="10" selection-start-column="58" selection-end-line="10" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/CreateTables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="171" lean-forward="true" selection-start-line="171" selection-end-line="171" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
