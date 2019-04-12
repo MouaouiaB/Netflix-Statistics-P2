@@ -16,3 +16,6 @@ Toen ik hoorde dat we een trio-opdracht hadden dat een combinatie was tussen pro
 
 ## Reflectie van Ayman Bouhazzaoui:
 Het samenwerken met Mouaouia verliep goed, we hadden duidelijke afpraken vastgesteld over de takenverdeling. Mouaouia had al een begin gemaakt voor de opdracht, waardoor ik eigenlijk zijn deel moest checken voor eventueel verbeteringen. Ook heb ik de taak gekregen om de GUI en connectie met de database te maken. Verder hebben we de commentaars aan de code toegevoegd en de code zelf gecontroleerd. Wat ook niet te vergeten is de UML diagram, die we ook samen hebben gemaakt en die daarnaast ook elke keer upgedate moest worden omdat we nieuwe classes en methodes daarbij moesten toevoegen. We waren wel laat begonnen met het maken van de applicatie omdat we andere projecten moesten afronden en ook leren voor de tentamens. Maar gelukkig hebben we het geredt, door samen op school af te sprekken om aan de project te werken.
+
+## Reflectie van Rick Basting:
+--
