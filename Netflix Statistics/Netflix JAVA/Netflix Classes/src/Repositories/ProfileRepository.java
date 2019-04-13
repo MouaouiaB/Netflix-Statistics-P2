@@ -80,7 +80,6 @@ public class ProfileRepository {
             String sqlQuery = "INSERT INTO Profile VALUES('" +
                     profile.getProfileName()+ "', "+ id + ", "+ profile.getBirthDate()+
                     ")";
-            //System.out.println(sqlQuery);
             showMessageDialog(null, "Toevoegen van een profiel is gelukt");
             return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
@@ -92,29 +91,21 @@ public class ProfileRepository {
         return false;
     }
 
-    public void delete(Profile profile) {
-        if(profile == null) return;
-        delete(profile.getProfileId());
-    }
 
-    public void delete(int abonneeID) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
+    public boolean delete(int id) {
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "DELETE Profiel WHERE AbonneeID= " + abonneeID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            String sqlQuery = "DELETE FROM Profile WHERE ProfileID = "+ id;
+            showMessageDialog(null, "Profiel succesvol verwijderd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
+
+        return false;
     }
 
 }

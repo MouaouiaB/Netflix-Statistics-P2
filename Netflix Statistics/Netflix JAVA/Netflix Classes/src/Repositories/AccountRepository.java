@@ -21,7 +21,6 @@ public class AccountRepository {
     public ResultSet readAll() {
         ResultSet resultSet = null;
 
-        ArrayList<Account> lijst = new ArrayList<>();
         try {
 
             return DBConnection.sqlHandler.executeSql("SELECT * FROM Account");
@@ -48,6 +47,7 @@ public class AccountRepository {
         return accountId;
     }
 
+    //nachecken
     public Account read(int id) {
         Account account = null;
         Connection connection = null;
@@ -72,10 +72,6 @@ public class AccountRepository {
     }
 
     public boolean create(Account account) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
@@ -105,12 +101,8 @@ public class AccountRepository {
         return false;
     }
 
-    public void delete(Account account) {
-        if(account ==null) return;
-        delete(account.getAccountId());
-    }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
 
         Connection connection = null;
         ResultSet resultSet = null;
@@ -120,15 +112,21 @@ public class AccountRepository {
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "DELETE ABONNEMENT WHERE Id=" + id;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
+            // sqlConnection.executeSqlNoResult(sqlQuery);
+
+            //statement = connection.createStatement();
+            String sqlQuery = "DELETE FROM Account WHERE AccountID = "+ id;
+            showMessageDialog(null, "Account succesvol verwijderd");
+            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
+
+        return false;
     }
 
     public ResultSet AccountOneProfile(){

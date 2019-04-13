@@ -1,8 +1,12 @@
 package UI;
 
+import Repositories.*;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DeleteItemListener extends JPanel {
     private JTable table;
@@ -105,9 +109,22 @@ public class DeleteItemListener extends JPanel {
     private JTextField textProgProfId;
     private JButton BtnProg;
     /////////////////////////////////////////////
+    //Repositories
+    AccountRepository accountRepository;
+    EpisodeRepository episodeRepository;
+    MovieRepository movieRepository;
+    ProfileRepository profileRepository;
+    ProgramRepository programRepository;
+    SerieRepository serieRepository;
 
     public DeleteItemListener(String tabName){
         super(new BorderLayout());
+        this.accountRepository = new AccountRepository();
+        this.episodeRepository = new EpisodeRepository();
+        this.profileRepository = new ProfileRepository();
+        this.programRepository = new ProgramRepository();
+        this.movieRepository = new MovieRepository();
+        this.serieRepository = new SerieRepository();
         LoadComponents(tabName);
     }
 
@@ -123,251 +140,97 @@ public class DeleteItemListener extends JPanel {
         this.textName = new JTextField();
         if (tabName == "Account"){
 
-            labelNaam = new JLabel("Naam:");
+            labelNaam = new JLabel("Account naam:");
             labelNaam.setBounds(12, 24, 100, 16);
             add(labelNaam);
 
             textName = new JTextField();
             textName.setColumns(20);
-            textName.setBounds(111, 21, 300, 22);
+            textName.setBounds(201, 21, 300, 22);
             add(textName);
 
-            labelPasswd = new JLabel("Wachtwoord:");
-            labelPasswd.setBounds(12, 64, 100, 16);
-            add(labelPasswd);
-
-            textPasswd = new JTextField();
-            textPasswd.setColumns(20);
-            textPasswd.setBounds(111, 64, 300, 22);
-            add(textPasswd);
-
-            labelMail = new JLabel("E-mail:");
-            labelMail.setBounds(12, 107, 100, 16);
-            add(labelMail);
-
-            textMail = new JTextField();
-            textMail.setColumns(20);
-            textMail.setBounds(111, 107, 300, 22);
-            add(textMail);
-
-            labelStreet = new JLabel("Straat:");
-            labelStreet.setBounds(12, 150, 100, 16);
-            add(labelStreet);
-
-            textStreet = new JTextField();
-            textStreet.setColumns(20);
-            textStreet.setBounds(111, 150, 300, 22);
-            add(textStreet);
-
-            labelStrNumber = new JLabel("Huisnummer:");
-            labelStrNumber.setBounds(12, 193, 100, 16);
-            add(labelStrNumber);
-
-            textStrNumber = new JTextField();
-            textStrNumber.setColumns(20);
-            textStrNumber.setBounds(111, 193, 300, 22);
-            add(textStrNumber);
-
-            labelZip = new JLabel("Postcode:");
-            labelZip.setBounds(12, 236, 100, 16);
-            add(labelZip);
-
-            textZip = new JTextField();
-            textZip.setColumns(20);
-            textZip.setBounds(111, 236, 300, 22);
-            add(textZip);
-
-            labelCity = new JLabel("Stad:");
-            labelCity.setBounds(12, 279, 100, 16);
-            add(labelCity);
-
-            textCity = new JTextField();
-            textCity.setColumns(20);
-            textCity.setBounds(111, 279, 300, 22);
-            add(textCity);
 
             BtnAcc = new JButton("Verwijder");
             BtnAcc.setBounds(322, 320, 116, 25);
             add(BtnAcc);
 
-
-            table.setBounds(75, 200, 700, 600);
-
-
-
+            BtnAcc.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    accountRepository.delete(accountRepository.readIdWithName(textName.getText()));
+                    textName.setText("");
+                }
+            });
 
         }
         if (tabName == "Profiel"){
 
-
-            labelProfId = new JLabel("Profiel ID:");
-            labelProfId.setBounds(12, 24, 100, 16);
-            add(labelProfId);
-
-            textProfId = new JTextField();
-            textName.setColumns(20);
-            textName.setBounds(111, 21, 300, 22);
-            add(textName);
-
             labelProfName = new JLabel("Profielnaam:");
-            labelProfName.setBounds(12, 64, 100, 16);
+            labelProfName.setBounds(12, 24, 100, 16);
             add(labelProfName);
 
             textProfName = new JTextField();
             textProfName.setColumns(20);
-            textProfName.setBounds(111, 64, 300, 22);
+            textProfName.setBounds(201, 21, 300, 22);
             add(textProfName);
-
-            labelProfAccId = new JLabel("Abonnee ID:");
-            labelProfAccId.setBounds(12, 107, 100, 16);
-            add(labelProfAccId);
-
-            textProfAccId =  new JTextField();
-            textProfAccId.setColumns(20);
-            textProfAccId.setBounds(111, 107, 300, 22);
-            add(textProfAccId);
-
-            labelProfAge = new JLabel("Leeftijd:");
-            labelProfAge.setBounds(12, 150, 100, 16);
-            add(labelProfAge);
-
-            textProfAge = new JTextField();
-            textProfAge.setColumns(20);
-            textProfAge.setBounds(111, 150, 300, 22);
-            add(textProfAge);
 
             BtnProf = new JButton("Verwijder");
             BtnProf.setBounds(322, 320, 116, 25);
             add(BtnProf);
+
+            BtnProf.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    profileRepository.delete(profileRepository.readIdWithName(textProfName.getText()));
+                    textProfName.setText("");
+                }
+            });
         }
 
         if (tabName == "Movie"){
-            labelFilmId = new JLabel("Movie ID:");
-            labelFilmId.setBounds(12, 24, 100, 16);
-            add(labelFilmId);
-
-            textFilmId = new JTextField();
-            textFilmId.setColumns(20);
-            textFilmId.setBounds(111, 21, 300, 22);
-            add(textFilmId);
-
             labelFilmTitle = new JLabel("Titel:");
-            labelFilmTitle.setBounds(12, 64, 100, 16);
+            labelFilmTitle.setBounds(12, 24, 100, 16);
             add(labelFilmTitle);
 
             textFilmTitle = new JTextField();
             textFilmTitle.setColumns(20);
-            textFilmTitle.setBounds(111, 64, 300, 22);
+            textFilmTitle.setBounds(201, 21, 300, 22);
             add(textFilmTitle);
 
-            labelFilmAge = new JLabel("Leeftijfsindicatie:");
-            labelFilmAge.setBounds(12, 107, 100, 16);
-            add(labelFilmAge);
-
-            textFilmAge = new JTextField();
-            textFilmAge.setColumns(20);
-            textFilmAge.setBounds(111, 107, 300, 22);
-            add(textFilmAge);
-
-            labelFilmLanguage = new JLabel("Taal:");
-            labelFilmLanguage.setBounds(12, 150, 100, 16);
-            add(labelFilmLanguage);
-
-            textFilmLanguage = new JTextField();
-            textFilmLanguage.setColumns(20);
-            textFilmLanguage.setBounds(111, 150, 300, 22);
-            add(textFilmLanguage);
-
-            labelFilmDuration = new JLabel("Tijdsduur:");
-            labelFilmDuration.setBounds(12, 193, 100, 16);
-            add(labelFilmDuration);
-
-            textFilmDuration = new JTextField();
-            textFilmDuration.setColumns(20);
-            textFilmDuration.setBounds(111, 193, 300, 22);
-            add(textFilmDuration);
-
-            labelFilmGenre = new JLabel("Genre:");
-            labelFilmGenre.setBounds(12, 236, 100, 16);
-            add(labelFilmGenre);
-
-            textFilmGenre = new JTextField();
-            textFilmGenre.setColumns(20);
-            textFilmGenre.setBounds(111, 236, 300, 22);
-            add(textFilmGenre);
 
             BtnFilm = new JButton("Verwijder");
             BtnFilm.setBounds(322, 320, 116, 25);
             add(BtnFilm);
+
+            BtnFilm.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    movieRepository.delete(movieRepository.readIdWithName(textFilmTitle.getText()));
+                }
+            });
         }
 
         if (tabName == "Serie"){
-            labelSerieId = new JLabel("Serie ID:");
-            labelSerieId.setBounds(12, 24, 100, 16);
-            add(labelSerieId);
-
-            textSerieId = new JTextField();
-            textSerieId.setColumns(20);
-            textSerieId.setBounds(111, 21, 300, 22);
-            add(textSerieId);
-
             labelSerieTitle = new JLabel("Titel:");
-            labelSerieTitle.setBounds(12, 64, 100, 16);
+            labelSerieTitle.setBounds(12, 24, 100, 16);
             add(labelSerieTitle);
 
             textSerieTitle = new JTextField();
             textSerieTitle.setColumns(20);
-            textSerieTitle.setBounds(111, 64, 300, 22);
+            textSerieTitle.setBounds(201, 21, 300, 22);
             add(textSerieTitle);
 
-            labelSerieAge = new JLabel("Leeftijfsindicatie:");
-            labelSerieAge.setBounds(12, 107, 100, 16);
-            add(labelSerieAge);
-
-            textSerieAge = new JTextField();
-            textSerieAge.setColumns(20);
-            textSerieAge.setBounds(111, 107, 300, 22);
-            add(textSerieAge);
-
-            labelSerieLanguage = new JLabel("Taal:");
-            labelSerieLanguage.setBounds(12, 150, 100, 16);
-            add(labelSerieLanguage);
-
-            textSerieLanguage = new JTextField();
-            textSerieLanguage.setColumns(20);
-            textSerieLanguage.setBounds(111, 150, 300, 22);
-            add(textSerieLanguage);
-
-            labelSerieSeas = new JLabel("Seizoenen:");
-            labelSerieSeas.setBounds(12, 193, 100, 16);
-            add(labelSerieSeas);
-
-            textSerieSeas = new JTextField();
-            textSerieSeas.setColumns(20);
-            textSerieSeas.setBounds(111, 193, 300, 22);
-            add(textSerieSeas);
-
-            labelSerieGenre = new JLabel("Genre:");
-            labelSerieGenre.setBounds(12, 236, 100, 16);
-            add(labelSerieGenre);
-
-            textSerieGenre = new JTextField();
-            textSerieGenre.setColumns(20);
-            textSerieGenre.setBounds(111, 236, 300, 22);
-            add(textSerieGenre);
-
-            labelSerieCompare = new JLabel("Lijkt op:");
-            labelSerieCompare.setBounds(12, 279, 100, 16);
-            add(labelSerieCompare);
-
-            textSerieCompare = new JTextField();
-            textSerieCompare.setColumns(20);
-            textSerieCompare.setBounds(111, 279, 300, 22);
-            add(textSerieCompare);
 
             BtnSerie = new JButton("Verwijder");
             BtnSerie.setBounds(322, 320, 116, 25);
             add(BtnSerie);
+
+            BtnSerie.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    serieRepository.delete(serieRepository.readIdWithName(textSerieTitle.getText()));
+                }
+            });
 
         }
 
@@ -432,63 +295,32 @@ public class DeleteItemListener extends JPanel {
         }
 
         if (tabName == "Program"){
-            labelProgId = new JLabel("Program ID:");
-            labelProgId.setBounds(12, 24, 100, 16);
+            labelProgTitle = new JLabel("Programma ID kunt u vinden in het overzicht onder 'Programma's'. De titel staat er ook bij.");
+            labelProgTitle.setBounds(12, 24, 900, 16);
+            add(labelProgTitle);
+
+
+            labelProgId = new JLabel("Programma ID (alleen getallen):");
+            labelProgId.setBounds(12, 64, 300, 16);
             add(labelProgId);
 
             textProgId = new JTextField();
             textProgId.setColumns(20);
-            textProgId.setBounds(111, 21, 300, 22);
+            textProgId.setBounds(201, 64, 300, 22);
             add(textProgId);
 
-            labelProgTitle = new JLabel("Titel:");
-            labelProgTitle.setBounds(12, 64, 100, 16);
-            add(labelProgTitle);
-
-            textProgTitle = new JTextField();
-            textProgTitle.setColumns(20);
-            textProgTitle.setBounds(111, 64, 300, 22);
-            add(textProgTitle);
-
-            labelProgFilmId= new JLabel("Movie ID:");
-            labelProgFilmId.setBounds(12, 107, 100, 16);
-            add(labelProgFilmId);
-
-            textProgFilmId = new JTextField();
-            textProgFilmId.setColumns(20);
-            textProgFilmId.setBounds(111, 107, 300, 22);
-            add(textProgFilmId);
-
-            labelProgSerieId = new JLabel("Serie ID:");
-            labelProgSerieId.setBounds(12, 150, 300, 16);
-            add(labelProgSerieId);
-
-            textProgSerieId = new JTextField();
-            textProgSerieId.setColumns(20);
-            textProgSerieId.setBounds(111, 150, 300, 22);
-            add(textProgSerieId);
-
-            labelProgEpId = new JLabel("Episode ID:");
-            labelProgEpId.setBounds(12, 193, 100, 16);
-            add(labelProgEpId);
-
-            textProgEpId = new JTextField();
-            textProgEpId.setColumns(20);
-            textProgEpId.setBounds(111, 193, 300, 22);
-            add(textProgEpId);
-
-            labelProgProfId = new JLabel("Profiel ID:");
-            labelProgProfId.setBounds(12, 236, 100, 16);
-            add(labelProgProfId);
-
-            textProgProfId = new JTextField();
-            textProgProfId.setColumns(20);
-            textProgProfId.setBounds(111, 236, 300, 22);
-            add(textProgProfId);
 
             BtnProg = new JButton("Verwijder");
             BtnProg.setBounds(322, 320, 116, 25);
             add(BtnProg);
+
+            BtnProg.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    programRepository.delete(Integer.parseInt(textProgId.getText()));
+                    textProfId.setText("");
+                }
+            });
         }
     }
 }

@@ -19,7 +19,6 @@ public class MovieRepository {
     public ResultSet readAll() {
         ResultSet resultSet = null;
 
-        ArrayList<Account> lijst = new ArrayList<>();
         try {
 
             return DBConnection.sqlHandler.executeSql("SELECT * FROM Movie");
@@ -102,31 +101,28 @@ public class MovieRepository {
         return false;
     }
 
-    public void delete(Movie movie) {
-        if(movie == null) return;
-        delete(movie.getMovieID());
-    }
 
-    public void delete(int filmID) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
 
+    public boolean delete(int id) {
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "DELETE FILM WHERE FilmID= " + filmID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
-        }
-        catch(Exception e) {
-            System.out.println(e);
-            //ted
+            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
+            // sqlConnection.executeSqlNoResult(sqlQuery);
+
+            //statement = connection.createStatement();
+            String sqlQuery = "DELETE FROM Movie WHERE MovieID = "+ id;
+            showMessageDialog(null, "Film succesvol verwijderd");
+            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
+        catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
+            System.out.println(e);
+        }
+
+        return false;
     }
 
     public ResultSet MovieLongestUnderSixteen(){
