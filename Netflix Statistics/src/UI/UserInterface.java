@@ -61,7 +61,7 @@ public class UserInterface implements Runnable {
         this.Tabs.addTab("Verwijderen",deleteListener);
         this.Tabs.addTab("Wijzigen",updateListener);
         this.Tabs.addTab("Overzicht",overViewListener);
-        this.Tabs.addTab("Statestieken",statisticsListener);
+        this.Tabs.addTab("Statistieken",statisticsListener);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         panel.add(Tabs);
