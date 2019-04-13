@@ -53,6 +53,23 @@ public class ProfileRepository {
         return profile;
     }
 
+    public int readIdWithName (String name){
+        int profileId = 0;
+        try
+        {
+            String sqlQuery = "SELECT ProfileID FROM Profile WHERE Profilename = '" + name + "'";
+            ResultSet rs = dbConnection.sqlHandler.executeSql(sqlQuery);
+            while(rs.next()) {
+                profileId = rs.getInt("ProfileID");
+            }
+
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return profileId;
+    }
+
     public boolean create(Profile profile) {
         int id  = accountRepository.readIdWithName(profile.getName());
         try

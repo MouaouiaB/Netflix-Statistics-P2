@@ -9,7 +9,7 @@ public class Movie  {
     private int AgeIndication;
     private int ProgramID;
 
-    public Movie(String MovieTitle,  int Length, String genre, String Language, int AgeIndication) {
+    public Movie(String MovieTitle, int Length, String genre, String Language, int AgeIndication) {
 
         //this.MovieID = MovieID;
         this.MovieTitle = MovieTitle;

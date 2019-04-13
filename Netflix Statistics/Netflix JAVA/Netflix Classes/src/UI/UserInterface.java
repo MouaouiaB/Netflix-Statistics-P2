@@ -18,6 +18,7 @@ public class UserInterface implements Runnable {
     private DeleteListener deleteListener;
     private UpdateListener updateListener;
     private OverViewListener overViewListener;
+    private StatisticsListener statisticsListener;
 
 
     public UserInterface() throws SQLException {
@@ -49,6 +50,7 @@ public class UserInterface implements Runnable {
         deleteListener = new DeleteListener();
         updateListener = new UpdateListener();
         overViewListener = new OverViewListener();
+        statisticsListener = new StatisticsListener();
         this.Tabs = new JTabbedPane();
 
         this.Tabs.setFont(new Font("Overview", Font.BOLD|Font.BOLD, 20 ));
@@ -59,7 +61,7 @@ public class UserInterface implements Runnable {
         this.Tabs.addTab("Verwijderen",deleteListener);
         this.Tabs.addTab("Wijzigen",updateListener);
         this.Tabs.addTab("Overzicht",overViewListener);
-        this.Tabs.addTab("Statestieken",null);
+        this.Tabs.addTab("Statestieken",statisticsListener);
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         panel.add(Tabs);

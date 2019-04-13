@@ -7,6 +7,8 @@ import Domain.*;
 
 import Domain.Serie;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class SerieRepository {
     private String sqlConnection;
     private SqlConnection dbConnection;
@@ -50,33 +52,52 @@ public class SerieRepository {
         return serie;
     }
 
-    public void create(Serie serie) {
+    public int readIdWithName (String name){
+        int MovieId = 0;
+        try
+        {
+            String sqlQuery = "SELECT SerieID FROM Series WHERE Title = '" + name + "'";
+            ResultSet rs = dbConnection.sqlHandler.executeSql(sqlQuery);
+            while(rs.next()) {
+                MovieId = rs.getInt("SerieID");
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return MovieId;
+    }
+
+    public boolean create(Serie serie) {
         Connection connection = null;
         ResultSet resultSet = null;
         Statement statement = null;
 
         try
         {
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO Domain.Serie VALUES(" +
-                    serie.getSerieId()+ ", "+
-                    serie.getSerieTitle()+ ", "+
-                    serie.getGenre() + ", "+
-                    serie.getLanguage()+ ", "+
-                    serie.getSeasons()+ ", "+
-                    serie.getAgeIndication()+ ", "+
-                    serie.getLooksLike()+
-                    ")";
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
             // sqlConnection.executeSqlNoResult(sqlQuery);
+
+            //statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO Series VALUES('" +
+                    serie.getSerieTitle()+ "', "+
+                    serie.getSeasons()+ ", "+
+                    serie.getAgeIndication() + ", '"+
+                    serie.getLanguage() + "',' "+
+                    serie.getGenre()+"',' "+
+                    serie.getLooksLike()+
+                    "')";
+            showMessageDialog(null, "Serie succesvol toegevoegd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
             System.out.println(e);
         }
+
+        return false;
     }
 
     public void delete(Serie serie) {

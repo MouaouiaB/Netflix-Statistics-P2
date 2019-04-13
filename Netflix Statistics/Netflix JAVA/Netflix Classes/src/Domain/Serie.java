@@ -9,7 +9,7 @@ public class Serie {
     private int AgeIndication;
     private String LooksLike;
 
-    public Serie(String SerieTitle, String serieTitle, int Seasons, int AgeIndication, String Language, String Genre, String LooksLike) {
+    public Serie(String SerieTitle,  int Seasons, int AgeIndication, String Language, String Genre, String LooksLike) {
         this.SerieTitle = SerieTitle;
         this.genre = Genre;
         this.Language = Language;
