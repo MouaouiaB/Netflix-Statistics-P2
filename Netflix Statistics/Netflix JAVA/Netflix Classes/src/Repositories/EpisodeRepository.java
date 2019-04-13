@@ -56,6 +56,22 @@ public class EpisodeRepository {
         return episode;
     }
 
+    public int readIdWithName (String name){
+        int MovieId = 0;
+        try
+        {
+            String sqlQuery = "SELECT EpisodeID FROM Episode WHERE Title = '" + name + "'";
+            ResultSet rs = DBConnection.sqlHandler.executeSql(sqlQuery);
+            while(rs.next()) {
+                MovieId = rs.getInt("EpisodeID");
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return MovieId;
+    }
+
     public void create(Episode episode) {
         Connection connection = null;
         ResultSet resultSet = null;

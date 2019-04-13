@@ -86,6 +86,35 @@ public class ProgramRepository {
         return false;
     }
 
+    public boolean createSerie(Program program) {
+        int profileId= profileRepository.readIdWithName(program.getProfileName());
+        int serieId = serieRepository.readIdWithName(program.getTitle());
+        int episodeId = episodeRepository.readIdWithName(program.getEpisodeTitle());
+        //int accountId = accountRepository.readIdWithName(program.get)
+
+        try
+        {
+            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
+            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            // sqlConnection.executeSqlNoResult(sqlQuery);
+
+            String sqlQuery = "INSERT INTO Program (Title, SerieID, EpisodeID, ProfileID, Precentage) VALUES('" +
+                    program.getTitle()+ "', "+
+                    serieId +", "+
+                    episodeId +", "+
+                    profileId +", "+
+                    program.getPrecentage()+
+                    ")";
+            showMessageDialog(null, "Programma toegevoegd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
     public void delete(Program program) {
         if(program == null) return;
         delete(program.getProgramId());

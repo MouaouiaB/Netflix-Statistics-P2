@@ -1,8 +1,6 @@
 package UI;
 
-import Domain.Account;
-import Domain.Profile;
-import Domain.Program;
+import Domain.*;
 import Repositories.*;
 
 import javax.swing.*;
@@ -127,6 +125,8 @@ public class AddItemListener extends JPanel {
         this.episodeRepository = new EpisodeRepository();
         this.profileRepository = new ProfileRepository();
         this.programRepository = new ProgramRepository();
+        this.movieRepository = new MovieRepository();
+        this.serieRepository = new SerieRepository();
         LoadComponents(tabName);
     }
 
@@ -281,63 +281,61 @@ public class AddItemListener extends JPanel {
         }
 
         if (tabName == "Movie"){
-            labelFilmId = new JLabel("Movie ID:");
-            labelFilmId.setBounds(12, 24, 100, 16);
-            add(labelFilmId);
-
-            textFilmId = new JTextField();
-            textFilmId.setColumns(20);
-            textFilmId.setBounds(111, 21, 300, 22);
-            add(textFilmId);
-
             labelFilmTitle = new JLabel("Titel:");
-            labelFilmTitle.setBounds(12, 64, 100, 16);
+            labelFilmTitle.setBounds(12, 24, 100, 16);
             add(labelFilmTitle);
 
             textFilmTitle = new JTextField();
             textFilmTitle.setColumns(20);
-            textFilmTitle.setBounds(111, 64, 300, 22);
+            textFilmTitle.setBounds(111, 21, 300, 22);
             add(textFilmTitle);
 
             labelFilmAge = new JLabel("Leeftijfsindicatie:");
-            labelFilmAge.setBounds(12, 107, 100, 16);
+            labelFilmAge.setBounds(12, 64, 100, 16);
             add(labelFilmAge);
 
             textFilmAge = new JTextField();
             textFilmAge.setColumns(20);
-            textFilmAge.setBounds(111, 107, 300, 22);
+            textFilmAge.setBounds(111, 64, 300, 22);
             add(textFilmAge);
 
             labelFilmLanguage = new JLabel("Taal:");
-            labelFilmLanguage.setBounds(12, 150, 100, 16);
+            labelFilmLanguage.setBounds(12, 107, 100, 16);
             add(labelFilmLanguage);
 
             textFilmLanguage = new JTextField();
             textFilmLanguage.setColumns(20);
-            textFilmLanguage.setBounds(111, 150, 300, 22);
+            textFilmLanguage.setBounds(111, 107, 300, 22);
             add(textFilmLanguage);
 
             labelFilmDuration = new JLabel("Tijdsduur:");
-            labelFilmDuration.setBounds(12, 193, 100, 16);
+            labelFilmDuration.setBounds(12, 150, 100, 16);
             add(labelFilmDuration);
 
             textFilmDuration = new JTextField();
             textFilmDuration.setColumns(20);
-            textFilmDuration.setBounds(111, 193, 300, 22);
+            textFilmDuration.setBounds(111, 150, 300, 22);
             add(textFilmDuration);
 
             labelFilmGenre = new JLabel("Genre:");
-            labelFilmGenre.setBounds(12, 236, 100, 16);
+            labelFilmGenre.setBounds(12, 193, 100, 16);
             add(labelFilmGenre);
 
             textFilmGenre = new JTextField();
             textFilmGenre.setColumns(20);
-            textFilmGenre.setBounds(111, 236, 300, 22);
+            textFilmGenre.setBounds(111, 193, 300, 22);
             add(textFilmGenre);
 
             BtnFilm = new JButton("Opslaan");
             BtnFilm.setBounds(322, 320, 116, 25);
             add(BtnFilm);
+
+            BtnFilm.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    movieRepository.create(new Movie(textFilmTitle.getText(), Integer.parseInt(textFilmDuration.getText()), textFilmGenre.getText(), textFilmLanguage.getText(), Integer.parseInt(textFilmAge.getText())));
+                }
+            });
         }
 
         if (tabName == "Serie"){
@@ -407,6 +405,13 @@ public class AddItemListener extends JPanel {
             BtnSerie = new JButton("Opslaan");
             BtnSerie.setBounds(322, 320, 116, 25);
             add(BtnSerie);
+
+            BtnSerie.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    serieRepository.create(new Serie(textSerieTitle.getText(), Integer.parseInt(textSerieSeas.getText()), Integer.parseInt(textSerieAge.getText()), textSerieLanguage.getText(), textSerieGenre.getText(), textSerieCompare.getText()));
+                }
+            });
 
         }
 
@@ -532,7 +537,13 @@ public class AddItemListener extends JPanel {
             BtnProg.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    programRepository.createMovie(new Program(textProgProf.getText(), textProgFiSer.getText(), Integer.parseInt(textProgPer.getText())));
+                    if (textProgEp.getText() == ""){
+                        programRepository.createMovie(new Program(textProgProf.getText(), textProgFiSer.getText(), Integer.parseInt(textProgPer.getText())));
+                    }
+                    else {
+                        programRepository.createSerie(new Program(textProgProf.getText(), textProgFiSer.getText(), textProgEp.getText(), Integer.parseInt(textProgPer.getText())));
+
+                    }
 
                 }
             });
