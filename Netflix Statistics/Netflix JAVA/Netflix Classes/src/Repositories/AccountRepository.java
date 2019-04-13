@@ -130,4 +130,42 @@ public class AccountRepository {
         }
     }
 
+    public ResultSet AccountOneProfile(){
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT Account.AccountName \n" +
+                    "FROM Account\n"+
+                    "JOIN Profile On Account.AccountID = Profile.AccountID "+
+                    "GROUP BY Account.AccountName HAVING COUNT(*) = 1";
+            return DBConnection.sqlHandler.executeSql(query);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return resultSet;
+    }
+
+    public ResultSet WatchedMovies(){
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT DISTINCT Account.AccountName, Moviess.Title\n" +
+                    "FROM Account\n" +
+                    "INNER JOIN Profile ON Account.AccountID = Profile.AccountID\n" +
+                    "INNER JOIN (SELECT Program.ProfileID,Program.MovieID , Program.Title FROM Program WHERE Program.Precentage = 100)\n" +
+                    "AS Programs ON Profile.ProfileID = Programs.ProfileID\n" +
+                    "INNER JOIN (SELECT Movie.MovieID FROM Movie ) AS Movies ON Programs.MovieID = Movies.MovieID\n" +
+                    "INNER JOIN (SELECT Movie.Title FROM Movie ) AS Moviess ON Programs.Title = Moviess.Title\n";
+            return DBConnection.sqlHandler.executeSql(query);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return resultSet;
+
+    }
+
+
 }
+

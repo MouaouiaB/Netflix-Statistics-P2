@@ -2,6 +2,7 @@ package UI;
 
 import Domain.Account;
 import Domain.Profile;
+import Domain.Program;
 import Repositories.*;
 
 import javax.swing.*;
@@ -9,9 +10,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class AddItemListener extends JPanel {
 
@@ -100,18 +98,18 @@ public class AddItemListener extends JPanel {
     private JButton BtnEp;
     ///////////////////////////////////////////
     //Program settings
-    private JLabel labelProgId;
-    private JLabel labelProgTitle;
-    private JLabel labelProgFilmId;
-    private JLabel labelProgSerieId;
-    private JLabel labelProgEpId;
+    private JLabel labelProgAcc;
+    private JLabel labelProgProf;
+    private JLabel labelProgFiSer;
+    private JLabel labelProgEp;
+    private JLabel labelProgPer;
     private JLabel labelProgProfId;
 
-    private JTextField textProgId;
-    private JTextField textProgTitle;
-    private JTextField textProgFilmId;
-    private JTextField textProgSerieId;
-    private JTextField textProgEpId;
+    private JTextField textProgAcc;
+    private JTextField textProgProf;
+    private JTextField textProgFiSer;
+    private JTextField textProgEp;
+    private JTextField textProgPer;
     private JTextField textProgProfId;
     private JButton BtnProg;
     /////////////////////////////////////////////
@@ -128,6 +126,7 @@ public class AddItemListener extends JPanel {
         this.accountRepository = new AccountRepository();
         this.episodeRepository = new EpisodeRepository();
         this.profileRepository = new ProfileRepository();
+        this.programRepository = new ProgramRepository();
         LoadComponents(tabName);
     }
 
@@ -276,11 +275,7 @@ public class AddItemListener extends JPanel {
             BtnProf.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-
                     profileRepository.create(new Profile(textProfName.getText(),textProfAcc.getText(), Integer.parseInt(textProfAge.getText())));
-
-
-
                 }
             });
         }
@@ -476,63 +471,73 @@ public class AddItemListener extends JPanel {
         }
 
         if (tabName == "Program"){
-            labelProgId = new JLabel("Program ID:");
-            labelProgId.setBounds(12, 24, 100, 16);
-            add(labelProgId);
+            /*labelProgAcc = new JLabel("Account naam:");
+            labelProgAcc.setBounds(12, 24, 100, 16);
+            add(labelProgAcc);
 
-            textProgId = new JTextField();
-            textProgId.setColumns(20);
-            textProgId.setBounds(111, 21, 300, 22);
-            add(textProgId);
+            textProgAcc = new JTextField();
+            textProgAcc.setColumns(20);
+            textProgAcc.setBounds(111, 21, 300, 22);
+            add(textProgAcc);*/
 
-            labelProgTitle = new JLabel("Titel:");
-            labelProgTitle.setBounds(12, 64, 100, 16);
-            add(labelProgTitle);
+            labelProgProf = new JLabel("Profiel naam:");
+            labelProgProf.setBounds(12, 64, 100, 16);
+            add(labelProgProf);
 
-            textProgTitle = new JTextField();
-            textProgTitle.setColumns(20);
-            textProgTitle.setBounds(111, 64, 300, 22);
-            add(textProgTitle);
+            textProgProf = new JTextField();
+            textProgProf.setColumns(20);
+            textProgProf.setBounds(111, 64, 300, 22);
+            add(textProgProf);
 
-            labelProgFilmId= new JLabel("Movie ID:");
-            labelProgFilmId.setBounds(12, 107, 100, 16);
-            add(labelProgFilmId);
+            labelProgFiSer = new JLabel("Film/Serie");
+            labelProgFiSer.setBounds(12, 107, 100, 16);
+            add(labelProgFiSer);
 
-            textProgFilmId = new JTextField();
-            textProgFilmId.setColumns(20);
-            textProgFilmId.setBounds(111, 107, 300, 22);
-            add(textProgFilmId);
+            textProgFiSer = new JTextField();
+            textProgFiSer.setColumns(20);
+            textProgFiSer.setBounds(111, 107, 300, 22);
+            add(textProgFiSer);
 
-            labelProgSerieId = new JLabel("Serie ID:");
-            labelProgSerieId.setBounds(12, 150, 300, 16);
-            add(labelProgSerieId);
+            labelProgEp = new JLabel("Aflevering:");
+            labelProgEp.setBounds(12, 150, 300, 16);
+            add(labelProgEp);
 
-            textProgSerieId = new JTextField();
-            textProgSerieId.setColumns(20);
-            textProgSerieId.setBounds(111, 150, 300, 22);
-            add(textProgSerieId);
+            textProgEp = new JTextField();
+            textProgEp.setColumns(20);
+            textProgEp.setBounds(111, 150, 300, 22);
+            add(textProgEp);
 
-            labelProgEpId = new JLabel("Episode ID:");
-            labelProgEpId.setBounds(12, 193, 100, 16);
-            add(labelProgEpId);
+            labelProgPer = new JLabel("Percentage:");
+            labelProgPer.setBounds(12, 193, 100, 16);
+            add(labelProgPer);
 
-            textProgEpId = new JTextField();
-            textProgEpId.setColumns(20);
-            textProgEpId.setBounds(111, 193, 300, 22);
-            add(textProgEpId);
+            textProgPer = new JTextField();
+            textProgPer.setColumns(20);
+            textProgPer.setBounds(111, 193, 300, 22);
+            add(textProgPer);
 
-            labelProgProfId = new JLabel("Profiel ID:");
+            /*labelProgProfId = new JLabel("Profiel ID:");
             labelProgProfId.setBounds(12, 236, 100, 16);
             add(labelProgProfId);
 
             textProgProfId = new JTextField();
             textProgProfId.setColumns(20);
             textProgProfId.setBounds(111, 236, 300, 22);
-            add(textProgProfId);
+            add(textProgProfId);*/
 
             BtnProg = new JButton("Opslaan");
             BtnProg.setBounds(322, 320, 116, 25);
             add(BtnProg);
+
+            BtnProg.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    programRepository.createMovie(new Program(textProgProf.getText(), textProgFiSer.getText(), Integer.parseInt(textProgPer.getText())));
+
+                }
+            });
+
         }
     }
 }
+

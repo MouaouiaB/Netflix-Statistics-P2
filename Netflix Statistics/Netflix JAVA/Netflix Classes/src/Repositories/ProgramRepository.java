@@ -7,10 +7,18 @@ import Domain.*;
 
 import Domain.Program;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class ProgramRepository {
     private String sqlConnection;
     private SqlConnection dbConnection;
     private SqlHandler sqlHandler;
+
+    MovieRepository movieRepository = new MovieRepository();
+    ProfileRepository profileRepository = new ProfileRepository();
+    SerieRepository serieRepository = new SerieRepository();
+    EpisodeRepository episodeRepository = new EpisodeRepository();
+    AccountRepository accountRepository = new AccountRepository();
 
     public ProgramRepository() {
         this.sqlConnection = sqlConnection;
@@ -51,28 +59,31 @@ public class ProgramRepository {
         return program;
     }
 
-    public void create(Program program) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
+    public boolean createMovie(Program program) {
+        int profileId= profileRepository.readIdWithName(program.getProfileName());
+        int movieId = movieRepository.readIdWithName(program.getTitle());
+        //int accountId = accountRepository.readIdWithName(program.get)
 
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
             // sqlConnection.executeSqlNoResult(sqlQuery);
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO Domain.Program VALUES(" +
-                    program.getProgramId()+ ", "+
-                    program.getTitle()+
+
+            String sqlQuery = "INSERT INTO Program (Title, MovieID, ProfileID, Precentage) VALUES('" +
+                    program.getTitle()+ "', "+
+                    movieId +", "+
+                    profileId +", "+
+                    program.getPrecentage()+
                     ")";
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            showMessageDialog(null, "Programma toegevoegd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
             System.out.println(e);
         }
+        return false;
     }
 
     public void delete(Program program) {
@@ -101,3 +112,4 @@ public class ProgramRepository {
     }
 
 }
+

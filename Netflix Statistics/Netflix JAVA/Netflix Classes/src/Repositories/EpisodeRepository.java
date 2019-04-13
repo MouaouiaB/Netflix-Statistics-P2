@@ -112,4 +112,25 @@ public class EpisodeRepository {
         }
     }
 
+    public ResultSet AvgEpisode(){
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT Episode.Serie,Episode.Title, AVG(Precentage) as 'Bekeken %'\n" +
+                    "FROM Episode\n" +
+                    "INNER JOIN Series ON Episode.SerieID = Series.SerieID\n" +
+                    "INNER JOIN Program ON Episode.EpisodeID = Program.EpisodeID\n" +
+                    "INNER JOIN Profile ON Program.ProfileID = Profile.ProfileID\n" +
+                    "INNER JOIN Account ON Profile.AccountID = Account.AccountID\n" +
+                    "GROUP BY Episode.Title, Episode.Serie";
+
+            return DBConnection.sqlHandler.executeSql(query);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return resultSet;
+    }
+
 }
+
