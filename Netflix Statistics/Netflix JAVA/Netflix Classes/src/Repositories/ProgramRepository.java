@@ -121,24 +121,21 @@ public class ProgramRepository {
         delete(program.getProgramId());
     }
 
-    public void delete(int programmaID) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
+    public boolean delete(int programID) {
 
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "DELETE Domain.Program WHERE ProgrammaID= " + programmaID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            String sqlQuery = "DELETE FROM Program WHERE ProgramID = "+ programID;
+            showMessageDialog(null, "Programma succesvol verwijderd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
+
+        return false;
     }
 
 }

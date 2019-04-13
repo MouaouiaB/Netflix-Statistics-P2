@@ -53,34 +53,24 @@ public class SerieRepository {
     }
 
     public int readIdWithName (String name){
-        int MovieId = 0;
+        int SerieId = 0;
         try
         {
             String sqlQuery = "SELECT SerieID FROM Series WHERE Title = '" + name + "'";
             ResultSet rs = dbConnection.sqlHandler.executeSql(sqlQuery);
             while(rs.next()) {
-                MovieId = rs.getInt("SerieID");
+                SerieId = rs.getInt("SerieID");
             }
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return MovieId;
+        return SerieId;
     }
 
     public boolean create(Serie serie) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
-            // sqlConnection.executeSqlNoResult(sqlQuery);
-
-            //statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Series VALUES('" +
                     serie.getSerieTitle()+ "', "+
                     serie.getSeasons()+ ", "+
@@ -106,24 +96,26 @@ public class SerieRepository {
         delete(serie.getSerieId());
     }
 
-    public void delete(int programmaID) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
+    public boolean delete(int id) {
         try
         {
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "DELETE Domain.Serie WHERE ProgrammaID= " + programmaID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
+            // sqlConnection.executeSqlNoResult(sqlQuery);
+
+            //statement = connection.createStatement();
+            String sqlQuery = "DELETE FROM Series WHERE SerieID = "+ id;
+            showMessageDialog(null, "Serie succesvol verwijderd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
+
+        return false;
     }
 
 }

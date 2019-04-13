@@ -22,7 +22,7 @@ public class EpisodeRepository {
     public ResultSet readAll() {
         ResultSet resultSet = null;
 
-        ArrayList<Account> lijst = new ArrayList<>();
+
         try {
 
             return DBConnection.sqlHandler.executeSql("SELECT * FROM Episode");
@@ -33,6 +33,7 @@ public class EpisodeRepository {
         return resultSet;
     }
 
+    //nachecken
     public Episode read(int AfleveringID) {
         Episode episode = null;
 
@@ -106,10 +107,6 @@ public class EpisodeRepository {
         return false;
     }
 
-    public void delete(Episode episode) {
-        if(episode == null) return;
-        delete(episode.getEpisodeID());
-    }
 
     public void delete(int AfleveringID) {
 

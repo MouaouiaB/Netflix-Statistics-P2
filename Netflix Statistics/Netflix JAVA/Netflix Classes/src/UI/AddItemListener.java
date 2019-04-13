@@ -143,13 +143,13 @@ public class AddItemListener extends JPanel {
         this.textName = new JTextField();
         if (tabName == "Account"){
 
-            labelNaam = new JLabel("Naam:");
+            labelNaam = new JLabel("Account naam:");
             labelNaam.setBounds(12, 24, 100, 16);
             add(labelNaam);
 
             textName = new JTextField();
             textName.setColumns(20);
-            textName.setBounds(111, 21, 300, 22);
+            textName.setBounds(201, 21, 300, 22);
             add(textName);
 
             labelPasswd = new JLabel("Wachtwoord:");
@@ -158,7 +158,7 @@ public class AddItemListener extends JPanel {
 
             textPasswd = new JTextField();
             textPasswd.setColumns(20);
-            textPasswd.setBounds(111, 64, 300, 22);
+            textPasswd.setBounds(201, 64, 300, 22);
             add(textPasswd);
 
             labelMail = new JLabel("E-mail:");
@@ -167,7 +167,7 @@ public class AddItemListener extends JPanel {
 
             textMail = new JTextField();
             textMail.setColumns(20);
-            textMail.setBounds(111, 107, 300, 22);
+            textMail.setBounds(201, 107, 300, 22);
             add(textMail);
 
             labelStreet = new JLabel("Straat:");
@@ -176,7 +176,7 @@ public class AddItemListener extends JPanel {
 
             textStreet = new JTextField();
             textStreet.setColumns(20);
-            textStreet.setBounds(111, 150, 300, 22);
+            textStreet.setBounds(201, 150, 300, 22);
             add(textStreet);
 
             labelStrNumber = new JLabel("Huisnummer:");
@@ -185,7 +185,7 @@ public class AddItemListener extends JPanel {
 
             textStrNumber = new JTextField();
             textStrNumber.setColumns(20);
-            textStrNumber.setBounds(111, 193, 300, 22);
+            textStrNumber.setBounds(201, 193, 300, 22);
             add(textStrNumber);
 
             labelZip = new JLabel("Postcode:");
@@ -194,7 +194,7 @@ public class AddItemListener extends JPanel {
 
             textZip = new JTextField();
             textZip.setColumns(20);
-            textZip.setBounds(111, 236, 300, 22);
+            textZip.setBounds(201, 236, 300, 22);
             add(textZip);
 
             labelCity = new JLabel("Stad:");
@@ -203,7 +203,7 @@ public class AddItemListener extends JPanel {
 
             textCity = new JTextField();
             textCity.setColumns(20);
-            textCity.setBounds(111, 279, 300, 22);
+            textCity.setBounds(201, 279, 300, 22);
             add(textCity);
 
             BtnAcc = new JButton("Opslaan");
@@ -247,7 +247,7 @@ public class AddItemListener extends JPanel {
             add(textProfName);
 
 
-            labelProfAge = new JLabel("Leeftijd:");
+            labelProfAge = new JLabel("Leeftijd (alleen getallen):");
             labelProfAge.setBounds(12, 107, 300, 16);
             add(labelProfAge);
 
@@ -478,14 +478,7 @@ public class AddItemListener extends JPanel {
         }
 
         if (tabName == "Program"){
-            /*labelProgAcc = new JLabel("Account naam:");
-            labelProgAcc.setBounds(12, 24, 100, 16);
-            add(labelProgAcc);
 
-            textProgAcc = new JTextField();
-            textProgAcc.setColumns(20);
-            textProgAcc.setBounds(111, 21, 300, 22);
-            add(textProgAcc);*/
 
             labelProgProf = new JLabel("Profiel naam:");
             labelProgProf.setBounds(12, 64, 100, 16);
@@ -493,7 +486,7 @@ public class AddItemListener extends JPanel {
 
             textProgProf = new JTextField();
             textProgProf.setColumns(20);
-            textProgProf.setBounds(111, 64, 300, 22);
+            textProgProf.setBounds(201, 64, 300, 22);
             add(textProgProf);
 
             labelProgFiSer = new JLabel("Film/Serie");
@@ -502,7 +495,7 @@ public class AddItemListener extends JPanel {
 
             textProgFiSer = new JTextField();
             textProgFiSer.setColumns(20);
-            textProgFiSer.setBounds(111, 107, 300, 22);
+            textProgFiSer.setBounds(201, 107, 300, 22);
             add(textProgFiSer);
 
             labelProgEp = new JLabel("Aflevering:");
@@ -511,30 +504,22 @@ public class AddItemListener extends JPanel {
 
             textProgEp = new JTextField();
             textProgEp.setColumns(20);
-            textProgEp.setBounds(111, 150, 300, 22);
+            textProgEp.setBounds(201, 150, 300, 22);
             add(textProgEp);
 
-            labelProgPer = new JLabel("Percentage:");
+            labelProgPer = new JLabel("Percentage (alleen getallen):");
             labelProgPer.setBounds(12, 193, 100, 16);
             add(labelProgPer);
 
             textProgPer = new JTextField();
             textProgPer.setColumns(20);
-            textProgPer.setBounds(111, 193, 300, 22);
+            textProgPer.setBounds(201, 193, 300, 22);
             add(textProgPer);
-
-            /*labelProgProfId = new JLabel("Profiel ID:");
-            labelProgProfId.setBounds(12, 236, 100, 16);
-            add(labelProgProfId);
-
-            textProgProfId = new JTextField();
-            textProgProfId.setColumns(20);
-            textProgProfId.setBounds(111, 236, 300, 22);
-            add(textProgProfId);*/
 
             BtnProg = new JButton("Opslaan");
             BtnProg.setBounds(322, 320, 116, 25);
             add(BtnProg);
+
 
             BtnProg.addActionListener(new ActionListener() {
                 @Override
@@ -546,12 +531,10 @@ public class AddItemListener extends JPanel {
                         programRepository.createSerie(new Program(textProgProf.getText(), textProgFiSer.getText(), textProgEp.getText(), Integer.parseInt(textProgPer.getText())));
 
                     }
-
                     textProgProf.setText("");
                     textProgFiSer.setText("");
                     textProgEp.setText("");
                     textProgPer.setText("");
-
                 }
             });
 
