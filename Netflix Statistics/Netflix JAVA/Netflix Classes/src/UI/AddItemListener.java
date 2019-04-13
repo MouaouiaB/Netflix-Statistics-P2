@@ -276,6 +276,9 @@ public class AddItemListener extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     profileRepository.create(new Profile(textProfName.getText(),textProfAcc.getText(), Integer.parseInt(textProfAge.getText())));
+                    textProfName.setText("");
+                    textProfAcc.setText("");
+                    textProfAge.setText("");
                 }
             });
         }
@@ -334,19 +337,17 @@ public class AddItemListener extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     movieRepository.create(new Movie(textFilmTitle.getText(), Integer.parseInt(textFilmDuration.getText()), textFilmGenre.getText(), textFilmLanguage.getText(), Integer.parseInt(textFilmAge.getText())));
+                    textFilmTitle.setText("");
+                    textFilmDuration.setText("");
+                    textFilmGenre.setText("");
+                    textFilmLanguage.setText("");
+                    textFilmAge.setText("");
                 }
             });
         }
 
         if (tabName == "Serie"){
-            labelSerieId = new JLabel("Serie ID:");
-            labelSerieId.setBounds(12, 24, 100, 16);
-            add(labelSerieId);
 
-            textSerieId = new JTextField();
-            textSerieId.setColumns(20);
-            textSerieId.setBounds(111, 21, 300, 22);
-            add(textSerieId);
 
             labelSerieTitle = new JLabel("Titel:");
             labelSerieTitle.setBounds(12, 64, 100, 16);
@@ -410,46 +411,36 @@ public class AddItemListener extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     serieRepository.create(new Serie(textSerieTitle.getText(), Integer.parseInt(textSerieSeas.getText()), Integer.parseInt(textSerieAge.getText()), textSerieLanguage.getText(), textSerieGenre.getText(), textSerieCompare.getText()));
+                    textSerieTitle.setText("");
+                    textSerieSeas.setText("");
+                    textSerieAge.setText("");
+                    textSerieLanguage.setText("");
+                    textSerieGenre.setText("");
+                    textSerieCompare.setText("");
                 }
             });
 
         }
 
         if (tabName == "Episode"){
-            labelEpId = new JLabel("Episode ID:");
-            labelEpId.setBounds(12, 24, 100, 16);
-            add(labelEpId);
-
-            textEpId = new JTextField();
-            textEpId.setColumns(20);
-            textEpId.setBounds(111, 21, 300, 22);
-            add(textEpId);
 
             labelEpSerie = new JLabel("Serie:");
-            labelEpSerie.setBounds(12, 64, 100, 16);
+            labelEpSerie.setBounds(12, 24, 100, 16);
             add(labelEpSerie);
 
             textEpSerie = new JTextField();
             textEpSerie.setColumns(20);
-            textEpSerie.setBounds(111, 64, 300, 22);
+            textEpSerie.setBounds(111, 21, 300, 22);
             add(textEpSerie);
 
-            labelEpSerieId= new JLabel("Serie ID:");
-            labelEpSerieId.setBounds(12, 107, 100, 16);
-            add(labelEpSerieId);
-
-            textEpSerieId = new JTextField();
-            textEpSerieId.setColumns(20);
-            textEpSerieId.setBounds(111, 107, 300, 22);
-            add(textEpSerieId);
 
             labelEpSeasEp = new JLabel("Seizoen en Episode (Format: S01A01):");
-            labelEpSeasEp.setBounds(12, 150, 300, 16);
+            labelEpSeasEp.setBounds(12, 107, 300, 16);
             add(labelEpSeasEp);
 
             textEpSeasEp = new JTextField();
             textEpSeasEp.setColumns(20);
-            textEpSeasEp.setBounds(300, 150, 300, 22);
+            textEpSeasEp.setBounds(300, 107, 300, 22);
             add(textEpSeasEp);
 
             labelEpTitle = new JLabel("Titel:");
@@ -473,6 +464,17 @@ public class AddItemListener extends JPanel {
             BtnEp = new JButton("Opslaan");
             BtnEp.setBounds(322, 320, 116, 25);
             add(BtnEp);
+
+            BtnEp.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    episodeRepository.create(new Episode(textEpSerie.getText(), textEpTitle.getText(), textEpSeasEp.getText(), Integer.parseInt(textEpDuration.getText())));
+                    textEpSerie.setText("");
+                    textEpTitle.setText("");
+                    textEpSeasEp.setText("");
+                    textEpDuration.setText("");
+                }
+            });
         }
 
         if (tabName == "Program"){
@@ -537,13 +539,18 @@ public class AddItemListener extends JPanel {
             BtnProg.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (textProgEp.getText() == ""){
+                    if (textProgEp.getText().isEmpty()){
                         programRepository.createMovie(new Program(textProgProf.getText(), textProgFiSer.getText(), Integer.parseInt(textProgPer.getText())));
                     }
                     else {
                         programRepository.createSerie(new Program(textProgProf.getText(), textProgFiSer.getText(), textProgEp.getText(), Integer.parseInt(textProgPer.getText())));
 
                     }
+
+                    textProgProf.setText("");
+                    textProgFiSer.setText("");
+                    textProgEp.setText("");
+                    textProgPer.setText("");
 
                 }
             });

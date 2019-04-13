@@ -95,6 +95,7 @@ public class MovieRepository {
 
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
 

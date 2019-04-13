@@ -86,6 +86,7 @@ public class ProfileRepository {
 
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
         return false;

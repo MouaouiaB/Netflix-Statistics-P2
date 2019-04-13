@@ -7,10 +7,13 @@ import Domain.*;
 
 import Domain.Episode;
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 public class EpisodeRepository {
     private SqlHandler sqlHandler;
     private SqlConnection DBConnection;
     private String sqlConnection;
+    private SerieRepository serieRepository = new SerieRepository();
 
     public EpisodeRepository() {
         this.sqlHandler = new SqlHandler();
@@ -72,34 +75,35 @@ public class EpisodeRepository {
         return MovieId;
     }
 
-    public void create(Episode episode) {
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
+    public boolean create(Episode episode) {
+        int serieId = serieRepository.readIdWithName(episode.getSerieName());
 
         try
         {
-
             //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
             //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
+            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
             // sqlConnection.executeSqlNoResult(sqlQuery);
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "INSERT INTO AFLEVERING VALUES(" +
-                    episode.getEpisodeID()+ ", "+
-                    episode.getSerieName()+ ", "+
-                    episode.getSerieName()+ ", "+
 
-                    episode.getSeasonAndEpisode()+ ", "+
-                    episode.getLengthe()+
+            //statement = connection.createStatement();
+            String sqlQuery = "INSERT INTO Episode VALUES('" +
+                    episode.getSerieName()+ "', "+
+                    serieId + ", '"+
+                    episode.getSeasonAndEpisode()+ "', '"+
+                    episode.getTitle() + "', "+
+                    episode.getLengthe() +
                     ")";
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            showMessageDialog(null, "Episode succesvol toegevoegd");
+            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
+
         }
+
+        return false;
     }
 
     public void delete(Episode episode) {
