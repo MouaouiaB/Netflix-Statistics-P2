@@ -41,7 +41,6 @@ public class GetDataItemListener extends JPanel{
         table = new JTable(buildTableModel(rs));
         table.setBounds(12, 55, 475, 309);
 
-
         add(table);
     }
 
