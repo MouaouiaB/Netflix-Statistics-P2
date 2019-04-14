@@ -14,7 +14,6 @@ public class AccountRepository {
 
     public AccountRepository() {
 
-
     }
 
     public ResultSet readAll(){
@@ -140,7 +139,7 @@ public class AccountRepository {
                     account.getHouseNumber()+ "', ZipCode = ' "+
                     account.getZipCode()+ "', City = ' "+
                     account.getCity()+ "'" + "WHERE AccountID = " + id;
-            showMessageDialog(null, "Account succesvol toegevoegd");
+            showMessageDialog(null, "Account succesvol geupdate");
             return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }

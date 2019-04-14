@@ -83,7 +83,7 @@ public class ProgramRepository {
         try
         {
             String sqlQuery = "INSERT INTO Program (Title, SerieID, EpisodeID, ProfileID, Precentage) VALUES('" +
-                    program.getTitle()+ "', "+
+                    program.getEpisodeTitle()+ "', "+
                     serieId +", "+
                     episodeId +", "+
                     profileId +", "+

@@ -178,6 +178,13 @@ public class UpdateItemListener extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     accountRepository.update(new Account(comboBox.getSelectedItem().toString(),textFullName.getText(), textMail.getText(), textPasswd.getText(), textStreet.getText(), textStrNumber.getText(), textZip.getText(), textCity.getText()));
+                    textFullName.setText("");
+                    textMail.setText("");
+                    textPasswd.setText("");
+                    textStreet.setText("");
+                    textStrNumber.setText("");
+                    textZip.setText("");
+                    textCity.setText("");
                 }
             });
 
@@ -226,6 +233,8 @@ public class UpdateItemListener extends JPanel {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     profileRepository.update(new Profile(profCombox.getSelectedItem().toString() , textProfAcc.getText() ,Integer.parseInt(textProfAge.getText())));
+                    textProfAcc.setText("");
+                    textProfAge.setText("");
                 }
             });
         }
