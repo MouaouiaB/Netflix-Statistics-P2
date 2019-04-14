@@ -8,11 +8,11 @@ import org.junit.jupiter.api.DisplayName;
 import javax.swing.table.TableModel;
 import java.util.ArrayList;
 
-public class AccountTest {
+public class DbConnectionTest {
     AccountRepository accountRepository = new AccountRepository();
     @DisplayName("Tests Database connection")
     @Test
-    public void testGetAccount() throws Exception{
+    public void testConnection() throws Exception{
         SqlHandler sqlHandler = new SqlHandler();
         sqlHandler.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistics;integratedSecurity=true;");
 
