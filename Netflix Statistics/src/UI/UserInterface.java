@@ -63,11 +63,16 @@ public class UserInterface implements Runnable {
         this.Tabs.addTab("Toevoegen",addListener);
         this.Tabs.addTab("Verwijderen",deleteListener);
         this.Tabs.addTab("Wijzigen",updateListener);
+<<<<<<< HEAD:Netflix Statistics/Netflix JAVA/Netflix Classes/src/UI/UserInterface.java
         this.Tabs.addTab("Tabellen",overViewListener);
         this.Tabs.addTab("Statestieken",statisticsListener);
         this.Tabs.addTab("Overzicht 1", serieByAccountListener);
         this.Tabs.addTab("Overzicht 2", filmsByAccountsListener);
         this.Tabs.addTab("Overzicht 3", seriesAvgListener);
+=======
+        this.Tabs.addTab("Overzicht",overViewListener);
+        this.Tabs.addTab("Statistieken",statisticsListener);
+>>>>>>> 17e4e0993ef8dede3d511b9869b52c86610ff3ba:Netflix Statistics/src/UI/UserInterface.java
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         panel.add(Tabs);
