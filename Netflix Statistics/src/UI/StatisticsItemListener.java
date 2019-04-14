@@ -12,10 +12,6 @@ import java.util.Vector;
 public class StatisticsItemListener extends JPanel{
     private JTable table;
     private AccountRepository accountRepository = new AccountRepository();
-    private ProfileRepository profileRepository = new ProfileRepository();
-    private EpisodeRepository episodeRepository =  new EpisodeRepository();
-    private SerieRepository serieRepository = new SerieRepository();
-    private ProgramRepository programRepository = new ProgramRepository();
     private MovieRepository movieRepository = new MovieRepository();
 
     public StatisticsItemListener(String name) throws SQLException {
@@ -27,7 +23,7 @@ public class StatisticsItemListener extends JPanel{
         if (tabName == "Accounts"){
             ResultSet rs = accountRepository.AccountOneProfile();
             table = new JTable(buildTableModel(rs));
-            
+
 
             add(table);
         }

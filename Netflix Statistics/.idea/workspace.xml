@@ -23,11 +23,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="SQLQuery11.sql" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SQLQuery11.sql" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Connection/SQLQuery11.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+            <state relative-caret-position="268">
+              <caret line="220" column="33" lean-forward="false" selection-start-line="220" selection-start-column="33" selection-end-line="220" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -43,21 +43,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StatisticsItemListener.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/UI/StatisticsItemListener.java">
+      <file leaf-file-name="AddItemListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UI/AddItemListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="-2940">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilmsByAccountsListener.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UI/FilmsByAccountsListener.java">
+      <file leaf-file-name="Account.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="42">
+              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -86,7 +96,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/ProfileRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/FilmRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AfleveringRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/AbonnementRepository.java" />
@@ -134,9 +143,10 @@
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/SerieByAccountListener.java" />
         <option value="$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/UI/FilmsByAccountsListener.java" />
-        <option value="$PROJECT_DIR$/src/Connection/SQLQuery11.sql" />
         <option value="$PROJECT_DIR$/src/UI/UserInterface.java" />
         <option value="$PROJECT_DIR$/src/UI/StatisticsItemListener.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/Connection/SQLQuery11.sql" />
       </list>
     </option>
   </component>
@@ -153,7 +163,7 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
+    <option name="x" value="-8" />
     <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
@@ -221,11 +231,6 @@
             <path>
               <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
               <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -238,7 +243,29 @@
               <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
               <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Netflix Statistics" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UML" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Netflix Statistics" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -397,7 +424,7 @@
     <option name="totallyTimeSpent" value="2983000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="0" width="976" height="1038" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -409,12 +436,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33223686" sideWeight="0.50208336" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="TMC Test Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34539473" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34922394" sideWeight="0.49791667" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17291667" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34655532" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
       <window_info id="TMC Project List" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921588" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -469,28 +496,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Domain/Movie.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Connection/SqlConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/AccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-241">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Netflix JAVA/Netflix Classes/src/Repositories/EpisodeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
@@ -835,18 +840,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Connection/SQLQuery11.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/FilmsByAccountsListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/StatisticsItemListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="13" column="74" lean-forward="false" selection-start-line="13" selection-start-column="74" selection-end-line="13" selection-end-column="74" />
           <folding />
         </state>
       </provider>
@@ -859,10 +864,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/StatisticsItemListener.java">
+    <entry file="file://$PROJECT_DIR$/src/UI/AddItemListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="-2940">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Connection/SQLQuery11.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="220" column="33" lean-forward="false" selection-start-line="220" selection-start-column="33" selection-end-line="220" selection-end-column="33" />
           <folding />
         </state>
       </provider>
