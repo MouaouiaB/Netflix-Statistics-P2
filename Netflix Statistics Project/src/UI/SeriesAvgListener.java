@@ -11,18 +11,16 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class SeriesAvgListener extends JPanel implements IAddingTabs {
-    private JComboBox Account;
+
     private JComboBox Serie;
-    private JTabbedPane SideTabs;
     private JButton PrecEpisode;
     private JTable table;
     private JPanel panel;
     private JScrollPane scrollPane;
-    private JLabel LabelAccount;
+    private JLabel labelText;
     private JLabel LabelSerie;
     private GetDataItemListener getDataItemListener;
-    private EpisodeRepository episodeRepository = new EpisodeRepository();
-    private AccountRepository accountRepository = new AccountRepository();
+
     private SerieRepository serieRepository = new SerieRepository();
 
     public SeriesAvgListener() throws SQLException {
@@ -47,6 +45,7 @@ public class SeriesAvgListener extends JPanel implements IAddingTabs {
         Serie.setBounds(600, 13, 200, 22);
 
 
+        labelText = new JLabel("Percentage per aflevering:    ");
         LabelSerie = new JLabel("Serie");
 
         PrecEpisode.addActionListener(new ActionListener() {
@@ -68,25 +67,10 @@ public class SeriesAvgListener extends JPanel implements IAddingTabs {
         });
 
 
+        panel.add(labelText);
         panel.add(LabelSerie);
         panel.add(Serie);
         panel.add(PrecEpisode);
-
-
-
-        /*WachtedMovie = new JButton("Accounts met 1 profiel");
-        PrecEpisode = new JButton("Gemmideld bekeken aflevering");
-        LongestMovie = new JButton("Langste Film onder 16");
-        MoviesByPerson = new JButton("Films bekeken per persoon");*/
-
-
-
-
-        /*panel.add(WachtedMovie);
-        panel.add(PrecEpisode);
-        panel.add(LongestMovie);
-        panel.add(MoviesByPerson);*/
-
 
         scrollPane.setViewportView(table);
         add(scrollPane);
