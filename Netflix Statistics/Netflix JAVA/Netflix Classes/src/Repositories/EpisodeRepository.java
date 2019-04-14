@@ -1,9 +1,8 @@
 package Repositories;
 
 import java.sql.*;
-import java.util.*;
+
 import Connection.*;
-import Domain.*;
 
 import Domain.Episode;
 
@@ -11,8 +10,8 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 public class EpisodeRepository {
     private SqlHandler sqlHandler;
-    private SqlConnection DBConnection;
-    private String sqlConnection;
+    private SqlConnection sqlConnection;
+
     private SerieRepository serieRepository = new SerieRepository();
 
     public EpisodeRepository() {
@@ -25,7 +24,7 @@ public class EpisodeRepository {
 
         try {
 
-            return DBConnection.sqlHandler.executeSql("SELECT * FROM Episode");
+            return sqlConnection.sqlHandler.executeSql("SELECT * FROM Episode");
         }
         catch(Exception e) {
             System.out.println(e);
@@ -33,39 +32,15 @@ public class EpisodeRepository {
         return resultSet;
     }
 
-    //nachecken
-    public Episode read(int AfleveringID) {
-        Episode episode = null;
-
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
 
 
-        try
-        {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM AFLEVERING WHERE AfleveringID =" + AfleveringID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
-
-
-        }
-        catch(Exception e) {
-            System.out.println(e);
-        }
-        return episode;
-    }
 
     public int readIdWithName (String name){
         int MovieId = 0;
         try
         {
             String sqlQuery = "SELECT EpisodeID FROM Episode WHERE Title = '" + name + "'";
-            ResultSet rs = DBConnection.sqlHandler.executeSql(sqlQuery);
+            ResultSet rs = sqlConnection.sqlHandler.executeSql(sqlQuery);
             while(rs.next()) {
                 MovieId = rs.getInt("EpisodeID");
             }
@@ -76,17 +51,12 @@ public class EpisodeRepository {
         return MovieId;
     }
 
+    //method not used, but can be used un future projects
     public boolean create(Episode episode) {
         int serieId = serieRepository.readIdWithName(episode.getSerieName());
 
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
-            // sqlConnection.executeSqlNoResult(sqlQuery);
-
-            //statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Episode VALUES('" +
                     episode.getSerieName()+ "', "+
                     serieId + ", '"+
@@ -95,7 +65,7 @@ public class EpisodeRepository {
                     episode.getLengthe() +
                     ")";
             showMessageDialog(null, "Episode succesvol toegevoegd");
-            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
         catch(Exception e) {
@@ -108,28 +78,24 @@ public class EpisodeRepository {
     }
 
 
-    public void delete(int AfleveringID) {
-
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
+    //method not used, but can be used un future projects
+    public boolean delete(int id) {
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "DELETE AFLEVERING WHERE AfleveringID =" + AfleveringID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
+            String sqlQuery = "DELETE FROM Episode WHERE EpisodeID = "+ id;
+            showMessageDialog(null, "Aflevering succesvol verwijderd");
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }
+
+        return false;
     }
 
-    public ResultSet AvgEpisode(){
+    public ResultSet AvgEpisodeAccount(String Account, String Serie){
         ResultSet resultSet = null;
 
         try {
@@ -139,15 +105,39 @@ public class EpisodeRepository {
                     "INNER JOIN Program ON Episode.EpisodeID = Program.EpisodeID\n" +
                     "INNER JOIN Profile ON Program.ProfileID = Profile.ProfileID\n" +
                     "INNER JOIN Account ON Profile.AccountID = Account.AccountID\n" +
+                    " Where Series.Title = '" + Serie + "' AND Account.AccountName = '" + Account+ "'" +
                     "GROUP BY Episode.Title, Episode.Serie";
 
-            return DBConnection.sqlHandler.executeSql(query);
+            return sqlConnection.sqlHandler.executeSql(query);
         }
         catch(Exception e) {
             System.out.println(e);
         }
         return resultSet;
     }
+
+    public ResultSet AvgEpisode(String Serie){
+        ResultSet resultSet = null;
+
+        try {
+            String query = "SELECT Episode.EpisodeID, Episode.Title, AVG(Precentage) as 'Bekeken %'\n" +
+                    "FROM Episode\n" +
+                    "INNER JOIN Series ON Episode.SerieID = Series.SerieID\n" +
+                    "INNER JOIN Program ON Episode.EpisodeID = Program.EpisodeID\n" +
+                    "INNER JOIN Profile ON Program.ProfileID = Profile.ProfileID\n" +
+                    "INNER JOIN Account ON Profile.AccountID = Account.AccountID\n" +
+                    " Where Series.Title = '" + Serie + "' " +
+                    "GROUP BY Episode.EpisodeID, Episode.Title";
+
+            return sqlConnection.sqlHandler.executeSql(query);
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return resultSet;
+    }
+
+
 
 }
 

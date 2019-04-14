@@ -14,9 +14,10 @@ public class AddItemListener extends JPanel {
     private JTable table;
     private JTable Proftable;
     private JButton button;
+    private JLabel label;
     //Account settings
-    private JPanel panel;
-    private JTextField textName;
+    private JTextField textAccountName;
+    private JTextField textFullName;
     private JTextField textPasswd;
     private JTextField textMail;
     private JTextField textStreet;
@@ -24,7 +25,8 @@ public class AddItemListener extends JPanel {
     private JTextField textZip;
     private JTextField textCity;
 
-    private JLabel labelNaam;
+    private JLabel labelAccountName;
+    private JLabel labelFullName;
     private JLabel labelPasswd;
     private JLabel labelMail;
     private JLabel labelStreet;
@@ -36,79 +38,25 @@ public class AddItemListener extends JPanel {
     //Profile settings
     private JTextField textProfAcc;
     private JTextField textProfName;
-    private JTextField textProfAccId;
     private JTextField textProfAge;
 
     private JLabel labelProfAcc;
     private JLabel labelProfName;
-    private JLabel labelProfAccId;
     private JLabel labelProfAge;
     private JButton BtnProf;
     //////////////////////////////////
-    //Movie settings
-    private JTextField textFilmId;
-    private JTextField textFilmTitle;
-    private JTextField textFilmAge;
-    private JTextField textFilmLanguage;
-    private JTextField textFilmDuration;
-    private JTextField textFilmGenre;
-
-    private JLabel labelFilmId;
-    private JLabel labelFilmTitle;
-    private JLabel labelFilmAge;
-    private JLabel labelFilmLanguage;
-    private JLabel labelFilmDuration;
-    private JLabel labelFilmGenre;
-    private JButton BtnFilm;
-    /////////////////////////////////////
-    //Serie settings
-    private JTextField textSerieId;
-    private JTextField textSerieTitle;
-    private JTextField textSerieSeas;
-    private JTextField textSerieAge;
-    private JTextField textSerieLanguage;
-    private JTextField textSerieGenre;
-    private JTextField textSerieCompare;
-
-    private JLabel labelSerieId;
-    private JLabel labelSerieTitle;
-    private JLabel labelSerieSeas;
-    private JLabel labelSerieAge;
-    private JLabel labelSerieLanguage;
-    private JLabel labelSerieGenre;
-    private JLabel labelSerieCompare;
-    private JButton BtnSerie;
-    ///////////////////////////////////////////
-    //Episode settings
-    private JTextField textEpId;
-    private JTextField textEpSerie;
-    private JTextField textEpSerieId;
-    private JTextField textEpSeasEp;
-    private JTextField textEpTitle;
-    private JTextField textEpDuration;
-
-    private JLabel labelEpId;
-    private JLabel labelEpSerie;
-    private JLabel labelEpSerieId;
-    private JLabel labelEpSeasEp;
-    private JLabel labelEpTitle;
-    private JLabel labelEpDuration;
-    private JButton BtnEp;
     ///////////////////////////////////////////
     //Program settings
-    private JLabel labelProgAcc;
     private JLabel labelProgProf;
     private JLabel labelProgFiSer;
     private JLabel labelProgEp;
     private JLabel labelProgPer;
     private JLabel labelProgProfId;
 
-    private JTextField textProgAcc;
     private JTextField textProgProf;
     private JTextField textProgFiSer;
     private JTextField textProgEp;
     private JTextField textProgPer;
-    private JTextField textProgProfId;
     private JButton BtnProg;
     /////////////////////////////////////////////
     //Repositories
@@ -140,85 +88,97 @@ public class AddItemListener extends JPanel {
 
 
 
-        this.textName = new JTextField();
+        this.textAccountName = new JTextField();
+        //Loads account form
         if (tabName == "Account"){
 
-            labelNaam = new JLabel("Account naam:");
-            labelNaam.setBounds(12, 24, 100, 16);
-            add(labelNaam);
+            label = new JLabel("* Vul alle velden in");
+            label.setBounds(600, 24, 300, 16);
+            add(label);
 
-            textName = new JTextField();
-            textName.setColumns(20);
-            textName.setBounds(201, 21, 300, 22);
-            add(textName);
+            labelFullName = new JLabel("Naam:");
+            labelFullName.setBounds(12, 24, 100, 16);
+            add(labelFullName);
+
+            textFullName = new JTextField();
+            textFullName.setColumns(20);
+            textFullName.setBounds(201, 21, 300, 22);
+            add(textFullName);
+
+            labelAccountName = new JLabel("Account naam:");
+            labelAccountName.setBounds(12, 64, 100, 16);
+            add(labelAccountName);
+
+            textAccountName = new JTextField();
+            textAccountName.setColumns(20);
+            textAccountName.setBounds(201, 64, 300, 22);
+            add(textAccountName);
 
             labelPasswd = new JLabel("Wachtwoord:");
-            labelPasswd.setBounds(12, 64, 100, 16);
+            labelPasswd.setBounds(12, 107, 100, 16);
             add(labelPasswd);
 
             textPasswd = new JTextField();
             textPasswd.setColumns(20);
-            textPasswd.setBounds(201, 64, 300, 22);
+            textPasswd.setBounds(201, 107, 300, 22);
             add(textPasswd);
 
             labelMail = new JLabel("E-mail:");
-            labelMail.setBounds(12, 107, 100, 16);
+            labelMail.setBounds(12, 150, 100, 16);
             add(labelMail);
 
             textMail = new JTextField();
             textMail.setColumns(20);
-            textMail.setBounds(201, 107, 300, 22);
+            textMail.setBounds(201, 150, 300, 22);
             add(textMail);
 
             labelStreet = new JLabel("Straat:");
-            labelStreet.setBounds(12, 150, 100, 16);
+            labelStreet.setBounds(12, 193, 100, 16);
             add(labelStreet);
 
             textStreet = new JTextField();
             textStreet.setColumns(20);
-            textStreet.setBounds(201, 150, 300, 22);
+            textStreet.setBounds(201, 193, 300, 22);
             add(textStreet);
 
             labelStrNumber = new JLabel("Huisnummer:");
-            labelStrNumber.setBounds(12, 193, 100, 16);
+            labelStrNumber.setBounds(12, 236, 100, 16);
             add(labelStrNumber);
 
             textStrNumber = new JTextField();
             textStrNumber.setColumns(20);
-            textStrNumber.setBounds(201, 193, 300, 22);
+            textStrNumber.setBounds(201, 236, 300, 22);
             add(textStrNumber);
 
             labelZip = new JLabel("Postcode:");
-            labelZip.setBounds(12, 236, 100, 16);
+            labelZip.setBounds(12, 279, 100, 16);
             add(labelZip);
 
             textZip = new JTextField();
             textZip.setColumns(20);
-            textZip.setBounds(201, 236, 300, 22);
+            textZip.setBounds(201, 279, 300, 22);
             add(textZip);
 
             labelCity = new JLabel("Stad:");
-            labelCity.setBounds(12, 279, 100, 16);
+            labelCity.setBounds(12, 322, 100, 16);
             add(labelCity);
 
             textCity = new JTextField();
             textCity.setColumns(20);
-            textCity.setBounds(201, 279, 300, 22);
+            textCity.setBounds(201, 322, 300, 22);
             add(textCity);
 
             BtnAcc = new JButton("Opslaan");
-            BtnAcc.setBounds(322, 320, 116, 25);
+            BtnAcc.setBounds(322, 370, 116, 25);
             add(BtnAcc);
 
-
-            /*String number = textStrNumber.getText();
-            int housenumber = Integer.parseInt(number);*/
-
+            //Adds info given to repositories
             BtnAcc.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    accountRepository.create(new Account(textName.getText(), textMail.getText(), textPasswd.getText(), textStreet.getText(),textStrNumber.getText(),textZip.getText(), textCity.getText()));
-                    textName.setText("");
+                    accountRepository.create(new Account(textAccountName.getText(), textFullName.getText(), textMail.getText(), textPasswd.getText(), textStreet.getText(),textStrNumber.getText(),textZip.getText(), textCity.getText()));
+                    textAccountName.setText("");
+                    textFullName.setText("");
                     textMail.setText("");
                     textPasswd.setText("");
                     textStreet.setText("");
@@ -227,15 +187,13 @@ public class AddItemListener extends JPanel {
                     textCity.setText("");
                 }
             });
-
-
-
-
-
-
-
         }
+
+        //Loads profile form
         if (tabName == "Profiel"){
+            label = new JLabel("* Vul alle velden in");
+            label.setBounds(600, 24, 300, 16);
+            add(label);
 
             labelProfName = new JLabel("Profielnaam:");
             labelProfName.setBounds(12, 24, 100, 16);
@@ -272,6 +230,7 @@ public class AddItemListener extends JPanel {
             BtnProf.setBounds(322, 320, 116, 25);
             add(BtnProf);
 
+            //Adds info given to repositories
             BtnProf.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -283,202 +242,13 @@ public class AddItemListener extends JPanel {
             });
         }
 
-        if (tabName == "Movie"){
-            labelFilmTitle = new JLabel("Titel:");
-            labelFilmTitle.setBounds(12, 24, 100, 16);
-            add(labelFilmTitle);
 
-            textFilmTitle = new JTextField();
-            textFilmTitle.setColumns(20);
-            textFilmTitle.setBounds(111, 21, 300, 22);
-            add(textFilmTitle);
+        // loads program repository
+        if (tabName == "Programma"){
 
-            labelFilmAge = new JLabel("Leeftijfsindicatie:");
-            labelFilmAge.setBounds(12, 64, 100, 16);
-            add(labelFilmAge);
-
-            textFilmAge = new JTextField();
-            textFilmAge.setColumns(20);
-            textFilmAge.setBounds(111, 64, 300, 22);
-            add(textFilmAge);
-
-            labelFilmLanguage = new JLabel("Taal:");
-            labelFilmLanguage.setBounds(12, 107, 100, 16);
-            add(labelFilmLanguage);
-
-            textFilmLanguage = new JTextField();
-            textFilmLanguage.setColumns(20);
-            textFilmLanguage.setBounds(111, 107, 300, 22);
-            add(textFilmLanguage);
-
-            labelFilmDuration = new JLabel("Tijdsduur:");
-            labelFilmDuration.setBounds(12, 150, 100, 16);
-            add(labelFilmDuration);
-
-            textFilmDuration = new JTextField();
-            textFilmDuration.setColumns(20);
-            textFilmDuration.setBounds(111, 150, 300, 22);
-            add(textFilmDuration);
-
-            labelFilmGenre = new JLabel("Genre:");
-            labelFilmGenre.setBounds(12, 193, 100, 16);
-            add(labelFilmGenre);
-
-            textFilmGenre = new JTextField();
-            textFilmGenre.setColumns(20);
-            textFilmGenre.setBounds(111, 193, 300, 22);
-            add(textFilmGenre);
-
-            BtnFilm = new JButton("Opslaan");
-            BtnFilm.setBounds(322, 320, 116, 25);
-            add(BtnFilm);
-
-            BtnFilm.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    movieRepository.create(new Movie(textFilmTitle.getText(), Integer.parseInt(textFilmDuration.getText()), textFilmGenre.getText(), textFilmLanguage.getText(), Integer.parseInt(textFilmAge.getText())));
-                    textFilmTitle.setText("");
-                    textFilmDuration.setText("");
-                    textFilmGenre.setText("");
-                    textFilmLanguage.setText("");
-                    textFilmAge.setText("");
-                }
-            });
-        }
-
-        if (tabName == "Serie"){
-
-
-            labelSerieTitle = new JLabel("Titel:");
-            labelSerieTitle.setBounds(12, 64, 100, 16);
-            add(labelSerieTitle);
-
-            textSerieTitle = new JTextField();
-            textSerieTitle.setColumns(20);
-            textSerieTitle.setBounds(111, 64, 300, 22);
-            add(textSerieTitle);
-
-            labelSerieAge = new JLabel("Leeftijfsindicatie:");
-            labelSerieAge.setBounds(12, 107, 100, 16);
-            add(labelSerieAge);
-
-            textSerieAge = new JTextField();
-            textSerieAge.setColumns(20);
-            textSerieAge.setBounds(111, 107, 300, 22);
-            add(textSerieAge);
-
-            labelSerieLanguage = new JLabel("Taal:");
-            labelSerieLanguage.setBounds(12, 150, 100, 16);
-            add(labelSerieLanguage);
-
-            textSerieLanguage = new JTextField();
-            textSerieLanguage.setColumns(20);
-            textSerieLanguage.setBounds(111, 150, 300, 22);
-            add(textSerieLanguage);
-
-            labelSerieSeas = new JLabel("Seizoenen:");
-            labelSerieSeas.setBounds(12, 193, 100, 16);
-            add(labelSerieSeas);
-
-            textSerieSeas = new JTextField();
-            textSerieSeas.setColumns(20);
-            textSerieSeas.setBounds(111, 193, 300, 22);
-            add(textSerieSeas);
-
-            labelSerieGenre = new JLabel("Genre:");
-            labelSerieGenre.setBounds(12, 236, 100, 16);
-            add(labelSerieGenre);
-
-            textSerieGenre = new JTextField();
-            textSerieGenre.setColumns(20);
-            textSerieGenre.setBounds(111, 236, 300, 22);
-            add(textSerieGenre);
-
-            labelSerieCompare = new JLabel("Lijkt op:");
-            labelSerieCompare.setBounds(12, 279, 100, 16);
-            add(labelSerieCompare);
-
-            textSerieCompare = new JTextField();
-            textSerieCompare.setColumns(20);
-            textSerieCompare.setBounds(111, 279, 300, 22);
-            add(textSerieCompare);
-
-            BtnSerie = new JButton("Opslaan");
-            BtnSerie.setBounds(322, 320, 116, 25);
-            add(BtnSerie);
-
-            BtnSerie.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    serieRepository.create(new Serie(textSerieTitle.getText(), Integer.parseInt(textSerieSeas.getText()), Integer.parseInt(textSerieAge.getText()), textSerieLanguage.getText(), textSerieGenre.getText(), textSerieCompare.getText()));
-                    textSerieTitle.setText("");
-                    textSerieSeas.setText("");
-                    textSerieAge.setText("");
-                    textSerieLanguage.setText("");
-                    textSerieGenre.setText("");
-                    textSerieCompare.setText("");
-                }
-            });
-
-        }
-
-        if (tabName == "Episode"){
-
-            labelEpSerie = new JLabel("Serie:");
-            labelEpSerie.setBounds(12, 24, 100, 16);
-            add(labelEpSerie);
-
-            textEpSerie = new JTextField();
-            textEpSerie.setColumns(20);
-            textEpSerie.setBounds(111, 21, 300, 22);
-            add(textEpSerie);
-
-
-            labelEpSeasEp = new JLabel("Seizoen en Episode (Format: S01A01):");
-            labelEpSeasEp.setBounds(12, 107, 300, 16);
-            add(labelEpSeasEp);
-
-            textEpSeasEp = new JTextField();
-            textEpSeasEp.setColumns(20);
-            textEpSeasEp.setBounds(300, 107, 300, 22);
-            add(textEpSeasEp);
-
-            labelEpTitle = new JLabel("Titel:");
-            labelEpTitle.setBounds(12, 193, 100, 16);
-            add(labelEpTitle);
-
-            textEpTitle = new JTextField();
-            textEpTitle.setColumns(20);
-            textEpTitle.setBounds(111, 193, 300, 22);
-            add(textEpTitle);
-
-            labelEpDuration = new JLabel("Tijdsduur:");
-            labelEpDuration.setBounds(12, 236, 100, 16);
-            add(labelEpDuration);
-
-            textEpDuration = new JTextField();
-            textEpDuration.setColumns(20);
-            textEpDuration.setBounds(111, 236, 300, 22);
-            add(textEpDuration);
-
-            BtnEp = new JButton("Opslaan");
-            BtnEp.setBounds(322, 320, 116, 25);
-            add(BtnEp);
-
-            BtnEp.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    episodeRepository.create(new Episode(textEpSerie.getText(), textEpTitle.getText(), textEpSeasEp.getText(), Integer.parseInt(textEpDuration.getText())));
-                    textEpSerie.setText("");
-                    textEpTitle.setText("");
-                    textEpSeasEp.setText("");
-                    textEpDuration.setText("");
-                }
-            });
-        }
-
-        if (tabName == "Program"){
-
+            label = new JLabel("U kunt de aflevering veld leeg laten als u een film kiest.");
+            label.setBounds(12, 24, 700, 16);
+            add(label);
 
             labelProgProf = new JLabel("Profiel naam:");
             labelProgProf.setBounds(12, 64, 100, 16);
@@ -508,7 +278,7 @@ public class AddItemListener extends JPanel {
             add(textProgEp);
 
             labelProgPer = new JLabel("Percentage (alleen getallen):");
-            labelProgPer.setBounds(12, 193, 100, 16);
+            labelProgPer.setBounds(12, 193, 300, 16);
             add(labelProgPer);
 
             textProgPer = new JTextField();
@@ -520,7 +290,7 @@ public class AddItemListener extends JPanel {
             BtnProg.setBounds(322, 320, 116, 25);
             add(BtnProg);
 
-
+            //sends info from body to repository
             BtnProg.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

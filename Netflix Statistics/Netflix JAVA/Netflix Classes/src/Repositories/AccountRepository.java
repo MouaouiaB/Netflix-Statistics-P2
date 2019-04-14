@@ -9,21 +9,20 @@ import static javax.swing.JOptionPane.showMessageDialog;
 
 
 public class AccountRepository {
-    private String sqlConnection;
     private SqlHandler sqlHandler;
-    private SqlConnection DBConnection;
+    private SqlConnection sqlConnection;
 
     public AccountRepository() {
 
 
     }
 
-    public ResultSet readAll() {
+    public ResultSet readAll(){
         ResultSet resultSet = null;
 
         try {
 
-            return DBConnection.sqlHandler.executeSql("SELECT * FROM Account");
+            return sqlConnection.sqlHandler.executeSql("SELECT AccountID FROM Account");
         }
         catch(Exception e) {
             System.out.println(e);
@@ -31,12 +30,67 @@ public class AccountRepository {
         return resultSet;
     }
 
-    public int readIdWithName (String name){
+    public ArrayList AccountsArrayList(){
+        ArrayList<Account>accounts = new ArrayList<>();
+        ResultSet resultSet = null;
+
+        try {
+
+            resultSet = sqlConnection.sqlHandler.executeSql("SELECT * FROM Account");
+            while (resultSet.next()){
+                accounts.add(new Account(resultSet.getString("Accountname"),
+                        resultSet.getString("FullName") ,
+                        resultSet.getString("Email") ,
+                        resultSet.getString("Password"),
+                        resultSet.getString("Street"),
+                        resultSet.getString("HouseNumber"),
+                        resultSet.getString("ZipCode"),
+                        resultSet.getString("City")));
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return accounts;
+
+    }
+
+    public ArrayList getAccountNames(){
+        ArrayList<String>list = new ArrayList<>();
+        try
+        {
+            String sqlQuery = "SELECT AccountName FROM Account";
+            ResultSet rs = sqlConnection.sqlHandler.executeSql(sqlQuery);
+            while(rs.next()) {
+                list.add(rs.getString("AccountName"));
+            }
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+
+    public ResultSet readAllToTable() {
+        ResultSet resultSet = null;
+
+        try {
+
+            return sqlConnection.sqlHandler.executeSql("SELECT * FROM Account");
+        }
+        catch(Exception e) {
+            System.out.println(e);
+        }
+        return resultSet;
+    }
+
+    public int readIdWithName(String name){
         int accountId = 0;
         try
         {
             String sqlQuery = "SELECT AccountID FROM Account WHERE AccountName = '" + name + "'";
-            ResultSet rs = DBConnection.sqlHandler.executeSql(sqlQuery);
+            ResultSet rs = sqlConnection.sqlHandler.executeSql(sqlQuery);
             while(rs.next()) {
                 accountId = rs.getInt("AccountID");
             }
@@ -47,41 +101,13 @@ public class AccountRepository {
         return accountId;
     }
 
-    //nachecken
-    public Account read(int id) {
-        Account account = null;
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
-        try
-        {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM Account WHERE AccountID=" + id;
-            resultSet = statement.executeQuery("SELECT * FROM Account WHERE AccountID=" + id);
-            resultSet.next();
-            // account = new Domain.Account(rs.getInt("Id"),rs.getString("Name"), rs.getString("StudentNumber"));
-        }
-        catch(Exception e) {
-            System.out.println(e);
-        }
-        return account;
-    }
 
     public boolean create(Account account) {
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
-            // sqlConnection.executeSqlNoResult(sqlQuery);
-
-            //statement = connection.createStatement();
             String sqlQuery = "INSERT INTO Account VALUES('" +
                     account.getAccountName()+ "',' "+
+                    account.getFullName() + "', '"+
                     account.getEmail()+ "',' "+
                     account.getPassword() + "',' "+
                     account.getStreet()+ "',' "+
@@ -90,7 +116,32 @@ public class AccountRepository {
                     account.getCity()+
                     "')";
             showMessageDialog(null, "Account succesvol toegevoegd");
-            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
+        }
+        catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
+            System.out.println(e);
+        }
+
+        return false;
+    }
+
+    public boolean update(Account account) {
+        int id = readIdWithName(account.getAccountName());
+        try
+        {
+            String sqlQuery = "UPDATE Account SET AccountName = '" +
+                    account.getAccountName()+ "', FullName = '"+ account.getFullName() +
+                    "', Email = ' "+
+                    account.getEmail()+ "', Password =' "+
+                    account.getPassword() + "',Street = ' "+
+                    account.getStreet()+ "',HouseNumber =' "+
+                    account.getHouseNumber()+ "', ZipCode = ' "+
+                    account.getZipCode()+ "', City = ' "+
+                    account.getCity()+ "'" + "WHERE AccountID = " + id;
+            showMessageDialog(null, "Account succesvol toegevoegd");
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
         catch(Exception e) {
@@ -103,22 +154,11 @@ public class AccountRepository {
 
 
     public boolean delete(int id) {
-
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            //String sqlQuery = "INSERT INTO ABONNEMENT VALUES (" + student.getId() + ", '" + student.getName() + "', '" + student.getStudentNumber() + "')";
-            // sqlConnection.executeSqlNoResult(sqlQuery);
-
-            //statement = connection.createStatement();
             String sqlQuery = "DELETE FROM Account WHERE AccountID = "+ id;
             showMessageDialog(null, "Account succesvol verwijderd");
-            return DBConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
         catch(Exception e) {
@@ -137,7 +177,7 @@ public class AccountRepository {
                     "FROM Account\n"+
                     "JOIN Profile On Account.AccountID = Profile.AccountID "+
                     "GROUP BY Account.AccountName HAVING COUNT(*) = 1";
-            return DBConnection.sqlHandler.executeSql(query);
+            return sqlConnection.sqlHandler.executeSql(query);
         }
         catch(Exception e) {
             System.out.println(e);
@@ -145,7 +185,7 @@ public class AccountRepository {
         return resultSet;
     }
 
-    public ResultSet WatchedMovies(){
+    public ResultSet WatchedMovies(String title){
         ResultSet resultSet = null;
 
         try {
@@ -155,8 +195,9 @@ public class AccountRepository {
                     "INNER JOIN (SELECT Program.ProfileID,Program.MovieID , Program.Title FROM Program WHERE Program.Precentage = 100)\n" +
                     "AS Programs ON Profile.ProfileID = Programs.ProfileID\n" +
                     "INNER JOIN (SELECT Movie.MovieID FROM Movie ) AS Movies ON Programs.MovieID = Movies.MovieID\n" +
-                    "INNER JOIN (SELECT Movie.Title FROM Movie ) AS Moviess ON Programs.Title = Moviess.Title\n";
-            return DBConnection.sqlHandler.executeSql(query);
+                    "INNER JOIN (SELECT Movie.Title FROM Movie ) AS Moviess ON Programs.Title = Moviess.Title\n" +
+                    "WHERE Account.AccountName = '"+ title + "'";;
+            return sqlConnection.sqlHandler.executeSql(query);
         }
         catch(Exception e) {
             System.out.println(e);

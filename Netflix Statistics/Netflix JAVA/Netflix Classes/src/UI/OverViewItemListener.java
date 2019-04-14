@@ -1,15 +1,11 @@
 package UI;
 
 import Connection.SqlConnection;
-import Connection.SqlHandler;
 import Repositories.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.Vector;
 
@@ -21,7 +17,6 @@ public class OverViewItemListener extends JPanel {
     private SqlConnection sqlConnection = new SqlConnection();
     private JTable table;
     private JScrollPane scrollPane;
-    private String name;
 
     private AccountRepository accountRepository = new AccountRepository();
     private ProfileRepository profileRepository = new ProfileRepository();
@@ -34,21 +29,16 @@ public class OverViewItemListener extends JPanel {
     public OverViewItemListener(String name) throws SQLException {
         super(new BorderLayout());
 
-        //this.name = tabName;
         LoadComponents(name);
     }
 
     public void LoadComponents(String tabName) throws SQLException {
         if (tabName == "Account"){
-            ResultSet rs = accountRepository.readAll();
-
+            ResultSet rs = accountRepository.readAllToTable();
             table = new JTable(buildTableModel(rs));
             scrollPane = new JScrollPane(table);
 
 
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
             add(scrollPane);
             add(table);
 
@@ -59,10 +49,6 @@ public class OverViewItemListener extends JPanel {
             table = new JTable(buildTableModel(rs));
             scrollPane = new JScrollPane(table);
 
-
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
             add(scrollPane);
             add(table);
         }
@@ -72,8 +58,6 @@ public class OverViewItemListener extends JPanel {
             table = new JTable(buildTableModel(rs));
             scrollPane = new JScrollPane(table);
 
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
             add(scrollPane);
             add(table);
         }
@@ -83,8 +67,6 @@ public class OverViewItemListener extends JPanel {
             table = new JTable(buildTableModel(rs));
             scrollPane = new JScrollPane(table);
 
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
             add(scrollPane);
             add(table);
         }
@@ -94,8 +76,6 @@ public class OverViewItemListener extends JPanel {
             table = new JTable(buildTableModel(rs));
             scrollPane = new JScrollPane(table);
 
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
             add(scrollPane);
             add(table);
         }
@@ -105,8 +85,6 @@ public class OverViewItemListener extends JPanel {
             table = new JTable(buildTableModel(rs));
             scrollPane = new JScrollPane(table);
 
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
             add(scrollPane);
             add(table);
         }
@@ -115,8 +93,8 @@ public class OverViewItemListener extends JPanel {
 
     }
 
+    //creates columns and data for the table
     public  static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
-
         ResultSetMetaData metaData = rs.getMetaData();
 
         // names of columns

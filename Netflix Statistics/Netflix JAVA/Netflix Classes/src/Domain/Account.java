@@ -3,6 +3,7 @@ package Domain;
 public class Account {
     private int AccountID;
     private String AccountName;
+    private String FullName;
     private String Email;
     private String Password;
     private String Street;
@@ -10,14 +11,19 @@ public class Account {
     private String ZipCode;
     private String City;
 
-    public Account(String AccountName, String Email, String Password, String Street, String HouseNumber, String ZipCode, String City) {
+    public Account(String AccountName, String fullName, String Email, String Password, String Street, String HouseNumber, String ZipCode, String City) {
         this.AccountName = AccountName;
+        this.FullName = fullName;
         this.Email = Email;
         this.Password = Password;
         this.Street = Street;
         this.HouseNumber = HouseNumber;
         this.ZipCode = ZipCode;
         this.City = City;
+    }
+
+    public String getFullName() {
+        return FullName;
     }
 
     public int getAccountId() {

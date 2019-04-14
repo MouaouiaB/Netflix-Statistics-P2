@@ -9,17 +9,14 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
 
-public class StatisticsItemListener extends JPanel{
+public class GetDataItemListener extends JPanel{
     private JTable table;
+
     private AccountRepository accountRepository = new AccountRepository();
-    private ProfileRepository profileRepository = new ProfileRepository();
     private EpisodeRepository episodeRepository =  new EpisodeRepository();
-    private SerieRepository serieRepository = new SerieRepository();
-    private ProgramRepository programRepository = new ProgramRepository();
     private MovieRepository movieRepository = new MovieRepository();
 
-    public StatisticsItemListener(String name) throws SQLException {
-
+    public GetDataItemListener(String name) throws SQLException {
         LoadComponents(name);
     }
 
@@ -28,21 +25,6 @@ public class StatisticsItemListener extends JPanel{
             ResultSet rs = accountRepository.AccountOneProfile();
             table = new JTable(buildTableModel(rs));
 
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
-
-            add(table);
-        }
-
-        if (tabName == "Gemiddeld"){
-            ResultSet rs = episodeRepository.AvgEpisode();
-            table = new JTable(buildTableModel(rs));
-
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
-
             add(table);
         }
 
@@ -50,26 +32,35 @@ public class StatisticsItemListener extends JPanel{
             ResultSet rs = movieRepository.MovieLongestUnderSixteen();
             table = new JTable(buildTableModel(rs));
 
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
-
             add(table);
-
         }
 
-        if (tabName == "Film"){
-            ResultSet rs = accountRepository.WatchedMovies();
-            table = new JTable(buildTableModel(rs));
+    }
+    public void avgSelectedSerie(String Serie) throws SQLException {
+        ResultSet rs = episodeRepository.AvgEpisode(Serie);
+        table = new JTable(buildTableModel(rs));
+        table.setBounds(12, 55, 475, 309);
 
 
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+        add(table);
+    }
 
-            add(table);
+    public void avgEpisodeByAccount(String account, String Serie) throws SQLException {
+        ResultSet rs = episodeRepository.AvgEpisodeAccount(account, Serie);
+        table = new JTable(buildTableModel(rs));
+        table.setBounds(12, 55, 475, 309);
 
-        }
 
+        add(table);
+    }
+
+    public void watchedMovies(String title) throws SQLException {
+        ResultSet rs = accountRepository.WatchedMovies(title);
+        table = new JTable(buildTableModel(rs));
+        table.setBounds(12, 55, 475, 309);
+
+
+        add(table);
     }
 
     public  static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
@@ -94,7 +85,7 @@ public class StatisticsItemListener extends JPanel{
         }
 
         DefaultTableModel table = new DefaultTableModel(data, columnNames);
-        table.fireTableDataChanged();
+
         return table;
 
     }

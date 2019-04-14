@@ -14,18 +14,19 @@ public class DeleteListener extends JPanel implements IAddingTabs {
 
 
 
+
     @Override
     public void TabsAdd() {
         this.SideTabs = new JTabbedPane();
         this.SideTabs.setFont(new Font("Side", Font.BOLD|Font.BOLD, 20 ));
         this.SideTabs.setTabPlacement(JTabbedPane.LEFT);
+
+        //creates side tabs
         this.SideTabs.addTab("Account", this.deleteItemListener = new DeleteItemListener("Account"));
         this.SideTabs.addTab("Profiel", this.deleteItemListener = new DeleteItemListener("Profiel"));
-        this.SideTabs.addTab("Movie", this.deleteItemListener = new DeleteItemListener("Movie"));
-        this.SideTabs.addTab("Serie", this.deleteItemListener = new DeleteItemListener("Serie"));
-        this.SideTabs.addTab("Episode", this.deleteItemListener = new DeleteItemListener("Episode"));
-        this.SideTabs.addTab("Program", this.deleteItemListener = new DeleteItemListener("Program"));
+        this.SideTabs.addTab("Programma", this.deleteItemListener = new DeleteItemListener("Program"));
 
+        //adds side tabs
         add(this.SideTabs);
 
 
