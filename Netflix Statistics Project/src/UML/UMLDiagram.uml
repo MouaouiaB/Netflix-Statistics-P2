@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="848.0" y="514.0">Connection.SqlHandler</node>
+    <node x="291.0" y="0.0">Domain.Movie</node>
+    <node x="479.0" y="0.0">Domain.Serie</node>
+    <node x="535.0" y="317.0">Repositories.ProfileRepository</node>
+    <node x="544.0" y="860.0">Connection.SqlConnection</node>
+    <node x="566.0" y="698.0">UI.UserInterface</node>
+    <node x="0.0" y="0.0">Domain.Account</node>
+    <node x="865.0" y="698.0">UI.UpdateItemListener</node>
+    <node x="649.0" y="514.0">Domain.Program</node>
+    <node x="170.0" y="418.0">UI.UpdateListener</node>
+    <node x="224.0" y="514.0">Repositories.MovieRepository</node>
+    <node x="0.0" y="514.0">Repositories.EpisodeRepository</node>
+    <node x="665.0" y="0.0">Repositories.AccountRepository</node>
+    <node x="340.0" y="418.0">UI.DeleteListener</node>
+    <node x="771.0" y="317.0">Repositories.ProgramRepository</node>
+    <node x="0.0" y="956.0">UI.OverViewListener</node>
+    <node x="0.0" y="418.0">UI.StatisticsListener</node>
+    <node x="199.0" y="698.0">UI.OverViewItemListener</node>
+    <node x="0.0" y="860.0">UI.AddItemListener</node>
+    <node x="272.0" y="860.0">UI.DeleteItemListener</node>
+    <node x="0.0" y="698.0">Domain.Profile</node>
+    <node x="195.0" y="956.0">UI.AddListener</node>
+    <node x="784.0" y="860.0">Main</node>
+    <node x="925.0" y="0.0">Domain.Episode</node>
+    <node x="170.0" y="317.0">UI.IAddingTabs</node>
+    <node x="438.0" y="514.0">Repositories.SerieRepository</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="UI.StatisticsListener" target="UI.IAddingTabs">
+      <point x="0.0" y="-25.5" />
+      <point x="75.0" y="393.0" />
+      <point x="195.0" y="393.0" />
+      <point x="-50.0" y="25.5" />
+    </edge>
+    <edge source="UI.UpdateListener" target="UI.IAddingTabs">
+      <point x="0.0" y="-25.5" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="UI.DeleteListener" target="UI.IAddingTabs">
+      <point x="0.0" y="-25.5" />
+      <point x="415.0" y="393.0" />
+      <point x="295.0" y="393.0" />
+      <point x="50.0" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9007352941176471" x="562.6199962553828" y="552.0367346938775" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
