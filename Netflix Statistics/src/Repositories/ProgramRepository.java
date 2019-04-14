@@ -1,33 +1,32 @@
 package Repositories;
 
 import java.sql.*;
-import java.util.*;
+
 import Connection.*;
-import Domain.*;
 
 import Domain.Program;
 
 import static javax.swing.JOptionPane.showMessageDialog;
 
 public class ProgramRepository {
-    private String sqlConnection;
-    private SqlConnection dbConnection;
+
+    private SqlConnection sqlConnection;
     private SqlHandler sqlHandler;
 
     MovieRepository movieRepository = new MovieRepository();
     ProfileRepository profileRepository = new ProfileRepository();
     SerieRepository serieRepository = new SerieRepository();
     EpisodeRepository episodeRepository = new EpisodeRepository();
-    AccountRepository accountRepository = new AccountRepository();
+
 
     public ProgramRepository() {
-        this.sqlConnection = sqlConnection;
+
     }
 
     public ResultSet readAll() {
         ResultSet resultSet = null;
         try {
-            return dbConnection.sqlHandler.executeSql("SELECT * FROM Program");
+            return sqlConnection.sqlHandler.executeSql("SELECT * FROM Program");
         }
         catch(Exception e) {
             System.out.println(e);
@@ -36,40 +35,29 @@ public class ProgramRepository {
     }
 
 
-    public Program read(int programmaID) {
-        Program program = null;
-        Connection connection = null;
-        ResultSet resultSet = null;
-        Statement statement = null;
-
+    public int readIdWithName (String name){
+        int accountId = 0;
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM Domain.Program WHERE ProgrammaID= " + programmaID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
-            //lijst.add(new Domain.Program(rs.getInt("ProgrammaID"),rs.getString("Title")));
+            String sqlQuery = "SELECT ProgramID FROM Program WHERE Title = '" + name + "'";
+            ResultSet rs = sqlConnection.sqlHandler.executeSql(sqlQuery);
+            while(rs.next()) {
+                accountId = rs.getInt("ProgramID");
+            }
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return program;
+        return accountId;
     }
 
     public boolean createMovie(Program program) {
         int profileId= profileRepository.readIdWithName(program.getProfileName());
         int movieId = movieRepository.readIdWithName(program.getTitle());
-        //int accountId = accountRepository.readIdWithName(program.get)
+
 
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            // sqlConnection.executeSqlNoResult(sqlQuery);
-
             String sqlQuery = "INSERT INTO Program (Title, MovieID, ProfileID, Precentage) VALUES('" +
                     program.getTitle()+ "', "+
                     movieId +", "+
@@ -77,7 +65,7 @@ public class ProgramRepository {
                     program.getPrecentage()+
                     ")";
             showMessageDialog(null, "Programma toegevoegd");
-            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
         catch(Exception e) {
@@ -91,14 +79,9 @@ public class ProgramRepository {
         int profileId= profileRepository.readIdWithName(program.getProfileName());
         int serieId = serieRepository.readIdWithName(program.getTitle());
         int episodeId = episodeRepository.readIdWithName(program.getEpisodeTitle());
-        //int accountId = accountRepository.readIdWithName(program.get)
 
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            // sqlConnection.executeSqlNoResult(sqlQuery);
-
             String sqlQuery = "INSERT INTO Program (Title, SerieID, EpisodeID, ProfileID, Precentage) VALUES('" +
                     program.getTitle()+ "', "+
                     serieId +", "+
@@ -107,7 +90,7 @@ public class ProgramRepository {
                     program.getPrecentage()+
                     ")";
             showMessageDialog(null, "Programma toegevoegd");
-            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
         catch(Exception e) {
@@ -116,10 +99,6 @@ public class ProgramRepository {
         return false;
     }
 
-    public void delete(Program program) {
-        if(program == null) return;
-        delete(program.getProgramId());
-    }
 
     public boolean delete(int programID) {
 
@@ -127,10 +106,51 @@ public class ProgramRepository {
         {
             String sqlQuery = "DELETE FROM Program WHERE ProgramID = "+ programID;
             showMessageDialog(null, "Programma succesvol verwijderd");
-            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
 
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
+            System.out.println(e);
+        }
+
+        return false;
+    }
+
+    public boolean updateSerie(Program program) {
+        int programId = readIdWithName(program.getTitle());
+        int profileId= profileRepository.readIdWithName(program.getProfileName());
+        int serieId = serieRepository.readIdWithName(program.getTitle());
+        int episodeId = episodeRepository.readIdWithName(program.getEpisodeTitle());
+        //int accountId = accountRepository.readIdWithName(program.get)
+        try {
+            String sqlQuery = "UPDATE Program SET Title = '" + program.getTitle() +
+                    "', SerieID =  " + serieId +
+                    ", EpisodeID = "+ episodeId +
+                    ", Precentage = " + program.getPrecentage() +  " WHERE ProgramID = " + programId;
+            showMessageDialog(null, "Program succesvol gewijzigd");
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
+        } catch (Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
+            System.out.println(e);
+        }
+
+        return false;
+    }
+
+    public boolean updateMovie(Program program) {
+        int programId = readIdWithName(program.getTitle());
+        int profileId= profileRepository.readIdWithName(program.getProfileName());
+        int movieId = movieRepository.readIdWithName(program.getTitle());
+        try {
+            String sqlQuery = "UPDATE Program SET Title = '" + program.getTitle() +
+                    "', MovieID =  " + movieId +
+                    ", Precentage = " + program.getPrecentage() +  " WHERE ProgramID = " + programId;
+            showMessageDialog(null, "Program succesvol gewijzigd");
+            return sqlConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+
+        } catch (Exception e) {
             showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }

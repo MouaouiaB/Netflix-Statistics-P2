@@ -12,6 +12,7 @@ USE NetflixStatistics
 CREATE TABLE Account(
 AccountID int IDENTITY (1,1) PRIMARY KEY,
 AccountName nvarchar(40)  NOT NULL,
+FullName nvarchar(40)  NOT NULL,
 Email nvarchar(40) NOT NULL,
 Password nvarchar(40) NOT NULL,
 Street nvarchar(40) NOT NULL,
@@ -24,6 +25,7 @@ City nvarchar(40) NOT NULL
 CREATE TABLE Profile(
 ProfileID int IDENTITY (1,1) PRIMARY KEY,
 Profilename nvarchar(30) UNIQUE  NOT NULL,
+AccountName nvarchar(40),
 AccountID int NOT NULL,
 Age int NOT NULL,
 
@@ -111,13 +113,13 @@ CONSTRAINT EpisodeFK
 /* De abonnement van M. Bouhtala + proefiel ---------*/
 INSERT INTO Account
 VALUES
-('M. Bouhtala','zakelijk.mb@hotmail.com','wachtwoord','Nederbrakelstraat','55','4826 CR','Breda'),
-('Ayman','ayman@hotmail.com','wachtwoord','Pootlaan','17','4707 JA','Roosendaal');
+('BouhtalaAccount','M. Bouhtala','zakelijk.mb@hotmail.com','wachtwoord','Nederbrakelstraat','55','4826 CR','Breda'),
+('AymanAccount','Ayman El Bouhazzaoui','ayman@hotmail.com','wachtwoord','Pootlaan','17','4707 JA','Roosendaal');
 
 INSERT INTO Profile
 VALUES
-('Mouaouia',1,21),
-('Ayman',2,22);
+('Mouaouia', 'BouhtalaAccount',1,21),
+('Ayman', 'AymanAccount' ,2,22);
 
 
 /* ******** Programma's ******** */

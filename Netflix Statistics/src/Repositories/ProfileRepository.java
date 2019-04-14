@@ -1,5 +1,6 @@
 package Repositories;
 
+import java.awt.color.ProfileDataException;
 import java.sql.*;
 import java.util.*;
 import Connection.*;
@@ -29,28 +30,24 @@ public class ProfileRepository {
         return resultSet;
     }
 
-    public Profile read(int abonneeID) {
-        Profile profile = null;
-
-        Connection connection = null;
+    public ArrayList ProfileArrayList(){
+        ArrayList<Profile>profiles = new ArrayList<>();
         ResultSet resultSet = null;
-        Statement statement = null;
 
-        try
-        {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            connection = DriverManager.getConnection(sqlConnection);
-            statement = connection.createStatement();
-            String sqlQuery = "SELECT * FROM Profiel WHERE AbonneeID= " + abonneeID;
-            resultSet = statement.executeQuery(sqlQuery);
-            resultSet.next();
-            //lijst.add(new Domain.Profile(rs.getString("Domain.Profile naam"), rs.getString("Geboortedatum"), rs.getString("AbonneeID")));
+        try {
+
+            resultSet = dbConnection.sqlHandler.executeSql("SELECT * FROM Profile");
+            while (resultSet.next()){
+                profiles.add(new Profile(resultSet.getString("Profilename"),
+                        resultSet.getString("AccountName"),
+                        resultSet.getInt("Age")));
+            }
         }
         catch(Exception e) {
             System.out.println(e);
         }
-        return profile;
+        return profiles;
+
     }
 
     public int readIdWithName (String name){
@@ -74,11 +71,8 @@ public class ProfileRepository {
         int id  = accountRepository.readIdWithName(profile.getName());
         try
         {
-            //let op: het samenvoegen van strings binnen SQL commando's is ONVEILIG. Pas dit niet toe in een productieomgeving.
-            //later in het curriculum wordt behandeld op welke wijze je je hiertegen kunt beschermen.
-            // sqlConnection.executeSqlNoResult(sqlQuery);
             String sqlQuery = "INSERT INTO Profile VALUES('" +
-                    profile.getProfileName()+ "', "+ id + ", "+ profile.getBirthDate()+
+                    profile.getProfileName()+ "' ,'" + profile.getName() +  "', "+ id + ", "+ profile.getBirthDate()+
                     ")";
             showMessageDialog(null, "Toevoegen van een profiel is gelukt");
             return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
@@ -101,6 +95,24 @@ public class ProfileRepository {
 
         }
         catch(Exception e) {
+            showMessageDialog(null, "Formulier foutief ingevuld");
+            System.out.println(e);
+        }
+
+        return false;
+    }
+
+    public boolean update(Profile profile) {
+        int id = readIdWithName(profile.getProfileName());
+        int accountid = accountRepository.readIdWithName(profile.getName());
+        try {
+            String sqlQuery = "UPDATE Profile SET Profilename = '" + profile.getProfileName() +
+                    "', AccountName = ' " + profile.getName() +
+                    "', AccountID = "+ accountid +
+                    ", Age = " + profile.getBirthDate() +  "WHERE ProfileID = " + id;
+            showMessageDialog(null, "Profiel gewijzigd");
+            return dbConnection.sqlHandler.executeSqlNoResult(sqlQuery);
+        } catch (Exception e) {
             showMessageDialog(null, "Formulier foutief ingevuld");
             System.out.println(e);
         }

@@ -18,7 +18,8 @@ public class StatisticsListener extends JPanel implements IAddingTabs {
     private JTable table;
     private JPanel panel;
     private JScrollPane scrollPane;
-    private StatisticsItemListener statisticsItemListener;
+    private JComboBox comboBox;
+    private GetDataItemListener getDataItemListener;
     private EpisodeRepository episodeRepository = new EpisodeRepository();
     private AccountRepository accountRepository = new AccountRepository();
 
@@ -29,22 +30,25 @@ public class StatisticsListener extends JPanel implements IAddingTabs {
 
     @Override
     public void TabsAdd() {
+        new GridLayout(6, 6, 0, 0);
         panel = new JPanel();
+
         table = new JTable();
+
         scrollPane = new JScrollPane();
 
+        comboBox = new JComboBox();
+
         WachtedMovie = new JButton("Accounts met 1 profiel");
-        PrecEpisode = new JButton("Gemmideld bekeken aflevering");
         LongestMovie = new JButton("Langste Film onder 16");
-        MoviesByPerson = new JButton("Films bekeken per persoon");
 
         WachtedMovie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    statisticsItemListener = new StatisticsItemListener("Accounts");
-                    statisticsItemListener.getTable();
-                    table.setModel(statisticsItemListener.getTable().getModel());
+                    getDataItemListener = new GetDataItemListener("Accounts");
+                    getDataItemListener.getTable();
+                    table.setModel(getDataItemListener.getTable().getModel());
 
                 } catch (SQLException e1) {
                     e1.printStackTrace();
@@ -52,40 +56,13 @@ public class StatisticsListener extends JPanel implements IAddingTabs {
             }
         });
 
-        PrecEpisode.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    statisticsItemListener = new StatisticsItemListener("Gemiddeld");
-                    statisticsItemListener.getTable();
-                    table.setModel(statisticsItemListener.getTable().getModel());
-
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-
-            }
-        });
         LongestMovie.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    statisticsItemListener = new StatisticsItemListener("Langste");
-                    statisticsItemListener.getTable();
-                    table.setModel(statisticsItemListener.getTable().getModel());
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-
-        MoviesByPerson.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    statisticsItemListener = new StatisticsItemListener("Film");
-                    statisticsItemListener.getTable();
-                    table.setModel(statisticsItemListener.getTable().getModel());
+                    getDataItemListener = new GetDataItemListener("Langste");
+                    getDataItemListener.getTable();
+                    table.setModel(getDataItemListener.getTable().getModel());
                 } catch (SQLException e1) {
                     e1.printStackTrace();
                 }
@@ -93,13 +70,12 @@ public class StatisticsListener extends JPanel implements IAddingTabs {
         });
 
         panel.add(WachtedMovie);
-        panel.add(PrecEpisode);
         panel.add(LongestMovie);
-        panel.add(MoviesByPerson);
+
 
         scrollPane.setViewportView(table);
         add(scrollPane);
-        add(panel, BorderLayout.SOUTH);
+        add(panel, BorderLayout.NORTH);
         /*this.SideTabs = new JTabbedPane();
         this.SideTabs.setFont(new Font("Side", Font.BOLD|Font.BOLD, 20 ));
         this.SideTabs.setTabPlacement(JTabbedPane.LEFT);

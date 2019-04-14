@@ -7,15 +7,17 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 public class OverViewListener extends JPanel {
-    private JTabbedPane SideTabs;
     private OverViewItemListener overViewItemListener;
+
     private JButton BtnAccount;
     private JButton BtnProfile;
     private JButton BtnMovie;
     private JButton BtnSerie;
     private JButton BtnEpisode;
     private JButton BtnProgram;
+
     private JPanel panel;
+
     private JTable table;
 
 
@@ -26,7 +28,6 @@ public class OverViewListener extends JPanel {
 
 
     public void TabsAdd() throws SQLException {
-
         panel = new JPanel();
 
         table = new JTable();
@@ -34,11 +35,11 @@ public class OverViewListener extends JPanel {
         JScrollPane scrollPane = new JScrollPane();
 
         BtnAccount = new JButton("Account");
-       BtnProfile = new JButton("Profiel");
-       BtnMovie = new JButton("Film");
-       BtnSerie = new JButton("Serie");
-       BtnEpisode = new JButton("Aflevering");
-       BtnProgram = new JButton("Program");
+        BtnProfile = new JButton("Profiel");
+        BtnMovie = new JButton("Film");
+        BtnSerie = new JButton("Serie");
+        BtnEpisode = new JButton("Aflevering");
+        BtnProgram = new JButton("Program");
 
         BtnAccount.addActionListener(new ActionListener() {
             @Override
@@ -134,7 +135,6 @@ public class OverViewListener extends JPanel {
 
         scrollPane.setViewportView(table);
         add(scrollPane);
-        //add(table, BorderLayout.CENTER);
         add(panel, BorderLayout.SOUTH);
 
 
