@@ -1,6 +1,7 @@
 package UI;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -37,6 +38,7 @@ public class UserInterface implements Runnable {
             e.printStackTrace();
         }
 
+
         frame.pack();
         frame.setVisible(true);
 
@@ -63,7 +65,6 @@ public class UserInterface implements Runnable {
         this.Tabs.addTab("Toevoegen",addListener);
         this.Tabs.addTab("Verwijderen",deleteListener);
         this.Tabs.addTab("Wijzigen",updateListener);
-
         this.Tabs.addTab("Tabellen",overViewListener);
         this.Tabs.addTab("Statestieken",statisticsListener);
         this.Tabs.addTab("Overzicht 1", serieByAccountListener);
@@ -71,9 +72,19 @@ public class UserInterface implements Runnable {
         this.Tabs.addTab("Overzicht 3", seriesAvgListener);
 
 
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(Tabs);
+
         contentPane.add(panel);
+        contentPane.add(bottomBar(), BorderLayout.SOUTH);
+    }
+
+    public JPanel bottomBar() {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBorder(new EmptyBorder(3, 10, 3, 10));
+        panel.add(new JLabel("Netflix Statistix", JLabel.LEFT), BorderLayout.WEST);
+        panel.add(new JLabel("Informatica 2e Jaar 23IVT2C1 Ayman, Mouaouia, Rik", JLabel.RIGHT), BorderLayout.EAST);
+        return panel;
     }
 }

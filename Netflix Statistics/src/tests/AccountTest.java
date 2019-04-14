@@ -1,4 +1,5 @@
 package tests;
+import Connection.SqlHandler;
 import Domain.Account;
 import Repositories.AccountRepository;
 import org.junit.Assert;
@@ -9,18 +10,13 @@ import java.util.ArrayList;
 
 public class AccountTest {
     AccountRepository accountRepository = new AccountRepository();
-    @DisplayName("Shows a non valid Account")
+    @DisplayName("Tests Database connection")
     @Test
     public void testGetAccount() throws Exception{
-        ArrayList <String> names = new ArrayList<>();
-        names = accountRepository.getAccountNames();
-        ArrayList<String>accounts = new ArrayList<>();
-        for (String s : names){
-            accounts.add(s);
-        }
-        String acc = accounts.toString();
+        SqlHandler sqlHandler = new SqlHandler();
+        sqlHandler.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistics;integratedSecurity=true;");
 
-        Assert.assertFalse(acc == "Niks");
+        Assert.assertTrue(sqlHandler.connectDatabase("jdbc:sqlserver://localhost\\SQLEXPRESS;databaseName=NetflixStatistics;integratedSecurity=true;") == true);
 
     }
 

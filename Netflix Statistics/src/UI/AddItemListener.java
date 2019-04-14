@@ -169,7 +169,7 @@ public class AddItemListener extends JPanel {
             add(textCity);
 
             BtnAcc = new JButton("Opslaan");
-            BtnAcc.setBounds(322, 370, 116, 25);
+            BtnAcc.setBounds(322, 360, 116, 25);
             add(BtnAcc);
 
             //Adds info given to repositories
