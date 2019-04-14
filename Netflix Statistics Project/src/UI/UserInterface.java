@@ -83,7 +83,7 @@ public class UserInterface implements Runnable {
     public JPanel CreateBottomPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         panel.add(new JLabel("Netflix Statistix", JLabel.LEFT), BorderLayout.WEST);
-        panel.add(new JLabel("Informatica 1e Jaar 23IVT2C1 + 23IVT1B Ayman, Mouaouia, Rik", JLabel.RIGHT), BorderLayout.EAST);
+        panel.add(new JLabel("Informatica | 1e Jaar 23IVT2C1 + 23IVT1B | Ayman, Mouaouia, Rik", JLabel.RIGHT), BorderLayout.EAST);
         return panel;
     }
 }
