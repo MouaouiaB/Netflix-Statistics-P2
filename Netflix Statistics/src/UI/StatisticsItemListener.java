@@ -27,48 +27,23 @@ public class StatisticsItemListener extends JPanel{
         if (tabName == "Accounts"){
             ResultSet rs = accountRepository.AccountOneProfile();
             table = new JTable(buildTableModel(rs));
-
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
+            
 
             add(table);
         }
 
-        if (tabName == "Gemiddeld"){
-            ResultSet rs = episodeRepository.AvgEpisode();
-            table = new JTable(buildTableModel(rs));
 
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
-
-            add(table);
-        }
 
         if (tabName == "Langste"){
             ResultSet rs = movieRepository.MovieLongestUnderSixteen();
             table = new JTable(buildTableModel(rs));
 
 
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
-
             add(table);
 
         }
 
-        if (tabName == "Film"){
-            ResultSet rs = accountRepository.WatchedMovies();
-            table = new JTable(buildTableModel(rs));
 
-
-            // Closes the Connection
-            //JOptionPane.showMessageDialog(null, new JScrollPane(table));
-
-            add(table);
-
-        }
 
     }
 
