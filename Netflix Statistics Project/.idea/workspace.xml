@@ -44,7 +44,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/UI/UserInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
+            <state relative-caret-position="90">
               <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
             </state>
           </provider>
@@ -366,7 +366,7 @@
       <option name="presentableId" value="Default" />
       <updated>1552564891900</updated>
       <workItem from="1555259148699" duration="249000" />
-      <workItem from="1555259815801" duration="324000" />
+      <workItem from="1555259815801" duration="753000" />
     </task>
     <servers />
   </component>
@@ -403,7 +403,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3556000" />
+    <option name="totallyTimeSpent" value="3985000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="760" y="0" width="782" height="832" extended-state="1" />
@@ -557,7 +557,7 @@
     <entry file="file://$PROJECT_DIR$/src/tests/DbConnectionTest.java" />
     <entry file="file://$PROJECT_DIR$/src/UI/UserInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="90">
           <caret line="76" column="24" selection-start-line="76" selection-start-column="24" selection-end-line="76" selection-end-column="24" />
         </state>
       </provider>
